@@ -60,12 +60,19 @@ Each node states compactly:
 - **Material bindings:** exact papers, manuscript sections, data, plots, programs,
   or prior node outputs used as inputs.
 - **Construction/method:** the semantic operation intended to produce the result.
+- **Semantic computation:** typed inputs, explicit operation/composites, common
+  target, equality or obstruction witness, and the meaning preserved or produced.
 - **Output:** a claim, proof, counterexample, model, dataset, figure, operator,
   algorithm, or manuscript fragment, with its worktable destination.
 - **Checks:** consistency laws, comparisons, limiting cases, falsifiers,
   uncertainty, or independent reproduction.
 - **Edges:** which output enters which downstream node and why.
 - **Open boundary:** what remains unknown and what evidence would revise the node.
+
+Do not let “method” remain prospective once a node claims support. A supported
+deduction must contain its semantic computation. If an equation is only motivated
+or guessed, label it as a candidate and create the computation or derivation needed
+to establish it.
 
 Use states such as `open`, `developing`, `supported`, `rejected`, or `superseded`
 only when they help. State is descriptive, never an execution gate.
@@ -96,6 +103,11 @@ and conjecture distinctly.
 Synthesis nodes assemble only outputs supported by incoming edges. Prefer a coherent
 deduction over adjacent background. Material that does not serve the argument stays
 bound to its own node; gathering it does not justify adding it to the manuscript.
+
+In a developing paper or figure, every displayed equation, plotted transformation,
+or derived quantity must bind to a node computation that constructs it. Sources may
+validate theorem contracts or inputs; they do not replace the internal semantic
+bridge used by the output.
 
 ## Incremental continuation
 

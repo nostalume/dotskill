@@ -52,13 +52,54 @@ useful classical results as consequences, limits, or comparison points. A modern
 reconstruction earns its place by explaining more, assuming less, or reducing the
 semantic and computational route to an output.
 
+## Internal mathematical construction
+
+When a mathematical object participates in the argument, construct why it is
+needed and how it arises from prior objects. Do not introduce a group, measure,
+bundle, operator, quotient, topology, or representation as external vocabulary and
+then calculate inside it.
+
+Use this order:
+
+```text
+physical or mathematical capability
+  -> obstruction or ambiguity
+  -> object that resolves or represents it
+  -> definition in typed terms
+  -> construction/equality witness
+  -> consequence and failure boundary.
+```
+
+For example, do not begin with “let `K` be the little group.” Construct a standard
+state or momentum, show that its transporting map is nonunique, calculate that the
+difference of two transports fixes the standard object, and only then name that
+stabilizer and its action.
+
+Some foundational results cannot reasonably be reproved inside each research node.
+Treat them as **theorem contracts**, not imported conclusions: state exact
+hypotheses, exact output, the semantic bridge supplied, and the boundary where the
+theorem no longer applies. Give a constructive local model or check when it makes
+the bridge readable.
+
 ## Semantic computation
 
-Regard computation as transformation of semantic content. Component-wise expansion
-and term-by-term manipulation usually leave the level of meaningful objects, obscure
-why a result holds, and multiply computational burden. Minimize them as aggressively
-as the problem permits; do not organize a derivation around an expansion merely
-because it is executable.
+Regard every deduction as computation: a checkable transformation of semantic
+content. Machine algebra and numerical work are only heavier instances. A
+mathematical operation is admissible when its input and output are typed, its action
+can be evaluated or witnessed, and its semantic content is preserved or changed in
+the declared way.
+
+Maintain **semantic invariance** across a derivation. Name the content that survives
+each representation change—such as the same event, state, orbit point, solution,
+probability, observable, equivalence class, or physical degree of freedom. When two
+expressions are claimed equal, exhibit their **semantic coincidence** by evaluating
+both constructions on the same input or by giving another explicit witness such as
+a commuting diagram, universal property, substitution, limit, or inverse.
+
+Component-wise expansion and term-by-term manipulation usually leave the level of
+meaningful objects, obscure why a result holds, and multiply computational burden.
+Minimize them as aggressively as the problem permits; do not organize a derivation
+around an expansion merely because it is executable.
 
 Before expanding coordinates or components, seek reduction through:
 
@@ -79,6 +120,11 @@ Use components only when they are themselves the meaningful observable
 representation, no structural reduction is known, or a local verification requires
 them. Isolate that calculation, explain its semantic input and output, and return to
 the invariant statement rather than allowing the expansion to become the theory.
+
+Intuition proposes the objects or paths to compare; computation earns the
+deduction. Phrases such as “compare the two routes” are incomplete until both routes
+are constructed as composites with common domain/codomain and their equality or
+obstruction is calculated.
 
 ## Presumption-driven reconstruction
 

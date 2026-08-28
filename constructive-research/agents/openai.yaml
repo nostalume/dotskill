@@ -1,4 +1,4 @@
 interface:
   display_name: "Constructive Research"
-  short_description: "Build research as a material-backed DAG"
-  default_prompt: "Use $constructive-research to map this inquiry as a material-backed DAG and develop its rigorous, computationally economical outputs."
+  short_description: "Discover or rigorize a semantic research spine"
+  default_prompt: "Use $constructive-research to discover or develop this inquiry as a material-backed DAG whose mathematical objects are internally constructed and whose deductions are computationally verifiable."

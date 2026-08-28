@@ -1,8 +1,67 @@
 # Research Computation
 
-Use a separate computation node whenever symbolic expansion, numerical solution,
-combinatorial enumeration, simulation, data transformation, or plotting would make
-a conceptual node heavy or obscure its semantic argument.
+Computation has two scales:
+
+1. **Deductive computation** is mandatory inside every conceptual node. It is the
+   finite, verifiable construction that makes a deduction or equation valid.
+2. **Heavy computation** is symbolic expansion, numerical solution, combinatorial
+   enumeration, simulation, data transformation, or plotting large enough to
+   obscure the conceptual node. Isolate this scale in a computation node.
+
+Do not isolate the small equality witness that makes prose rigorous; do isolate raw
+expansions, programs, runs, tables, and numerical diagnostics.
+
+## Deductive-computation contract
+
+For every nontrivial deduction or displayed equation, record in the surrounding
+argument:
+
+- **constructed inputs:** where each object came from and its domain/type;
+- **operation:** the map, composition, restriction, quotient, substitution,
+  variation, limit, or algorithm actually performed;
+- **common target:** why expressions being equated inhabit the same space or answer
+  the same semantic question;
+- **witness:** the explicit evaluation, identity, inverse, universal property,
+  commuting diagram, bound, or reproducible check;
+- **semantic invariant/coincidence:** what mathematical or physical content is the
+  same across the step;
+- **output boundary:** assumptions used and cases in which the step fails.
+
+An equation should originate in this computation, not appear first and receive an
+interpretation afterward. A definition may introduce notation, but it cannot be
+used to disguise an unverified claim of existence, uniqueness, equivalence, or
+invariance.
+
+### Example: constructing a residual transformation
+
+Suppose `B(r)` has already been constructed with `B(r)k=r`, and let
+`q=Lambda(A)^(-1)p`. Do not write only “compare `B(p)` and `A B(q)`.” Compute:
+
+```text
+B(p)k = p,
+
+[A B(q)]k
+  = A[B(q)k]
+  = A q
+  = A[Lambda(A)^(-1)p]
+  = p.
+```
+
+Both composites have domain containing `k`, land at the same momentum `p`, and
+preserve the semantic endpoint. Their relative map is therefore constructed as
+
+```text
+W(A,p) = B(p)^(-1) A B(q),
+
+W(A,p)k
+  = B(p)^(-1)[A B(q)k]
+  = B(p)^(-1)p
+  = k.
+```
+
+The calculation, not the phrase “two ways,” proves that `W(A,p)` belongs to the
+stabilizer of `k`. Further claims—cocycle, unitarity, or representation law—need
+their own computations.
 
 ## Reduction before execution
 

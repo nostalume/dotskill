@@ -1,6 +1,6 @@
 ---
 name: constructive-research
-description: Build and manage rigorous, computationally economical research as a material-backed DAG. Use for mathematical or physical research, derivation, or technical-note work that must expose presumptions, connect questions to papers/data/plots/manuscripts, isolate heavy computation, and incrementally turn intuition into checked, predictive constructions.
+description: Discover an unknown research spine or rigorize a known one as an internally constructed, computationally verifiable, material-backed DAG. Use for mathematical or physical research, derivation, papers, plots, data, or technical notes that must expose presumptions, preserve semantics through every operation, and isolate heavy computation.
 ---
 
 # Constructive Research
@@ -24,6 +24,12 @@ engineering stages or inherited chapter order.
   changes.
 - **Research output** is a checked claim or artifact with explicit presumptions,
   material provenance, validity conditions, and downstream use.
+- **Discovery regime** explores a hidden research space when the argumentative spine
+  is not yet known; **development regime** rigorizes a known spine into a paper,
+  plot, dataset, derivation, or other output.
+- **Deductive computation** is the mandatory verifiable construction behind every
+  deduction or equation: typed inputs, an explicit operation, an equality or
+  coincidence witness, and the semantic content preserved or produced.
 
 ## Select references
 
@@ -35,22 +41,28 @@ Read only the references required by the request:
 - Creating, inspecting, or incrementally managing the material-backed research DAG,
   node contracts, sources, manuscript synthesis, or worktable artifacts:
   [research-graph.md](references/research-graph.md).
-- Any substantial symbolic, numerical, combinatorial, simulation, data, or plotting
-  work—or comparison of computational routes:
+- Selecting between discovery and known-spine development, moving between them, or
+  arranging research into an output:
+  [research-regimes.md](references/research-regimes.md).
+- Any mathematical deduction or equation, and any substantial symbolic, numerical,
+  combinatorial, simulation, data, or plotting work:
   [computation.md](references/computation.md).
 
-For a new research program, read the philosophy and graph references. Read the
-computation reference only when the graph contains a substantial computation node.
-For a narrow existing node, load only the reference governing that node's work.
+When the spine is unknown, read the regimes, philosophy, and graph references. When
+the spine is known, read the regimes and graph references plus the reference
+governing the active node. For mathematical work, always read the philosophy and
+computation references; read only the regime branch relevant to the current state.
 
 ## Operating rule
 
-1. Resolve the user's research question and specified worktable.
+1. Resolve the user's research intent, worktable, and whether the spine is unknown
+   or already chosen.
 2. Read the relevant reference files completely.
 3. Inspect bound materials and authoritative sources before asserting their content.
-4. Map or refresh only the graph region needed for the current inquiry.
-5. Develop the smallest useful node output and run its declared checks.
-6. Propagate only supported results and validity conditions to dependent nodes.
+4. Explore candidate spines or refresh only the known-spine graph region needed.
+5. Develop the smallest useful node output through explicit semantic computation.
+6. Run its declared checks and propagate only supported results and validity
+   conditions.
 7. Report the supported frontier, contradictions, and available next nodes without
    imposing an engineering sequence.
 
@@ -67,3 +79,9 @@ For a narrow existing node, load only the reference governing that node's work.
   calculational consequence, or predictive use.
 - Do not claim that symmetry, geometry, probability, or another structure uniquely
   fixes dynamics without naming the additional assumptions.
+- Do not import a mathematical object as unexplained background when the argument
+  depends on why it exists; construct it from the active need, or state the exact
+  hypotheses and output of an irreducible theorem contract.
+- Do not write “compare two ways,” “it follows,” “clearly,” or an equation as a
+  deduction without computing the composites on the same typed input and exhibiting
+  the equality, obstruction, or semantic-coincidence witness.
