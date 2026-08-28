@@ -1,0 +1,4 @@
+interface:
+  display_name: "Constructive Research"
+  short_description: "Build rigorous theories with less computation"
+  default_prompt: "Use $constructive-research to reconstruct this topic into a rigorous, computationally economical, predictive theory."
