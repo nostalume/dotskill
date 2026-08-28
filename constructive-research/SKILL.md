@@ -5,18 +5,119 @@ description: Build and manage rigorous, computationally economical research as a
 
 # Constructive Research
 
+## Research philosophy
+
 Treat research as construction of effective intellectual tools. The objective is
 not maximum formalization; it is a theory whose assumptions are visible, whose
 objects can be manipulated, and whose consequences can be calculated, checked,
 and applied.
 
+### Reflective intuitionism
+
 Here, *intuitionism* is an epistemic research stance, not the specific foundational
-school of mathematical intuitionism:
+school of mathematical intuitionism. Intuition is already a provisional
+formalization: it selects phenomena, objects, relations, invariances, and plausible
+operations before their conditions are completely known. Mathematics rigorizes
+that intuition by making its content and consequences inspectable. The formal
+theory remains a reflection of the intuition, not a final replacement for it.
 
-> Intuition proposes structure; mathematics makes it precise; construction makes
-> it usable; economical computation and prediction test its value.
+Research is therefore recursive:
 
-## Research graph, not engineering stages
+> intuition -> mathematical reflection -> consequences -> reflection on hidden
+> presumptions or failures -> reconstructed intuition -> new formalization
+
+The cycle may repeat without treating an earlier theory as worthless. Newtonian
+mechanics makes absolute time and flat Galilean spacetime part of its effective
+intuition. Reflecting on those presumptions, their transformation laws, and their
+empirical limits opens the reconstruction into relativistic spacetime. The later
+theory explains the earlier one as a controlled regime while changing its basic
+objects.
+
+Do not treat a vague presumption only as a defect to delete. It may indicate a
+missing theory view. Ask what phenomenon the presumption is compressing, where it
+fails, and which new object or limiting process could make it explicit. Equilibrium
+principles, for example, are not the whole of statistical mechanics; their scope
+and failure point toward nonequilibrium dynamics, fluctuation theory, and
+large-deviation structures.
+
+### Construction over formal closure
+
+Definitions and proofs matter because they stabilize intuition, expose error, and
+enable reusable construction. Formal consistency alone is not the research goal.
+Prefer results that create predictive or calculational leverage: an operator,
+representation, reduction, algorithm, asymptotic law, invariant, normal form,
+diagrammatic rule, or experimentally testable relation.
+
+Build the simplest nontrivial construction completely before generalizing. Preserve
+useful classical results as consequences, limits, or comparison points. A modern
+reconstruction earns its place by explaining more, assuming less, or reducing the
+semantic and computational route to an output.
+
+### Semantic computation
+
+Regard computation as transformation of semantic content. Component-wise expansion
+and term-by-term manipulation usually leave the level of meaningful objects, obscure
+why a result holds, and multiply computational burden. Minimize them as aggressively
+as the problem permits; do not organize a derivation around an expansion merely
+because it is executable.
+
+Before expanding coordinates or components, seek reduction through:
+
+- invariants, conserved quantities, quotient spaces, or orbit classification;
+- irreducible representations and symmetry-adapted decompositions;
+- natural maps, universal properties, or functorial constructions;
+- spectral, variational, generating-function, or diagrammatic methods;
+- normal forms, sufficient statistics, effective variables, or exact sequences;
+- duality or a representation change that removes rather than relocates work.
+
+Prefer transformations that preserve recognizable objects and state what semantic
+content each step carries. Low transformation depth is evidence—not proof—of a
+theorem's directness, robustness, and versatility. Judge the whole route, including
+the cost of constructing the abstraction and recovering observables. Do not hide
+work in notation, an unnamed inverse, an existence theorem, or a black box.
+
+Use components only when they are themselves the meaningful observable
+representation, no structural reduction is known, or a local verification requires
+them. Isolate that calculation, explain its semantic input and output, and return
+to the invariant statement rather than allowing the expansion to become the theory.
+
+### Presumption-driven reconstruction
+
+Start from the phenomenon or capability, not inherited chapter order. Audit each
+presumption as empirical input, mathematical convenience, representation choice,
+approximation, or structural necessity. For each one, ask both:
+
+- Can it be weakened, derived, or removed?
+- What new theory becomes visible if it is made variable or allowed to fail?
+
+Separate kinematics from dynamics, classification from realization, on-shell from
+off-shell content, gauge redundancy from physical symmetry, and exact results from
+approximations. Never claim that symmetry, geometry, probability, or another
+structure uniquely fixes dynamics without naming the extra locality, regularity,
+representation, boundary, or minimality assumptions.
+
+The user's recurring preferred lenses are starting points, not mandatory answers:
+
+- electromagnetism through `U(1)` connections, curvature, gauge equivalence,
+  topology, and observables;
+- statistical mechanics through large deviations, concentration, conditioned
+  measures, and nonequilibrium variational structure;
+- quantum field theory through symmetry representations, combinatorics, graph
+  reduction, effective descriptions, and renormalization structure;
+- analytical mechanics through symplectic or Poisson geometry, group actions,
+  momentum maps, constraints, and reduction;
+- mathematical computation through Lie representations, invariant decomposition,
+  and symmetry-adapted bases.
+
+If a preferred lens does not shorten or strengthen the route to the target output,
+say so and choose a better one.
+
+## Research workflow
+
+The workflow realizes this philosophy on the user's actual research material. It
+manages inquiry and artifacts; it does not turn research into engineering stages.
+
+### Research graph, not engineering stages
 
 Organize a research program as a directed acyclic graph (DAG). Each node is a
 bounded research question or construction; each edge states a semantic dependency
@@ -35,7 +136,7 @@ Keep the graph acyclic. If two ideas inform each other, either represent them as
 joint node or make the evolution explicit, such as `hypothesis-v1 -> test ->
 hypothesis-v2`. Do not hide a conceptual cycle behind status labels.
 
-## Worktable
+### Worktable
 
 Bind the graph to the worktable specified by the user. A worktable is the actual
 collection of research materials, for example:
@@ -56,7 +157,7 @@ propose the smallest useful location or representation. A single Markdown graph
 document is usually enough; schemas, databases, and one-file-per-node layouts need
 specific justification.
 
-## Bootstrap the graph
+### Bootstrap the graph
 
 Start from the user's research capability or question, then inspect the existing
 worktable and authoritative external sources. Build only enough graph to expose the
@@ -76,7 +177,7 @@ Research graphs are incremental views, not append-only history. Correct or
 supersede stale nodes when the material changes. Preserve durable research artifacts
 through the user's normal version control or publication practice.
 
-## Node contract
+### Node contract
 
 Each node should clarify, in compact readable form:
 
@@ -97,7 +198,7 @@ Use short human-readable states only when helpful, such as `open`, `developing`,
 `supported`, `rejected`, or `superseded`. State is descriptive, never an execution
 gate.
 
-## Node kinds
+### Node kinds
 
 Use kinds only to clarify ownership; do not force every graph to contain all of
 them.
@@ -115,7 +216,7 @@ them.
 - **Synthesis:** integrates supported outputs into the developing manuscript.
 - **Challenge:** searches for counterexamples, failed limits, or competing accounts.
 
-## Isolate computation
+### Isolate computation
 
 If a derivation requires substantial computation, create a separate computation
 node. Do not bury pages of expansion, code, or raw output inside the conceptual
@@ -135,62 +236,7 @@ The downstream node consumes the compact result and its validity conditions, whi
 the worktable retains the full computation. Keep hand calculations inline only when
 they are short enough to expose the semantic transformation directly.
 
-## Semantic computational economy
-
-Regard computation as transformation of semantic content. Prefer a short chain of
-meaning-preserving transformations to a long component-wise expansion. Low
-transformation depth is evidence—not proof—of directness, robustness, and reuse.
-
-Before expanding coordinates or components, seek reduction through:
-
-- invariants, conserved quantities, quotient spaces, or orbit classification;
-- irreducible representations and symmetry-adapted decompositions;
-- natural maps, universal properties, or functorial constructions;
-- spectral, variational, generating-function, or diagrammatic methods;
-- normal forms, sufficient statistics, effective variables, or exact sequences;
-- duality or a representation change that removes rather than relocates work.
-
-Judge the entire route, including the cost of building the abstraction and
-recovering observables. Do not hide computation in notation, an unnamed inverse,
-an existence theorem, or a black box. Use components when they are the natural
-computational representation, required for an observable, or useful as a local
-check; then reconnect them to the invariant statement.
-
-## Reconstruction discipline
-
-- Start from the phenomenon or capability, not inherited chapter order.
-- Distinguish rigor from axiomatization. Formalization should control ambiguity,
-  error, construction, or inference.
-- Audit each presumption as empirical input, mathematical convenience,
-  representation choice, approximation, or structural necessity.
-- Prefer modern formulations when they compress assumptions or unlock computation,
-  but demonstrate the advantage against the strongest conventional account.
-- Build the simplest nontrivial construction completely before generalizing.
-- Preserve useful classical results as consequences, limits, or comparison points.
-- Separate kinematics from dynamics, classification from realization, on-shell from
-  off-shell content, gauge redundancy from physical symmetry, and exact results
-  from approximations.
-- Never claim that symmetry, geometry, probability, or another structure uniquely
-  fixes dynamics without naming the extra locality, regularity, representation,
-  boundary, or minimality assumptions.
-
-The user's recurring preferred lenses are starting points, not mandatory answers:
-
-- electromagnetism through `U(1)` connections, curvature, gauge equivalence,
-  topology, and observables;
-- statistical mechanics through large deviations, concentration, conditioned
-  measures, and thermodynamic variational principles;
-- quantum field theory through symmetry representations, combinatorics, graph
-  reduction, effective descriptions, and renormalization structure;
-- analytical mechanics through symplectic or Poisson geometry, group actions,
-  momentum maps, constraints, and reduction;
-- mathematical computation through Lie representations, invariant decomposition,
-  and symmetry-adapted bases.
-
-If a preferred lens does not shorten or strengthen the route to the target output,
-say so and choose a better one.
-
-## Evidence and synthesis
+### Evidence and synthesis
 
 Use primary papers, authoritative monographs or lecture notes, and current research
 where the field has materially developed. Search results are leads, not evidence.
@@ -202,7 +248,7 @@ Prefer a coherent deduction over an encyclopedia of adjacent material. Backgroun
 that does not serve the argument remains a separately bound worktable resource; it
 does not enter the manuscript merely because it was gathered.
 
-## Continuing the research
+### Continuing the research
 
 At each increment:
 
