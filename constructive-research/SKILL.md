@@ -1,139 +1,218 @@
 ---
 name: constructive-research
-description: Reconstruct mathematical or physical theories into rigorous, computationally economical, predictive accounts. Use for research, derivation, or technical-note work that should expose inherited assumptions, employ modern structural tools, minimize low-level transformations, and connect intuition to explicit calculations rather than stop at formal axiomatization or survey prose.
+description: Build and manage rigorous, computationally economical research as a material-backed DAG. Use for mathematical or physical research, derivation, or technical-note work that must expose presumptions, connect questions to papers/data/plots/manuscripts, isolate heavy computation, and incrementally turn intuition into checked, predictive constructions.
 ---
 
 # Constructive Research
 
-Treat research as construction of effective intellectual tools. The objective is not maximum formalism; it is a theory whose assumptions are visible, whose objects can be manipulated, and whose consequences can be calculated, checked, and applied.
+Treat research as construction of effective intellectual tools. The objective is
+not maximum formalization; it is a theory whose assumptions are visible, whose
+objects can be manipulated, and whose consequences can be calculated, checked,
+and applied.
 
-Here, *intuitionism* is a research stance rather than the specific foundational school of mathematical intuitionism:
+Here, *intuitionism* is an epistemic research stance, not the specific foundational
+school of mathematical intuitionism:
 
-> Intuition proposes structure; mathematics makes it precise; construction makes it usable; computation and prediction test whether it is valuable.
+> Intuition proposes structure; mathematics makes it precise; construction makes
+> it usable; economical computation and prediction test its value.
 
-## Research posture
+## Research graph, not engineering stages
 
-- Start from the phenomenon, problem, or capability the theory must explain or compute. Do not start from inherited chapter order.
-- Distinguish rigor from axiomatization. Definitions and proofs matter when they control ambiguity, error, construction, or inference; formalization without new leverage is not itself progress.
-- Prefer constructive results: an operator, representation, reduction, algorithm, asymptotic law, diagrammatic rule, invariant, normal form, or worked calculation.
-- Treat computability broadly. Exact symbolic calculation, numerical approximation, representation decomposition, variational methods, asymptotics, combinatorial enumeration, and experimentally usable predictions all count.
-- Optimize computational depth, not merely the possibility of computation. Prefer a short chain of meaning-preserving transformations to a long component-wise expansion.
-- Use intuition openly as the source of a conjecture or construction, then replace intuitive leaps with stated hypotheses and a derivation. Do not disguise intuition as proof or remove the explanation that makes a proof discoverable.
-- Prefer modern formulations when they compress assumptions or unlock calculations, but demonstrate their advantage against the conventional formulation. Do not substitute fashionable vocabulary for a result.
-- Preserve useful classical results as consequences, limiting cases, or comparison points. Reconstructing a theory does not require pretending its history did not happen.
+Organize a research program as a directed acyclic graph (DAG). Each node is a
+bounded research question or construction; each edge states a semantic dependency
+between results.
 
-## Reconstruction workflow
+The graph is not a delivery pipeline:
 
-### Frame the capability
+- Nodes do not grant permission, impose approval gates, or prescribe a work order.
+- Work may begin at any node for which useful material or insight is available.
+- Several independent nodes may develop concurrently.
+- An edge `A -> B` means that B uses a stated output of A, not that every activity
+  in A must finish before any work on B can occur.
+- Ordinary user scope and safety boundaries still apply; the graph adds none.
 
-State what should become calculable or predictable. Separate the target from adjacent ambitions and identify the observable, invariant, equation, classification, or algorithm that will count as success.
+Keep the graph acyclic. If two ideas inform each other, either represent them as one
+joint node or make the evolution explicit, such as `hypothesis-v1 -> test ->
+hypothesis-v2`. Do not hide a conceptual cycle behind status labels.
 
-### Audit presumptions
+## Worktable
 
-Identify assumptions inherited from the standard presentation. Classify each as:
+Bind the graph to the worktable specified by the user. A worktable is the actual
+collection of research materials, for example:
 
-- empirical input;
-- mathematical convenience;
-- representation or coordinate choice;
-- approximation or regime restriction;
-- genuine structural necessity.
+- gathered papers, books, and source annotations;
+- the manuscript or note under development;
+- conjectures, definitions, and derivation fragments;
+- datasets, experimental observations, and simulation output;
+- plots, diagrams, notebooks, and calculation programs;
+- reviews, contradiction logs, and comparison tables.
 
-Try to weaken or derive each presumption. Report when it cannot be removed. Never claim that symmetry, geometry, probability, or another structure uniquely fixes dynamics without listing the additional locality, regularity, representation, boundary, or minimality assumptions.
+Do not invent a new workspace layout when the user has already identified where
+these materials live. Do not move, rewrite, or create manuscript content merely to
+make the graph tidy. The graph points to materials; it does not replace them.
 
-### Select structural tools
+When no worktable is specified, first inspect available relevant material and
+propose the smallest useful location or representation. A single Markdown graph
+document is usually enough; schemas, databases, and one-file-per-node layouts need
+specific justification.
 
-Choose the smallest modern framework that makes the target construction transparent. The user's recurring preferred lenses are starting points, not mandatory conclusions:
+## Bootstrap the graph
 
-- electromagnetism: principal `U(1)` connections, curvature, gauge equivalence, topology, and observables;
-- statistical mechanics: large deviations, concentration, ensembles as conditioned measures, and thermodynamic variational principles;
-- quantum field theory: symmetry representations together with combinatorics, graph reduction, effective descriptions, and renormalization structure;
-- analytical mechanics: symplectic or Poisson geometry, Lie-group actions, momentum maps, constraints, and reduction;
-- mathematical computation: Lie-group representation theory, invariant decomposition, symmetry-adapted bases, and reduction before brute-force calculation.
+Start from the user's research capability or question, then inspect the existing
+worktable and authoritative external sources. Build only enough graph to expose the
+current research frontier.
 
-If a preferred lens does not improve the target computation, say so and choose a better one.
+1. Inventory relevant material and record its location, role, revision, and
+   reliability.
+2. Identify the target observable, theorem, equation, classification, prediction,
+   or algorithm.
+3. Extract existing claims, unresolved questions, contradictions, and available
+   constructions.
+4. Create nodes around semantic research problems rather than document sections.
+5. Draw dependency edges by naming the exact output consumed downstream.
+6. Mark missing evidence or computation as nodes instead of filling gaps with prose.
 
-### Minimize semantic distance
+Research graphs are incremental views, not append-only history. Correct or
+supersede stale nodes when the material changes. Preserve durable research artifacts
+through the user's normal version control or publication practice.
 
-Regard computation as transformation of semantic content. A good theorem or representation makes the desired consequence reachable through few transparent transformations. Low transformation depth is evidence—not proof—of directness, robustness, and portability because fewer intermediate encodings can hide assumptions or introduce error.
+## Node contract
 
-Before expanding into coordinates or components, seek a structural reduction through:
+Each node should clarify, in compact readable form:
+
+- **Question/capability:** what becomes known, constructible, or predictable?
+- **Presumptions:** empirical inputs, structural necessities, approximations,
+  representation choices, conventions, and inherited claims under challenge.
+- **Material bindings:** exact papers, manuscript sections, data, plots, programs,
+  or prior node outputs used as inputs.
+- **Construction/method:** the semantic operation intended to produce the result.
+- **Output:** a concrete claim, proof, counterexample, model, dataset, figure,
+  operator, algorithm, or manuscript fragment, with its worktable destination.
+- **Checks:** consistency laws, comparison evidence, limiting cases, falsifiers,
+  uncertainty, or independent reproduction.
+- **Edges:** which output enters which downstream node, and for what purpose.
+- **Open boundary:** what remains unknown and what evidence would revise the node.
+
+Use short human-readable states only when helpful, such as `open`, `developing`,
+`supported`, `rejected`, or `superseded`. State is descriptive, never an execution
+gate.
+
+## Node kinds
+
+Use kinds only to clarify ownership; do not force every graph to contain all of
+them.
+
+- **Question:** isolates an unknown or a capability target.
+- **Source:** gathers and compares primary literature or authoritative references.
+- **Presumption:** tests whether an inherited assumption is necessary.
+- **Construction:** defines new objects, reductions, or representations.
+- **Derivation:** turns prior constructions into a theorem or equation.
+- **Computation:** performs substantial symbolic, numerical, combinatorial, or
+  simulation work.
+- **Observation/data:** acquires, cleans, or characterizes empirical material.
+- **Visualization:** turns a result or dataset into a plot or diagram with a stated
+  interpretive role.
+- **Synthesis:** integrates supported outputs into the developing manuscript.
+- **Challenge:** searches for counterexamples, failed limits, or competing accounts.
+
+## Isolate computation
+
+If a derivation requires substantial computation, create a separate computation
+node. Do not bury pages of expansion, code, or raw output inside the conceptual
+node.
+
+A computation node records:
+
+- the mathematical input and semantic question;
+- the reduction or representation chosen before calculation;
+- the algorithm and complexity or scale expectations;
+- executable material such as a notebook, script, CAS worksheet, or data query;
+- environment, parameters, seeds, precision, and relevant data provenance;
+- compact outputs and checks consumed by other nodes;
+- failure modes, numerical stability, and reproducibility limits.
+
+The downstream node consumes the compact result and its validity conditions, while
+the worktable retains the full computation. Keep hand calculations inline only when
+they are short enough to expose the semantic transformation directly.
+
+## Semantic computational economy
+
+Regard computation as transformation of semantic content. Prefer a short chain of
+meaning-preserving transformations to a long component-wise expansion. Low
+transformation depth is evidence—not proof—of directness, robustness, and reuse.
+
+Before expanding coordinates or components, seek reduction through:
 
 - invariants, conserved quantities, quotient spaces, or orbit classification;
-- symmetry-adapted decomposition and irreducible representations;
-- universal properties, natural maps, or functorial constructions;
+- irreducible representations and symmetry-adapted decompositions;
+- natural maps, universal properties, or functorial constructions;
 - spectral, variational, generating-function, or diagrammatic methods;
 - normal forms, sufficient statistics, effective variables, or exact sequences;
-- duality or a change of representation that removes rather than relocates work.
+- duality or a representation change that removes rather than relocates work.
 
-Judge a proposed reduction by the entire derivation, including the cost of constructing the abstraction and recovering observables. Do not hide computation behind notation or move an equally difficult problem into an unnamed inverse, existence theorem, or black box.
+Judge the entire route, including the cost of building the abstraction and
+recovering observables. Do not hide computation in notation, an unnamed inverse,
+an existence theorem, or a black box. Use components when they are the natural
+computational representation, required for an observable, or useful as a local
+check; then reconnect them to the invariant statement.
 
-Avoid component-wise and term-by-term expansion as the primary explanation when a semantic operation exists. Use components when they are the natural computational representation, when an observable requires them, or as a local verification of a structural result. Explain what each component calculation represents and return to the invariant statement afterward.
+## Reconstruction discipline
 
-When comparing derivations, prefer the one that preserves recognizable mathematical objects across its steps, exposes reusable intermediate results, and scales across dimensions, groups, or models. Count algebraic length only after accounting for semantic clarity and computational complexity.
+- Start from the phenomenon or capability, not inherited chapter order.
+- Distinguish rigor from axiomatization. Formalization should control ambiguity,
+  error, construction, or inference.
+- Audit each presumption as empirical input, mathematical convenience,
+  representation choice, approximation, or structural necessity.
+- Prefer modern formulations when they compress assumptions or unlock computation,
+  but demonstrate the advantage against the strongest conventional account.
+- Build the simplest nontrivial construction completely before generalizing.
+- Preserve useful classical results as consequences, limits, or comparison points.
+- Separate kinematics from dynamics, classification from realization, on-shell from
+  off-shell content, gauge redundancy from physical symmetry, and exact results
+  from approximations.
+- Never claim that symmetry, geometry, probability, or another structure uniquely
+  fixes dynamics without naming the extra locality, regularity, representation,
+  boundary, or minimality assumptions.
 
-### Construct before generalizing
+The user's recurring preferred lenses are starting points, not mandatory answers:
 
-Define the minimal objects, maps, domains, equivalences, and conventions. Build the simplest nontrivial example completely before stating the most general theorem. Derive the conventional equation or law as an output rather than importing it silently as an axiom.
+- electromagnetism through `U(1)` connections, curvature, gauge equivalence,
+  topology, and observables;
+- statistical mechanics through large deviations, concentration, conditioned
+  measures, and thermodynamic variational principles;
+- quantum field theory through symmetry representations, combinatorics, graph
+  reduction, effective descriptions, and renormalization structure;
+- analytical mechanics through symplectic or Poisson geometry, group actions,
+  momentum maps, constraints, and reduction;
+- mathematical computation through Lie representations, invariant decomposition,
+  and symmetry-adapted bases.
 
-For every important construction, answer:
+If a preferred lens does not shorten or strengthen the route to the target output,
+say so and choose a better one.
 
-1. What data go in?
-2. What operation is performed?
-3. What invariant or prediction comes out?
-4. Which assumption makes each step valid?
-5. How could the result be computed in an example?
-6. Which transformations are essential, and which can be eliminated by a better representation or theorem?
+## Evidence and synthesis
 
-### Compute and challenge
+Use primary papers, authoritative monographs or lecture notes, and current research
+where the field has materially developed. Search results are leads, not evidence.
+Label established theorem, standard method, reconstruction, plausible extension,
+and conjecture distinctly.
 
-Include at least one explicit calculation that exercises the proposed structure. As applicable, check:
+Synthesis nodes should assemble only outputs supported by their incoming edges.
+Prefer a coherent deduction over an encyclopedia of adjacent material. Background
+that does not serve the argument remains a separately bound worktable resource; it
+does not enter the manuscript merely because it was gathered.
 
-- dimensions, types, domains, signs, indices, and normalization;
-- covariance or invariance identities;
-- degrees of freedom and removal of redundant components;
-- limiting, singular, and symmetry-broken cases;
-- agreement with a known result or independent derivation;
-- sensitivity to assumptions and counterexamples to overstrong claims.
+## Continuing the research
 
-Use computer algebra, numerical experiments, or small programs when they expose errors or make a construction reproducible. A machine check supplements the mathematical argument; it does not replace the statement of what was checked.
+At each increment:
 
-Where two correct computations exist, compare their transformation depth, asymptotic cost, numerical stability, and reuse of structure. Prefer a semantic reduction over brute-force expansion even when both produce the same final expression.
+1. Reinspect the material bound to the active node.
+2. Update its presumptions and incoming evidence.
+3. Produce or revise the smallest useful output artifact.
+4. Run the node's checks.
+5. Propagate only the supported result and validity conditions along outgoing edges.
+6. Revise the graph if a dependency, contradiction, or better construction appears.
 
-### Establish the research boundary
-
-Separate clearly:
-
-- kinematics from dynamics;
-- classification from a particular realization;
-- on-shell content from off-shell formalism;
-- gauge redundancy from physical symmetry;
-- exact results from approximations;
-- proven consequences from proposals or open problems.
-
-State what the framework does not determine and what further input would be needed.
-
-## Source and comparison discipline
-
-Use primary papers, authoritative monographs or lecture notes, and current research where the topic has materially developed. Trace important claims to their actual sources. Compare the reconstruction with the strongest conventional account, not a simplified caricature.
-
-When proposing a synthesis not explicitly present in a source, label it as a reconstruction or inference. Distinguish established theorem, standard technique, plausible extension, and original conjecture.
-
-## Deliverable shape
-
-Prefer a coherent derivation over an encyclopedia of related material. A useful research report or note normally makes these visible without forcing a rigid template:
-
-- the target capability and central thesis;
-- the presumption audit;
-- primitives, conventions, and equivalences;
-- the construction or deduction chain;
-- explicit computational consequences;
-- the reductions that shorten the route from structure to consequence;
-- checks, failure cases, and comparison with the standard theory;
-- limitations and next research questions;
-- a source trail.
-
-Remove background that does not serve the deduction, or relocate it to a narrowly owned appendix. Do not let file organization, build tooling, or cosmetic cleanup displace the research unless the user asks for those tasks.
-
-## Completion test
-
-Do not call the work complete merely because the formal definitions are consistent. It is complete enough to present when a reader can identify the assumptions, reproduce a nontrivial derivation or computation, understand what is predicted, see how errors were checked, and know where the construction stops.
+Do not declare the whole graph complete because one path reaches a manuscript.
+Report the supported frontier, rejected paths, unresolved nodes, and the materials
+available for whichever node the user chooses next.

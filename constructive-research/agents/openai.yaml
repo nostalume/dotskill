@@ -1,4 +1,4 @@
 interface:
   display_name: "Constructive Research"
-  short_description: "Build rigorous theories with less computation"
-  default_prompt: "Use $constructive-research to reconstruct this topic into a rigorous, computationally economical, predictive theory."
+  short_description: "Build research as a material-backed DAG"
+  default_prompt: "Use $constructive-research to map this inquiry as a material-backed DAG and develop its rigorous, computationally economical outputs."
