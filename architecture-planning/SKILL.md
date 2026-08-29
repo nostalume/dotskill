@@ -42,14 +42,21 @@ Record only evidence needed for the decision. Label observations, inference, ext
 
 Rank external evidence: primary specification/upstream docs, maintainer statement, secondary explanation, then unverified lead. Search results only locate evidence. Promote selected durable conclusions to tracked documentation only when required; never promote ephemeral gather notes as architectural truth.
 
-Read only the lens needed by an unresolved issue:
+Choose lenses by the unresolved decision, not by artifact or technology. Each
+general rule belongs to one primary lens:
 
-- Ownership or effects: [ownership-and-effects.md](references/ownership-and-effects.md)
-- Dataflow or evidence: [dataflow-and-evidence.md](references/dataflow-and-evidence.md)
-- Types, laws, or numerics: [types-laws-and-numerics.md](references/types-laws-and-numerics.md)
-- Interfaces or protocols: [interfaces-and-protocols.md](references/interfaces-and-protocols.md)
-- Resources, publication, or recovery: [resources-and-failure-domains.md](references/resources-and-failure-domains.md)
-- Evidence-bearing DEC work: [dec-algorithms.md](references/dec-algorithms.md)
+- Who may decide, mutate, or perform an effect: [authority-and-effects.md](references/authority-and-effects.md)
+- What value crosses each edge and how it is admitted or transformed: [representation-and-flow.md](references/representation-and-flow.md)
+- What externally observable operation must remain compatible: [contracts-and-compatibility.md](references/contracts-and-compatibility.md)
+- How a bounded resource is acquired, committed, released, or recovered: [resources-and-recovery.md](references/resources-and-recovery.md)
+- What mathematical domain, law, scale, or solver claim must hold: [mathematics-and-numerics.md](references/mathematics-and-numerics.md)
+
+Use specialized lenses only after the applicable general lenses:
+
+- Evidence-bearing DEC algorithms: [dec-algorithms.md](references/dec-algorithms.md)
+
+When an issue spans lenses, assign each decision to exactly one and cross-link
+the dependency; do not duplicate the rule.
 
 ## Plan
 
