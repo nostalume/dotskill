@@ -1,193 +1,89 @@
 ---
 name: architecture-planning
-description: Inspect an implemented codebase, gather revision-scoped evidence, resolve architecture or refactor decisions, and produce abstract plans with isolated stages and executable task contracts before coding. Use for project initiation, ownership, APIs, effects, pipelines, protocols, types, numerical laws, resources, failure domains, or architecture documentation.
+description: Inspect an implemented codebase, resolve architecture or refactor decisions from revision-scoped evidence, and prepare dependency-ordered private plans before coding.
 ---
 
 # Architecture Planning
 
-Move through `Bootstrap -> Gather -> Plan -> Stage -> Task`. Keep each handoff
-readable and explicit. Stop before implementation.
+Use `Gather -> Plan -> Stage -> Task` as private reasoning concepts. Stop before implementation.
 
-## Concepts
+## Private notation
 
-- **Gather** records incremental observations from the codebase, authoritative
-  documents, and, when needed, external sources. It is ephemeral context scoped
-  to what was inspected, not proof of permanent truth.
-- **Plan** expresses global intent, scope, invariants, decisions, and the target
-  architecture. Keep it abstract enough to survive local source edits.
-- **Stage** cuts a plan into a bounded delivery outcome. A stage may depend on a
-  landed stage, but has no hidden dependency and can be reviewed, verified,
-  resumed, and rolled back from its declared boundary.
-- **Task** makes one part of a stage executable with source targets, behavioral
-  pseudocode, tests, checks, and a stop condition. Keep tasks inside their stage
-  document unless the document demonstrably becomes unusable.
+- Plan, Stage, and Task notation exists only under the project-root `.agents/` workspace.
+- Number stages and tasks in dependency order. Renumber when dependencies change.
+- Never expose this notation in tracked documentation, source, tests, APIs, CLI flags, runtime output, or product file/module/type/function names. Use functional domain names there.
+- Store a resolution at the smallest useful level: cross-cutting in the plan, outcome-specific in a stage, or execution-specific in a task.
+- Stages and tasks are working decisions, not history. Reorder, split, merge, rewrite, or replace them when requirements change, implementation drifts, evidence contradicts the design, or an emergent problem changes dependencies. Reconcile downstream items and remove stale guidance.
 
-Concepts do not require schemas, parsers, state files, or one file per record.
-Prefer the smallest set of documents that transfers the information clearly.
+## Workspace
 
-## Project workspace
-
-Keep operational planning artifacts out of the tracked project:
+Keep planning artifacts ignored and untracked:
 
 ```text
-<project>/
-  .agents/
-    gather/
-      codespace.md
-      <focused-topic>.md
-    plan/
-      <plan-name>.md
-      <plan-name>-stage-01.md
+<project>/.agents/
+  gather/<topic>.md
+  plan/<functional-name>.md
+  plan/<functional-name>-stage-NN.md
 ```
 
-Ensure the root `.gitignore` contains `/.agents/`. The leading slash limits the
-rule to the project workspace. If `.agents/` is already tracked, report that the
-ignore rule does not untrack it; do not remove tracked files without approval.
+Ensure the root `.gitignore` contains `/.agents/`. If `.agents/` is already tracked, report it; do not untrack files without approval.
 
-Gather files may grow incrementally by useful topic. Plan files hold global
-plans; adjacent stage files hold their embedded tasks. Use descriptive names,
-plain Markdown, and short human-readable statuses only when they aid handoff.
-Do not add a redundant `.agents/planning/` layer or archival machinery.
-
-Selected durable conclusions may be promoted to tracked project documentation
-when the user or project policy requires it. Never promote ephemeral gather
-notes as architectural truth.
-
-## Bootstrap
-
-When the workflow has not started, or no existing plan matches the goal:
-
-1. Resolve the project root and read applicable agent instructions.
-2. Inspect repository status, revision, manifests, public entry points, tests,
-   authoritative documentation, and the most relevant implementation paths.
-3. Infer the goal from the request and inspected project. Ask only about choices
-   that inspection cannot answer and that would materially change the result.
-4. Ensure `/.agents/` is ignored, then create `.agents/gather/` and
-   `.agents/plan/` if absent.
-5. Write enough current evidence to frame the goal, then enter Gather or resume
-   a relevant readable plan.
-
-When several plans might apply, select by goal and stated status. Ask the user
-if the choice remains materially ambiguous. Do not introduce machine state to
-avoid reading the artifacts.
+At entry, resolve the project root, read applicable agent instructions, and inspect revision, dirty state, manifests, public entry points, tests, authoritative docs, and relevant source. Resume a matching readable plan when goal and status are unambiguous; otherwise initialize the ignored workspace and gather only enough evidence to frame the goal. Do not add redundant planning directories, schemas, parsers, machine state, or archives.
 
 ## Gather
 
-Inspect retrievable facts instead of asking the user to supply them. Cover the
-public API, implementation, callers, tests, manifests, and authoritative docs.
-Trace at least one real path:
+Inspect the current revision, dirty state, entry points, manifests, callers, tests, relevant implementation, and authoritative docs. Trace at least one real path:
 
 ```text
 input -> admission -> behavior -> effect -> persistence/output
 ```
 
-Name the mechanism at every edge. Explain why current behavior exists and mark
-each claim as observation, inference, external report, proposal, contradiction,
-or unknown. Briefly record the source location and the revision or dirty state
-against which code observations were made.
+Record only evidence needed for the decision. Label observations, inference, external reports, proposals, contradictions, and unknowns. Current source overrides stored notes.
 
-Treat web material by authority: primary specification or upstream docs,
-maintainer statement, secondary explanation, or unverified lead. Search results
-discover evidence; they are not evidence by themselves.
+Rank external evidence: primary specification/upstream docs, maintainer statement, secondary explanation, then unverified lead. Search results only locate evidence. Promote selected durable conclusions to tracked documentation only when required; never promote ephemeral gather notes as architectural truth.
 
-Build only the domain map and problem view needed for the goal. Merge symptoms
-under root causes; prioritize confirmed correctness or authority defects,
-blocking decisions, measured improvements, then optional extensions. Remove
-items with no in-scope consequence.
+Read only the lens needed by an unresolved issue:
 
-Gather is incremental, not append-only history. Correct or clearly supersede
-stale observations. Reinspect affected source before an observation supports a
-decision, stage, or task.
-
-## Select lenses
-
-After mapping the current domain, read only references needed by unresolved
-problems:
-
-- Ownership, admission, pure computation, effects, configuration, or adapters:
-  [ownership-and-effects.md](references/ownership-and-effects.md).
-- Pipelines, temporal evaluation, visual evidence, or I/O authority:
-  [dataflow-and-evidence.md](references/dataflow-and-evidence.md).
-- Mathematical APIs, typestate, sparse topology, scale, or solvers:
-  [types-laws-and-numerics.md](references/types-laws-and-numerics.md).
-- CLI/API grammar, schemas, errors, cancellation, or compatibility:
-  [interfaces-and-protocols.md](references/interfaces-and-protocols.md).
-- Archives, storage, publication, recovery, or bounded resources:
-  [resources-and-failure-domains.md](references/resources-and-failure-domains.md).
-- Evidence-bearing DEC algorithm work only:
-  [dec-algorithms.md](references/dec-algorithms.md).
-
-Lenses inform decisions; they never authorize code or create another workflow.
+- Ownership or effects: [ownership-and-effects.md](references/ownership-and-effects.md)
+- Dataflow or evidence: [dataflow-and-evidence.md](references/dataflow-and-evidence.md)
+- Types, laws, or numerics: [types-laws-and-numerics.md](references/types-laws-and-numerics.md)
+- Interfaces or protocols: [interfaces-and-protocols.md](references/interfaces-and-protocols.md)
+- Resources, publication, or recovery: [resources-and-failure-domains.md](references/resources-and-failure-domains.md)
+- Evidence-bearing DEC work: [dec-algorithms.md](references/dec-algorithms.md)
 
 ## Plan
 
-Write `.agents/plan/<plan-name>.md` from a global view of current ownership and
-behavior. State the goal, scope, non-goals, invariants, target behavior,
-architectural direction, main stages, dependency order, success conditions, and
-conditions that reopen the plan.
+Write `.agents/plan/<functional-name>.md` with goal, scope, non-goals, invariants, current and target ownership/dataflow, approved decisions, ordered stages, success conditions, and reopen conditions. Keep it abstract enough to survive local edits and record ready, blocked, landed, and deferred work.
 
-Publish the complete decision surface and grill unresolved choices in dependency
-order. For each choice, show fresh evidence, the current-API relation, the
-smallest viable alternatives, a recommendation, accepted cost, and failure
-cases. Reconcile each answer through downstream decisions and remove stale
-alternatives or duplicate concepts.
-
-Only explicit user approval freezes a decision. A proposal, pseudo-API, or
-explanation is not approval. Close the plan only when every in-scope decision is
-approved or safely deferred and no unresolved choice can change ownership, API,
-compatibility, or architecture.
+Grill unresolved choices in dependency order. For each, give current evidence, viable alternatives, recommendation, cost, and failure cases. Planning cannot invent decisions; only explicit user approval freezes one. Reconcile each answer through downstream decisions.
 
 ## Stage
 
-Create one `.agents/plan/<plan-name>-stage-NN.md` per main stage. State:
+Create `<functional-name>-stage-NN.md` for each independently reviewable outcome. Make it self-contained: state outcome, invariant, relevant evidence, scope, non-goals, owners, dependencies, inputs, outputs, current-to-target boundary, entry conditions, completion checks, rollback, and reopen conditions.
 
-```text
-outcome and invariant
-relevant gather and plan context
-included scope and non-goals
-declared owners and dependencies
-inputs and produced outputs
-current boundary -> target behavior
-entry conditions and completion checks
-rollback and plan-reopen conditions
-```
-
-Copy or summarize the context needed to understand the stage; do not make its
-meaning depend on hidden conversational state. Order stages acyclically. A stage
-is ready only when its governing decisions are approved, its inputs are known,
-and required predecessor outcomes have landed.
+Stage numbers must follow dependencies. A stage is ready only when its governing decisions are approved, inputs are known, and predecessor outcomes have landed.
 
 ## Task
 
-Embed ordered task sections in each stage document. Each task states:
+Embed numerically ordered tasks in their stage document. Each task states observable outcome and owner, dependencies, constraints, affected sources/tests/docs, behavioral pseudocode when useful, RED evidence, minimum GREEN behavior, cleanup, verification command/environment, hard gate, rollback, and reopen condition.
 
-```text
-observable outcome and owner
-dependencies, constraints, and non-goals
-affected source, tests, and documentation
-behavioral pseudocode where behavior is not obvious
-RED evidence / minimum GREEN behavior / cleanup
-verification commands and environments / hard gate
-rollback / design-reopen condition
-```
+A task is ready only when its contract is complete and dependencies have landed. Name the first ready task, then stop until implementation is authorized.
 
-Specify behavior precisely without pretending to write the patch in advance.
-Reinspect named source before finalizing tasks. A task is ready only when its
-stage is ready, its contract is complete, and its dependencies have landed.
+## Replanning
 
-List ready, blocked, landed, and deferred stages and tasks in the relevant plan
-documents. Name the first ready task and stop until implementation is authorized.
+Reinspect affected source before relying on stored guidance. When demand, development drift, or new evidence invalidates the order:
+
+1. Correct the governing resolution at its natural granularity.
+2. Recompute dependencies and numerical order.
+3. Update affected statuses, contracts, rollback, and checks.
+4. Preserve landed facts while marking replaced decisions clearly.
+5. Remove stale alternatives and hidden conversational dependencies.
 
 ## Hard gates
 
-- Current source is authoritative over stored gather notes; refresh stale
-  observations before relying on them.
+- Planning artifacts remain inside ignored `.agents/`; durable project docs use functional language only.
 - Current-state documentation never presents proposals as implemented facts.
-- Planning cannot invent decisions; return contradictions to the grill.
-- Do not propose a target API before locating its current owner.
-- Every current path exists; every proposed owner maps from a current owner.
-- No stage has hidden inputs, effects, or dependencies.
-- Reopen design only for failed invariants, source contradictions, new
-  requirements, or evidence named by the plan or stage.
-- Stop before production implementation or host mutation beyond initializing the
-  agreed `.agents/` workspace and its precise ignore rule.
+- Every named current path exists; locate its current owner before proposing a target API or owner.
+- No stage or task has hidden inputs, effects, or dependencies.
+- Planning does not authorize production implementation or unrelated mutation.
+- Reopen design for changed requirements, source contradiction, failed invariants, development drift, or material new evidence.
