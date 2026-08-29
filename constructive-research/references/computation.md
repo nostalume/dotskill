@@ -82,6 +82,35 @@ Compare candidate routes by:
 Low algebraic length is not enough. A reduction must decrease the whole semantic
 and computational route rather than move difficulty into a black box.
 
+## Theory reconstruction does not evade computational complexity
+
+When repeated expansions suggest that the primitive objects are wrong, allow a
+semantic reconstruction rather than forcing further reduction inside the old
+presentation. Keep its computational claim separate from its explanatory claim.
+A supported reconstruction must provide:
+
+```text
+new physical objects and dynamics,
+a bridge recovering the old successful regime,
+a same-observable equality or controlled error,
+one consequence not naturally available in the old view,
+and a fresh whole-route cost audit.
+```
+
+Do not treat perturbation order or formula length alone as evidence of a failed
+theory view. A scale-organized perturbative expansion may be the most direct
+computation for its observable and regime. Conversely, a compact new formalism may
+hide an equally difficult inverse, spectral problem, graph contraction, or
+recovery map.
+
+General Hamiltonian families impose a hard boundary. Broad spectral questions can
+be computationally intractable or even undecidable, so neither symmetry reduction,
+semantic quotienting, nor theory reconstruction supplies a universal solver. No
+workflow can guarantee discovery of variables that make every Hamiltonian easy.
+State the restricted model class, observable, accuracy, and resource scale; treat a
+failed local reconstruction as evidence about that candidate, not as failure of the
+research philosophy.
+
 ## Computation-node contract
 
 Record:

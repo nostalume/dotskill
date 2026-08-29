@@ -52,6 +52,72 @@ useful classical results as consequences, limits, or comparison points. A modern
 reconstruction earns its place by explaining more, assuming less, or reducing the
 semantic and computational route to an output.
 
+## Reformulation, compression, and semantic reconstruction
+
+Distinguish three strengths of theory change:
+
+```text
+reformulation
+  -> the same objects and information in another representation;
+
+compression
+  -> the same theory computes a named observable through less information or a
+     cheaper verified route;
+
+semantic reconstruction
+  -> new primitive objects and dynamics replace the old description, while a
+     controlled bridge recovers its successful regime.
+```
+
+An invertible change of variables may expose sparsity, locality, conditioning, or
+recursion and thereby reduce execution cost. It is not, by invertibility alone, a
+new theory view. A quotient may remove distinctions irrelevant to an observable,
+but it still works inside the old theory. Reconstruction is stronger in a different
+sense: it changes what counts as a state, cause, interaction, or observable.
+
+Let `P_new` be the reconstructed physical object and `P_old,eff` the regime where
+the older theory was successful. Construct a bridge
+
+```text
+L:P_new -> P_old,eff
+```
+
+and evaluate both observable constructions on the same new state:
+
+```text
+O_old(L(p))=O_new(p)+controlled error.
+```
+
+This recovery is mandatory. A new vocabulary that cannot construct the old
+successes, delimit its regime, and produce a consequence outside it is not yet a
+supported reconstruction.
+
+Treat recurring correction patterns as possible evidence of missing primitives,
+not as proof. Perturbation is productive when a physical scale or coupling orders
+terms, the reference objects remain valid, and errors or asymptotics are controlled.
+It becomes a reconstruction signal when unrelated repairs proliferate, cancellations
+systematically hide simpler variables, the target is nonanalytic at the reference
+point, the chosen vacuum or degrees of freedom fail, or a finite expansion cannot
+represent the phenomenon being requested. Bound-state poles, phase changes,
+collective modes, topology, and secular growth are common tests, not automatic
+verdicts.
+
+Use the resulting discovery cycle:
+
+```text
+locate the old theory's successful regime
+  -> identify stable correction patterns and failure boundaries
+  -> propose the missing semantic object
+  -> construct its dynamics and observable
+  -> recover the old expansion or limit
+  -> test a prediction outside the old regime.
+```
+
+Do not infer that conceptual economy guarantees computational ease. A reconstructed
+theory may explain more yet retain hard spectral, combinatorial, or numerical
+problems. There is no universal procedure for recognizing the right new ontology;
+semantic reconstruction is a research regime whose claims are earned locally.
+
 ## Internal mathematical construction
 
 When a mathematical object participates in the argument, construct why it is

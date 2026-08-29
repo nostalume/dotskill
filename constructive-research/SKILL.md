@@ -22,6 +22,10 @@ engineering stages or inherited chapter order.
 - **Semantic computation** preserves meaningful mathematical objects and minimizes
   component-wise expansion, term manipulation, and unnecessary representation
   changes.
+- **Semantic reconstruction** changes the theory's primitive objects when repeated
+  correction or computational burden indicates that a fixed presentation is
+  reflecting an inadequate intuition; it must recover the old successful regime
+  and does not promise tractability.
 - **Research output** is a checked claim or artifact with explicit presumptions,
   material provenance, validity conditions, and downstream use.
 - **Discovery regime** explores a hidden research space when the argumentative spine
@@ -36,7 +40,8 @@ engineering stages or inherited chapter order.
 Read only the references required by the request:
 
 - Framing an inquiry, interpreting intuition, challenging presumptions, comparing
-  theory views, or selecting modern mathematical lenses:
+  theory views, diagnosing perturbative correction, or selecting modern
+  mathematical lenses:
   [research-philosophy.md](references/research-philosophy.md).
 - Creating, inspecting, or incrementally managing the material-backed research DAG,
   node contracts, sources, manuscript synthesis, or worktable artifacts:
