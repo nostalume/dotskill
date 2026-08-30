@@ -28,7 +28,21 @@ For a library or protocol, freeze:
 Schema shape is part of this lens only when externally promised. The
 representation lens owns how that schema is decoded into internal types.
 
-## Failure tests
+## Durable tests
+
+Test observable behavior, domain laws and transitions, boundary/edge/failure
+semantics, and integration across real seams. Prefer black-box tests. Use
+white-box tests only for a durable logical invariant that cannot be observed more
+directly.
+
+A test should survive an implementation rewrite that preserves the accepted
+contract. Do not recursively test tests or freeze unpromised file layout, internal
+fields, annotations, types, helper calls, or other ephemeral representation.
+Static analysis and build tooling own structural and typing policy. A path or
+schema field qualifies only when an external consumer is promised compatibility;
+test its observable contract, not its implementation shape.
+
+## Failure coverage
 
 Test malformed input, unsupported variants, ambiguous dispatch, schema drift,
 partial I/O, cancellation, incompatible peers, and compatibility expiry. Process

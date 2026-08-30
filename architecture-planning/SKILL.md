@@ -72,7 +72,7 @@ Stage numbers must follow dependencies. A stage is ready only when its governing
 
 ## Task
 
-Embed numerically ordered tasks in their stage document. Each task states observable outcome and owner, dependencies, constraints, affected sources/tests/docs, behavioral pseudocode when useful, RED evidence, minimum GREEN behavior, cleanup, verification command/environment, hard gate, rollback, and reopen condition.
+Embed numerically ordered tasks in their stage document. Each task states observable outcome and owner, dependencies, constraints, affected sources/tests/docs, behavioral pseudocode when useful, RED evidence, minimum GREEN behavior, cleanup, verification command/environment, hard gate, rollback, and reopen condition. Select tests by the durable-contract rules in [contracts-and-compatibility.md](references/contracts-and-compatibility.md); do not plan checks of ephemeral implementation shape.
 
 A task is ready only when its contract is complete and dependencies have landed. Name the first ready task, then stop until implementation is authorized.
 
