@@ -16,6 +16,9 @@ engineering stages or inherited chapter order.
 - **Research graph** is a DAG of bounded questions and constructions. An edge names
   a semantic result consumed downstream; it is not a permission gate or fixed work
   order.
+- **Spine coherence** requires each developed branch to bridge named upstream and
+  downstream spine claims, preserve a common observable or semantic object, and
+  stop at an internal benchmark before local detail becomes detached research.
 - **Worktable** is the user's actual collection of papers, manuscripts, derivations,
   data, plots, notebooks, and programs. Graph nodes bind to these materials instead
   of replacing them.
@@ -52,6 +55,10 @@ Read only the references required by the request:
 - Any mathematical deduction or equation, and any substantial symbolic, numerical,
   combinatorial, simulation, data, or plotting work:
   [computation.md](references/computation.md).
+- Selecting the next branch, checking whether local work still advances the global
+  argument, defining a bounded research horizon, deciding when to synthesize, or
+  stopping a niche continuation:
+  [spine-coherence.md](references/spine-coherence.md).
 
 When the spine is unknown, read the regimes, philosophy, and graph references. When
 the spine is known, read the regimes and graph references plus the reference
@@ -65,11 +72,14 @@ computation references; read only the regime branch relevant to the current stat
 2. Read the relevant reference files completely.
 3. Inspect bound materials and authoritative sources before asserting their content.
 4. Explore candidate spines or refresh only the known-spine graph region needed.
-5. Develop the smallest useful node output through explicit semantic computation.
-6. Run its declared checks and propagate only supported results and validity
+5. Bind the active branch to the spine and declare its internal benchmark and
+   research horizon before substantial local expansion.
+6. Develop the smallest useful node output through explicit semantic computation.
+7. Run its declared checks and propagate only supported results and validity
    conditions.
-7. Report the supported frontier, contradictions, and available next nodes without
-   imposing an engineering sequence.
+8. Stop, synthesize, or reconstruct when the internal benchmark says the branch no
+   longer changes the scoped spine; report the supported frontier, contradictions,
+   and available next nodes without imposing an engineering sequence.
 
 ## Hard invariants
 
@@ -90,3 +100,6 @@ computation references; read only the regime branch relevant to the current stat
 - Do not write “compare two ways,” “it follows,” “clearly,” or an equation as a
   deduction without computing the composites on the same typed input and exhibiting
   the equality, obstruction, or semantic-coincidence witness.
+- Do not continue a locally productive branch after its declared spine benchmark is
+  met, rejected, or no longer able to change a downstream claim within scope; record
+  the stop reason and re-entry condition instead of generalizing indefinitely.
