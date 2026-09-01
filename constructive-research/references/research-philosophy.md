@@ -129,6 +129,60 @@ carrier space or shorter formula is not by itself a computational gain. The fiel
 equation or textbook recovery is then an intermediate contract and regression test,
 not the endpoint of the research spine.
 
+## Generative tools and proof-in-construction
+
+Obstruction motivation is necessary but not sufficient. A derivation can begin from
+a genuine obstruction and still end as a one-use proof of a familiar object. A
+construction becomes generative only when it retains the operation that produced
+the object and exposes that operation for new admissible input:
+
+```text
+typed capability request and resource budget
+  -> cheapest candidate
+  -> calculated obstruction
+  -> reusable repair or generation rule
+  -> generated object and usable operations
+  -> internal certificates and failure boundary
+  -> a downstream calculation that consumes the generated output.
+```
+
+The proof belongs inside this route. It certifies typing, obstruction cancellation,
+recovery, completeness or minimality within the declared search region, and failure
+conditions. Do not reverse the dependency by importing a finished object, organizing
+a proof around it, and then discarding every mathematical tool after the theorem.
+That route may be rigorous, but its durable output is verification rather than a
+constructor.
+
+A research tool is generative when it has all of the following:
+
+- inputs stated independently of the expected solution;
+- operations derived from the obstruction rather than hard-coded from the answer;
+- an inspectable output usable without repeating the whole derivation;
+- certificates explaining why the output works and when construction fails;
+- a transfer test on an admissible case not named in advance by its known answer;
+- a downstream theorem, computation, observable, or design decision that reuses the
+  output.
+
+Represent the retained interface schematically as
+
+```text
+Construct(data, capability, resource budget)
+  -> (generated object, reusable operations, certificates, failure record).
+```
+
+The returned operations may be an invariant-map basis, quotient projector,
+normal-form reducer, propagator lift, recursion, effective generator, graph rule, or
+another calculational interface. The theorem is one certificate attached to this
+return value, not the return value itself.
+
+Textbook recovery remains valuable as a regression bench. It proves that the
+generator has not lost an established regime, but it does not demonstrate transfer.
+Before a generative calculus owns a paper's spine, apply it blindly to at least one
+new input and compare the complete route with the relevant baseline. If no reusable
+interface or transfer case can be supplied, compress the mathematics into a theorem
+contract, appendix, or verification backend instead of presenting it as the main
+constructive achievement.
+
 ## Reformulation, compression, and semantic reconstruction
 
 Distinguish three strengths of theory change:

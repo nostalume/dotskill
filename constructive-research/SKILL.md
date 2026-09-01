@@ -33,6 +33,10 @@ engineering stages or inherited chapter order.
   mathematical object from a motivated obstruction, and show that the result changes
   a named explanatory, calculational, or predictive capability. Recovering a familiar
   formula can be a regression witness without being the research endpoint.
+- **Generative construction** leaves a reusable operation behind: typed inputs are
+  transformed by obstruction-derived repair rules into an object, usable operations,
+  and failure certificates. Proof certifies this generator internally; it is not a
+  substitute for the generator or the downstream capability it should enable.
 - **Research output** is a checked claim or artifact with explicit presumptions,
   material provenance, validity conditions, and downstream use.
 - **Discovery regime** explores a hidden research space when the argumentative spine
@@ -78,7 +82,9 @@ computation references; read only the regime branch relevant to the current stat
 4. Explore candidate spines or refresh only the known-spine graph region needed.
 5. Bind the active branch to the spine and declare its internal benchmark and
    research horizon before substantial local expansion.
-6. Develop the smallest useful node output through explicit semantic computation.
+6. Develop the smallest useful node output as a reusable generative operation
+   through explicit semantic computation, with its proof obligations internal to
+   the construction.
 7. Run its declared checks and propagate only supported results and validity
    conditions.
 8. Stop, synthesize, or reconstruct when the internal benchmark says the branch no
@@ -99,6 +105,10 @@ computation references; read only the regime branch relevant to the current stat
 - Do not call post-hoc verification construction: expose the simpler candidate and
   obstruction that force an operator, coefficient, constraint, or quotient, or label
   it explicitly as a theorem input or ansatz.
+- Do not make a proof the terminal product while discarding the algebra, reduction,
+  or operation that produced it. Retain a typed generator that can be applied to new
+  admissible input, or classify the result as a proof/verification backend rather
+  than a constructive tool.
 - Do not let technical uniformity, representation-space separation, or recovery of
   textbook equations own the spine unless a downstream theorem, observable,
   reduction, no-go result, or theory reconstruction consumes it. Classify useful

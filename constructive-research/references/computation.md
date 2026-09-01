@@ -114,6 +114,44 @@ and returns a minimal cyclic or effective object from which that observable is
 recovered. Record textbook recovery as a regression obligation rather than the final
 computational claim.
 
+## Build and use a generative tool
+
+When repeated deductions share an algebra, invariant decomposition, residual, or
+reduction pattern, do not merely reuse the notation while proving each case by hand.
+Test whether the shared structure can be retained as a tool:
+
+```text
+Tool(input data, capability, resource bound)
+  -> generated structure
+  -> operations available to downstream work
+  -> correctness and recovery certificates
+  -> explicit refusal or obstruction when the bound is insufficient.
+```
+
+The input must not encode the expected answer. The generation rule must calculate
+corrections from failed equalities, rank defects, compatibility residuals, or other
+obstructions. Its output must be reusable without replaying the full proof. Proof
+calculations remain mandatory, but run as internal certificates of the generated
+object: they should check the tool, not replace it.
+
+Evaluate such a tool at three levels:
+
+1. **Regression:** recover a known result without special-casing its final formula.
+2. **Transfer:** apply the same interface to an admissible input whose output was not
+   supplied beforehand, including a meaningful failure result when construction is
+   impossible within budget.
+3. **Use:** consume the generated structure in a downstream calculation and compare
+   complete cost, recovery depth, and error with the baseline route.
+
+Passing only regression makes the artifact a verification engine. Passing transfer
+but not use makes it a formal generator whose computational value remains open.
+Claim constructive computational leverage only after the use-level comparison.
+
+Prefer the next computation that invents, exercises, or falsifies such an interface
+over another hand-derived example. Keep the generator, its executable realization,
+and compact certificates on the worktable so later nodes consume the tool rather
+than importing its proof prose.
+
 ## Theory reconstruction does not evade computational complexity
 
 When repeated expansions suggest that the primitive objects are wrong, allow a
