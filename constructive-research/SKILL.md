@@ -29,6 +29,10 @@ engineering stages or inherited chapter order.
   correction or computational burden indicates that a fixed presentation is
   reflecting an inadequate intuition; it must recover the old successful regime
   and does not promise tractability.
+- **Capability-directed construction** separates two obligations: generate the
+  mathematical object from a motivated obstruction, and show that the result changes
+  a named explanatory, calculational, or predictive capability. Recovering a familiar
+  formula can be a regression witness without being the research endpoint.
 - **Research output** is a checked claim or artifact with explicit presumptions,
   material provenance, validity conditions, and downstream use.
 - **Discovery regime** explores a hidden research space when the argumentative spine
@@ -92,6 +96,16 @@ computation references; read only the regime branch relevant to the current stat
 - Do not bury substantial computation or raw output inside a conceptual node.
 - Do not accept formal consistency as completion without construction,
   calculational consequence, or predictive use.
+- Do not call post-hoc verification construction: expose the simpler candidate and
+  obstruction that force an operator, coefficient, constraint, or quotient, or label
+  it explicitly as a theorem input or ansatz.
+- Do not let technical uniformity, representation-space separation, or recovery of
+  textbook equations own the spine unless a downstream theorem, observable,
+  reduction, no-go result, or theory reconstruction consumes it. Classify useful
+  remainder as baseline, reference, or regression material.
+- Do not claim computational leverage from smaller notation or a smaller formal
+  space alone; compare the complete construction, solution, and recovery route for
+  the same observable, including approximation error and failure conditions.
 - Do not claim that symmetry, geometry, probability, or another structure uniquely
   fixes dynamics without naming the additional assumptions.
 - Do not import a mathematical object as unexplained background when the argument

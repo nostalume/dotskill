@@ -31,6 +31,13 @@ observable, route decision, or failure boundary, do not develop it as part of th
 active spine. It may remain a short side lead or a bounded discovery probe, but it
 must not acquire an unlimited chain of descendants.
 
+A technically correct reconstruction of an input label, familiar equation, or
+textbook example may still be essential as a regression test. It does not own the
+active spine unless it changes a downstream capability. If most of a manuscript is
+such infrastructure while the consequential claim appears only at the end,
+reclassify the infrastructure as a compact baseline, reference, or companion result
+and rebuild the main route around the capability that is actually being tested.
+
 ## 2. Give every active branch a spine binding
 
 Before substantial research, record a compact binding:

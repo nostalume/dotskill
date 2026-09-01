@@ -82,6 +82,38 @@ Compare candidate routes by:
 Low algebraic length is not enough. A reduction must decrease the whole semantic
 and computational route rather than move difficulty into a black box.
 
+## Verification computation versus computational leverage
+
+A verification computation checks consistency: a quotient has the expected degrees
+of freedom, a carrier realizes a supplied representation, or an operator recovers a
+known field equation. Such checks are necessary evidence, but they do not establish
+that the construction makes the physical problem easier or predicts anything new.
+
+Test a computational claim with a fixed contract:
+
+```text
+(model and dynamics, preparation, observable, accuracy target)
+  -> baseline route and cost
+  -> proposed reduced object
+  -> same-observable equality or controlled-error witness
+  -> complete reduced-route cost
+  -> validity and failure boundary.
+```
+
+Include the cost of finding and constructing the reduced object and of recovering the
+observable; do not count only the small middle calculation. Lower dimension,
+coordinate-free notation, or a cleaner representation-space distinction is not yet
+computational leverage unless it reduces symbolic growth, integral or state-space
+size, conditioning, storage, runtime, proof depth, or repeated work for the named
+observable.
+
+In representation research, keep the roles typed: the representation constrains
+admissible channels and intertwiners, while the Hamiltonian or action supplies the
+dynamics. A useful reduction consumes both, together with preparation and observable,
+and returns a minimal cyclic or effective object from which that observable is
+recovered. Record textbook recovery as a regression obligation rather than the final
+computational claim.
+
 ## Theory reconstruction does not evade computational complexity
 
 When repeated expansions suggest that the primitive objects are wrong, allow a

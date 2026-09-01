@@ -52,6 +52,83 @@ useful classical results as consequences, limits, or comparison points. A modern
 reconstruction earns its place by explaining more, assuming less, or reducing the
 semantic and computational route to an output.
 
+## Capability-directed construction
+
+A rigorous construction can still serve the wrong goal. Audit two independent
+questions:
+
+1. **Generative origin:** why was this object built in this form?
+2. **Consequential endpoint:** what capability changes because it was built?
+
+For the first, use an obstruction-driven construction:
+
+```text
+required capability
+  -> simplest candidate
+  -> explicit obstruction or failed equality
+  -> correction terms and conditions forced by that obstruction
+  -> solved object
+  -> equality, universal property, or other witness.
+```
+
+Writing down a finished operator and checking that it works is verification, not its
+derivation. Verification remains valuable, especially as a regression test, but it
+must not be narrated as though the object had been generated from the active need.
+If the generation cannot be supplied, state the object as an ansatz or theorem input
+and expose that dependency.
+
+For the second, distinguish the role of the result:
+
+```text
+formal organization
+  -> places known facts in a consistent language;
+
+verification computation
+  -> recovers a known equation, representation label, or degree-of-freedom count;
+
+semantic compression
+  -> removes distinctions irrelevant to a named downstream question;
+
+computational or predictive leverage
+  -> computes a named observable by a cheaper controlled route, produces a new
+     consequence, or changes which experiment, approximation, or theory view is
+     available.
+```
+
+These are legitimate but different outputs. Do not promote a technically uniform
+recovery of familiar textbook physics into the central thesis merely because its
+machinery is sophisticated. Treat such recovery as baseline or regression material
+unless it changes a downstream theorem, no-go result, observable, approximation, or
+reconstruction. Likewise, distinguishing representation spaces prevents category
+errors, but it is supporting infrastructure unless a later claim actually depends
+on the distinction.
+
+For representation-based physics, representation theory does not supply the
+dynamics. Its constructive role is to identify observable-visible channels and
+distinctions that may be quotiented once the dynamics, preparation, and observable
+are supplied:
+
+```text
+(representation, dynamics H, preparation P, observable O)
+  -> symmetry-resolved channels
+  -> quotient distinctions invisible to O
+  -> minimal cyclic or effective object
+  -> recover the same O with equality or controlled error.
+```
+
+Possible useful outputs include an invariant amplitude basis, Hamiltonian block,
+cyclic spectral measure, reduced resolvent, recursion or transfer operator, effective
+generator with error control, and a graph quotient preserving a correlator. Their
+value is not their modern vocabulary but the bridge from the supplied physical
+problem to a shorter, reusable, and verified route.
+
+Before generalizing, compare one complete benchmark on the same model, preparation,
+observable, and accuracy target. Count the cost of discovering and constructing the
+reduction, solving the reduced problem, and recovering the observable. A smaller
+carrier space or shorter formula is not by itself a computational gain. The field
+equation or textbook recovery is then an intermediate contract and regression test,
+not the endpoint of the research spine.
+
 ## Reformulation, compression, and semantic reconstruction
 
 Distinguish three strengths of theory change:
