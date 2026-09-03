@@ -82,6 +82,62 @@ Compare candidate routes by:
 Low algebraic length is not enough. A reduction must decrease the whole semantic
 and computational route rather than move difficulty into a black box.
 
+## Admit the computational substrate
+
+Choose a toolchain from the mathematical operations that must be preserved, not
+from the language already used by the first probe. Repeated project-owned rational
+arithmetic, matrix multiplication, elimination, nullspaces, tensor
+canonicalization, quadrature, or eigensolvers are evidence that a maintained exact,
+symbolic, or numerical package should own those generic operations.
+
+Keep the boundary semantic:
+
+```text
+typed research request and admissible domain
+  -> project-owned semantic policy
+       (grammar, obstruction, reduction order, resource bound, refusal)
+  -> maintained algebra/numerical substrate
+       (exact coefficients, linear solve, canonicalization, quadrature)
+  -> generated object, certificate, error estimate, and boundary.
+```
+
+A computer-algebra system does not supply the meaning of an operation. Do not use
+an unrestricted simplifier, implicit coercion, undecided symbolic zero test, or
+generic tensor expansion as a proof step. Declare the coefficient domain, rewrite
+orientation, canonical form, zero policy, assumptions, and resource bound. Retain a
+small custom rewrite kernel when these choices are themselves the research object;
+delegate generic arithmetic and linear algebra beneath it rather than rebuilding a
+private CAS.
+
+Classify executable artifacts by their consumers:
+
+- a **probe** tests a candidate and may be deleted after its conclusion is promoted;
+- a **certificate** reproducibly checks one node result and remains local to it;
+- a **tool** is consumed by another node or generates new admissible output, so its
+  input, output, refusal, and error contracts must be maintained independently of
+  its checks.
+
+A tool may be checked by a certificate; it must not import one. Promote shared code
+only for demonstrated common semantics, not similar helper names. Prefer one pinned
+environment and one canonical runner for a connected computation graph; a second
+runtime, notebook, package layer, or generated artifact needs a named consumer that
+justifies its maintenance cost.
+
+For a toolchain migration, keep the old executable only as a temporary oracle:
+
+```text
+characterize result and failure behavior
+  -> port one vertical semantic slice
+  -> compare exact output or declared tolerance
+  -> run regression, transfer, and refusal cases
+  -> delete the replaced substrate and adapter.
+```
+
+Set local limits on direct dependencies, shared modules, file size, and retained LOC
+before migration. If the new route mostly transliterates the old machinery, grows an
+adapter around library operations, or hides a formerly explicit semantic boundary,
+stop and reassess the package or representation choice.
+
 ## Verification computation versus computational leverage
 
 A verification computation checks consistency: a quotient has the expected degrees

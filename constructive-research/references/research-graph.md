@@ -33,6 +33,39 @@ inspect available material and propose the smallest useful representation. A sin
 Markdown graph is usually enough; schemas or one-file-per-node layouts require a
 specific benefit.
 
+## Lifecycle and ownership boundary
+
+Separate epistemic material from work management by what consumes it:
+
+- The tracked research worktable owns sources, questions, presumptions,
+  constructions, computations, supported or rejected scientific results, open
+  boundaries, and manuscript artifacts that communicate those results.
+- The repository's ignored agent workspace owns inventories, implementation or
+  editorial plans, code-quality audits, migration checklists, temporary repair
+  ledgers, and sequencing decisions.
+- Version control owns superseded state. Do not retain a second tracked archive or
+  a chain of obsolete plans merely to preserve chronology.
+
+An audit belongs in the research graph only if its verdict changes the status,
+domain, presumption, or downstream use of a research claim. An audit of heading
+spacing, prose granularity, document migration, package selection, compilation,
+or revision progress is work management even when its target is a research paper.
+
+Keep the graph entrypoint compact and current. It should name the spine, active
+frontier, material owners, and exact edges needed for navigation. Detailed node
+contracts live in their node packets; source summaries live in source packets;
+computation instructions and results live with the computation. Do not duplicate
+those bodies in a growing central ledger.
+
+When reorganizing an existing worktable, classify before pruning:
+
+1. retain research objects with a current semantic consumer;
+2. merge duplicated current navigation into the smallest authoritative index;
+3. move active work-management material to the ignored agent workspace;
+4. delete superseded management artifacts only after their still-current
+   decisions have been promoted; and
+5. never assume an untracked artifact is recoverable from version control.
+
 ## Bootstrap
 
 Build only enough graph to expose the current research frontier:

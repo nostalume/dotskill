@@ -21,7 +21,9 @@ engineering stages or inherited chapter order.
   stop at an internal benchmark before local detail becomes detached research.
 - **Worktable** is the user's actual collection of papers, manuscripts, derivations,
   data, plots, notebooks, and programs. Graph nodes bind to these materials instead
-  of replacing them.
+  of replacing them. It is not an archive of editorial, implementation, migration,
+  or revision-management plans; keep those in the repository's ignored agent
+  workspace when one exists.
 - **Semantic computation** preserves meaningful mathematical objects and minimizes
   component-wise expansion, term manipulation, and unnecessary representation
   changes.
@@ -60,6 +62,9 @@ Read only the references required by the request:
 - Selecting between discovery and known-spine development, moving between them, or
   arranging research into an output:
   [research-regimes.md](references/research-regimes.md).
+- Writing, revising, or auditing a research paper or technical note so motivation,
+  deductions, interpretation, and reuse remain constructively visible:
+  [research-writing.md](references/research-writing.md).
 - Any mathematical deduction or equation, and any substantial symbolic, numerical,
   combinatorial, simulation, data, or plotting work:
   [computation.md](references/computation.md).
@@ -94,6 +99,10 @@ computation references; read only the regime branch relevant to the current stat
 ## Hard invariants
 
 - Do not rewrite a manuscript merely to make a proposed graph tidy.
+- Do not mix research evidence with work-management history. Keep a tracked audit
+  only when it changes a research claim, presumption, validity boundary, or
+  reusable construction; keep manuscript/code repair plans and transient scans in
+  the ignored agent workspace, and let version control retain superseded state.
 - Do not treat node status, dependency, or graph position as authorization.
 - Do not hide a conceptual cycle; combine it into one node or represent successive
   revisions explicitly.
