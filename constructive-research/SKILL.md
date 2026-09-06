@@ -1,138 +1,84 @@
 ---
 name: constructive-research
-description: Discover an unknown research spine or rigorize a known one as an internally constructed, computationally verifiable, material-backed DAG. Use for mathematical or physical research, derivation, papers, plots, data, or technical notes that must expose presumptions, preserve semantics through every operation, and isolate heavy computation.
+description: Discover an unknown research spine or develop a known one as an internally constructed, computationally verifiable, material-backed DAG. Use for mathematical or physical inquiries, derivations, papers, plots, data, or technical notes that must expose presumptions, preserve semantics, and separate heavy computation.
 ---
 
 # Constructive Research
 
-Build research around semantic questions and user-owned materials rather than
-engineering stages or inherited chapter order.
+Build research around semantic questions and user-owned material rather than
+inherited chapter order, formal closure, or a sequence of convenient examples.
 
-## Shared concepts
+## Governing stance
 
-- **Reflective intuitionism** treats intuition as provisional formalization.
-  Mathematics rigorizes and reflects it, exposing presumptions that may generate a
-  reconstructed theory.
-- **Research graph** is a DAG of bounded questions and constructions. An edge names
-  a semantic result consumed downstream; it is not a permission gate or fixed work
-  order.
-- **Spine coherence** requires each developed branch to bridge named upstream and
-  downstream spine claims, preserve a common observable or semantic object, and
-  stop at an internal benchmark before local detail becomes detached research.
-- **Worktable** is the user's actual collection of papers, manuscripts, derivations,
-  data, plots, notebooks, and programs. Graph nodes bind to these materials instead
-  of replacing them. It is not an archive of editorial, implementation, migration,
-  or revision-management plans; keep those in the repository's ignored agent
-  workspace when one exists.
-- **Semantic computation** preserves meaningful mathematical objects and minimizes
-  component-wise expansion, term manipulation, and unnecessary representation
-  changes.
-- **Semantic reconstruction** changes the theory's primitive objects when repeated
-  correction or computational burden indicates that a fixed presentation is
-  reflecting an inadequate intuition; it must recover the old successful regime
-  and does not promise tractability.
-- **Capability-directed construction** separates two obligations: generate the
-  mathematical object from a motivated obstruction, and show that the result changes
-  a named explanatory, calculational, or predictive capability. Recovering a familiar
-  formula can be a regression witness without being the research endpoint.
-- **Generative construction** leaves a reusable operation behind: typed inputs are
-  transformed by obstruction-derived repair rules into an object, usable operations,
-  and failure certificates. Proof certifies this generator internally; it is not a
-  substitute for the generator or the downstream capability it should enable.
-- **Research output** is a checked claim or artifact with explicit presumptions,
-  material provenance, validity conditions, and downstream use.
-- **Discovery regime** explores a hidden research space when the argumentative spine
-  is not yet known; **development regime** rigorizes a known spine into a paper,
-  plot, dataset, derivation, or other output.
-- **Deductive computation** is the mandatory verifiable construction behind every
-  deduction or equation: typed inputs, an explicit operation, an equality or
-  coincidence witness, and the semantic content preserved or produced.
+- Treat intuition as provisional formalization. Use mathematics to expose and
+  reconstruct its hidden presumptions, not merely to decorate it with rigor.
+- Construct mathematical objects internally from a capability and a calculated
+  obstruction. If this is impractical, expose an exact theorem contract or ansatz.
+- Make every deduction a semantic computation with typed inputs, an operation, a
+  common target, a witness, and a validity boundary.
+- Prefer invariant, quotient, spectral, variational, diagrammatic, or
+  symmetry-adapted reductions over component expansion. Judge the complete route,
+  including construction and observable recovery cost.
+- Retain a generative operation with admissible inputs, outputs, certificates, and
+  refusals. Proof verifies the constructor; it does not replace it.
+- Treat textbook recovery as regression unless it changes a theorem, observable,
+  prediction, computational route, no-go result, or theory view.
+- Let examples discriminate a frozen candidate; do not amend the framework after
+  every example.
 
 ## Select references
 
-Read only the references required by the request:
+Read only what the active request requires:
 
-- Framing an inquiry, interpreting intuition, challenging presumptions, comparing
-  theory views, diagnosing perturbative correction, or selecting modern
-  mathematical lenses:
+- Research intuition, presumptions, obstruction construction, generative tools,
+  compression, or theory reconstruction:
   [research-philosophy.md](references/research-philosophy.md).
-- Creating, inspecting, or incrementally managing the material-backed research DAG,
-  node contracts, sources, manuscript synthesis, or worktable artifacts:
-  [research-graph.md](references/research-graph.md).
-- Selecting between discovery and known-spine development, moving between them, or
-  arranging research into an output:
-  [research-regimes.md](references/research-regimes.md).
-- Writing, revising, or auditing a research paper or technical note so motivation,
-  deductions, interpretation, and reuse remain constructively visible:
+- Unknown-spine discovery, known-spine adjudication, next-action selection,
+  research horizons, loop cursor, or policy/candidate revision:
+  [research-loop.md](references/research-loop.md).
+- DAG and worktable construction, node/edge contracts, source ownership, or
+  manuscript projections: [research-graph.md](references/research-graph.md).
+- Evidence admission, confidence boundaries, synthesis triggers, conflicting or
+  failed evidence, literature coverage, and replayable dispositions:
+  [evidence-and-synthesis.md](references/evidence-and-synthesis.md).
+- Any mathematical deduction or substantial symbolic, numerical, combinatorial,
+  simulation, data, or plotting work: [computation.md](references/computation.md).
+- Writing or auditing a paper/note for motivation, complete equation deductions,
+  interpretation, and practical reuse:
   [research-writing.md](references/research-writing.md).
-- Any mathematical deduction or equation, and any substantial symbolic, numerical,
-  combinatorial, simulation, data, or plotting work:
-  [computation.md](references/computation.md).
-- Selecting the next branch, checking whether local work still advances the global
-  argument, defining a bounded research horizon, deciding when to synthesize, or
-  stopping a niche continuation:
-  [spine-coherence.md](references/spine-coherence.md).
 
-When the spine is unknown, read the regimes, philosophy, and graph references. When
-the spine is known, read the regimes and graph references plus the reference
-governing the active node. For mathematical work, always read the philosophy and
-computation references; read only the regime branch relevant to the current state.
+For mathematical research, always read the philosophy and computation references.
+Read the loop reference whenever selecting or changing the active frontier, and the
+evidence reference whenever a result may change a research disposition.
 
 ## Operating rule
 
-1. Resolve the user's research intent, worktable, and whether the spine is unknown
-   or already chosen.
-2. Read the relevant reference files completely.
-3. Inspect bound materials and authoritative sources before asserting their content.
-4. Explore candidate spines or refresh only the known-spine graph region needed.
-5. Bind the active branch to the spine and declare its internal benchmark and
-   research horizon before substantial local expansion.
-6. Develop the smallest useful node output as a reusable generative operation
-   through explicit semantic computation, with its proof obligations internal to
-   the construction.
-7. Run its declared checks and propagate only supported results and validity
-   conditions.
-8. Stop, synthesize, or reconstruct when the internal benchmark says the branch no
-   longer changes the scoped spine; report the supported frontier, contradictions,
-   and available next nodes without imposing an engineering sequence.
+1. Inspect the user's worktable and decide whether the active region is an inquiry
+   without a stable claim or a claim with a frozen local contract.
+2. In discovery, construct a tension and choose a probe only when its possible
+   outcomes distinguish live alternatives. Advance only when a result reduces
+   ambiguity, constructs a missing object/operation, or establishes a boundary.
+3. In development, bind the weakest consequential spine bridge, define its horizon,
+   and freeze the candidate, falsifiers, benches, and promotion conditions before
+   gathering decisive evidence.
+4. Build the smallest reusable construction and its semantic computation. Isolate
+   heavy execution while returning compact witnesses and boundaries to the graph.
+5. Admit evidence and synthesize it through the frozen decision kernel and local
+   contract. Propagate only the resulting domain- and claim-dimension disposition.
+6. Stop, restrict, reject, split, or reconstruct when the declared benchmark makes
+   further local detail unable to change the scoped spine.
 
-## Hard invariants
+## Hard boundaries
 
-- Do not rewrite a manuscript merely to make a proposed graph tidy.
-- Do not mix research evidence with work-management history. Keep a tracked audit
-  only when it changes a research claim, presumption, validity boundary, or
-  reusable construction; keep manuscript/code repair plans and transient scans in
-  the ignored agent workspace, and let version control retain superseded state.
-- Do not treat node status, dependency, or graph position as authorization.
-- Do not hide a conceptual cycle; combine it into one node or represent successive
-  revisions explicitly.
-- Do not present gathered material, search results, proposals, or conjectures as
-  established conclusions.
-- Do not bury substantial computation or raw output inside a conceptual node.
-- Do not accept formal consistency as completion without construction,
-  calculational consequence, or predictive use.
-- Do not call post-hoc verification construction: expose the simpler candidate and
-  obstruction that force an operator, coefficient, constraint, or quotient, or label
-  it explicitly as a theorem input or ansatz.
-- Do not make a proof the terminal product while discarding the algebra, reduction,
-  or operation that produced it. Retain a typed generator that can be applied to new
-  admissible input, or classify the result as a proof/verification backend rather
-  than a constructive tool.
-- Do not let technical uniformity, representation-space separation, or recovery of
-  textbook equations own the spine unless a downstream theorem, observable,
-  reduction, no-go result, or theory reconstruction consumes it. Classify useful
-  remainder as baseline, reference, or regression material.
-- Do not claim computational leverage from smaller notation or a smaller formal
-  space alone; compare the complete construction, solution, and recovery route for
-  the same observable, including approximation error and failure conditions.
-- Do not claim that symmetry, geometry, probability, or another structure uniquely
-  fixes dynamics without naming the additional assumptions.
-- Do not import a mathematical object as unexplained background when the argument
-  depends on why it exists; construct it from the active need, or state the exact
-  hypotheses and output of an irreducible theorem contract.
-- Do not write “compare two ways,” “it follows,” “clearly,” or an equation as a
-  deduction without computing the composites on the same typed input and exhibiting
-  the equality, obstruction, or semantic-coincidence witness.
-- Do not continue a locally productive branch after its declared spine benchmark is
-  met, rejected, or no longer able to change a downstream claim within scope; record
-  the stop reason and re-entry condition instead of generalizing indefinitely.
+- The DAG owns durable epistemic memory; a loop cursor owns current attention only.
+- Graph position or status never grants permission or imposes work order.
+- Research material stays in the worktable; editorial, implementation, and
+  migration plans stay in the repository's ignored agent workspace when present.
+- Sources and search results do not replace internal construction or evidence
+  admission. Conflicting evidence remains visible.
+- Do not claim generality, novelty, computational leverage, or reconstruction
+  beyond the exact domain and capability tested.
+- Do not hide work in notation, components, an existence theorem, a solver, or an
+  unnamed inverse. State irreducible dependencies and refusal conditions.
+- Keep conceptual cycles explicit through successive inquiry, disposition, or
+  semantic-contract revisions; do not create a global generation bureaucracy.

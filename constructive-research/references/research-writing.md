@@ -1,186 +1,115 @@
-# Constructive research writing
+# Constructive Research Writing
 
-Use this reference when a known research spine must become a readable paper,
-technical note, or revision audit. It governs exposition, not research discovery.
-Read `research-philosophy.md` for the governing stance and `computation.md` for
-worktable evidence.
+Use this reference when a supported research spine must become a readable paper,
+technical note, figure, or revision. It governs exposition, not discovery or
+evidence adjudication.
 
-## Keep writing management outside the research record
+## Keep management outside the research record
 
-Place manuscript outlines, revision audits, migration ledgers, formatting defects,
-package choices, and repair sequences in the repository's ignored agent workspace
-when one exists. They manage how an output is written; they are not research
-results merely because the output is a paper.
+Keep outlines, revision audits, migration ledgers, formatting defects, package
+choices, and repair sequences in the repository's ignored agent workspace when one
+exists. Promote a finding only when it changes a scientific claim, presumption,
+domain, construction, computation, or open question; update that canonical owner
+instead of keeping a parallel audit.
 
-Promote an audit finding back to the tracked research graph only when it changes a
-scientific claim, presumption, validity boundary, construction, computation, or
-open question. In that case update the canonical node or result rather than
-retaining the editorial audit as a parallel owner. Let version control preserve
-superseded wording and completed repair history.
+## Construct the reader path
 
-## Writing objective
-
-Writing must let the reader reconstruct why an object was needed, how it was
-generated, what each operation computed, and how to reuse the retained result.
-Formal correctness alone is insufficient when the formalism appears before its
-obstruction, hides a calculation in prose, or disappears after verification.
-
-Organize each local argument as:
+Let a reader reconstruct why an object was needed, how it was generated, what each
+operation computed, and how to reuse the retained result:
 
 ```text
-capability or question
-  -> concrete obstruction
-  -> typed request
-  -> generated candidate
-  -> decisive calculation
-  -> interpreted output
+capability/question -> concrete obstruction -> typed request
+  -> generated candidate -> decisive computation -> interpreted output
   -> retained interface and boundary
 ```
 
-This is a reader path, not a mandatory section template. Merge trivial adjacent
-steps, but never merge away the operation that supports a nontrivial claim.
+This is an explanatory path, not a mandatory section template. Merge trivial
+steps, but never remove the operation supporting a consequential claim.
 
-## Motivate by obstruction
+Introduce a mathematical object only after naming the capability, supplied typed
+objects, exact failure of the current operation/representation, and smallest new
+request forced by that failure. A definition establishes notation; it does not
+motivate the object or prove that it works.
 
-Introduce a mathematical object only when the text has exposed the task it must
-perform. Before a construction, state:
+## Admit equations by role
 
-1. the concrete capability or observable sought;
-2. the supplied objects and their types;
-3. the exact failure of the current representation or operation; and
-4. the smallest new request forced by that failure.
+Classify each display as supplied input, definition, semantic computation, theorem
+contract, derived result, regression translation, or open obligation. Every
+nontrivial equality, existence, uniqueness, invariance, vanishing, or consequence
+needs an adjacent computation or exact theorem contract.
 
-Prefer a familiar physical or mathematical object when it makes the request
-recognizable. Do not open with a catalogue of machinery and explain its purpose
-afterward. A definition may establish notation, but it does not itself motivate
-the object or prove that the object solves the request.
+Do not let “directly,” “similarly,” “after substitution,” “solving gives,” or “one
+finds” carry an omitted operation. Detailed deduction means an uninterrupted chain
+of meaning-preserving operations, not maximal component expansion. Prefer an
+invariant pairing, factorization, quotient, projection, universal property, or
+representation map; isolate a component check only when it is the shortest witness.
 
-## Admit every displayed equation by role
+Use a mathematics–explanation sandwich:
 
-Classify each display before retaining it:
+1. Before a decisive display, state inputs/types, operation, and question.
+2. In the display, include every semantic step needed to reach a common target.
+3. After it, state what was forced or ruled out, what meaning survived, which later
+   construction consumes it, and its boundary/open obligation.
 
-- **supplied input:** an assumption, measured datum, cited theorem, or declared
-  model contract;
-- **definition:** a new symbol or constructed operation;
-- **semantic computation:** explicit operations connecting a typed input to a
-  common target;
-- **theorem contract:** a bounded imported result with hypotheses and exact
-  consequence;
-- **derived result:** the output of the adjacent computation or theorem contract;
-- **regression translation:** a familiar textbook form used to compare outputs;
-- **open obligation:** a statement not yet supported and therefore not a result.
+Prose motivates and interprets mathematics; it cannot replace the calculation.
+Equations without local orientation are equally incomplete.
 
-Definitions need no artificial proof. Every nontrivial equality, existence,
-uniqueness, invariance, vanishing, or consequence needs either an adjacent
-semantic computation or an exact theorem contract. Never let “directly,”
-“similarly,” “after substitution,” “solving gives,” or “one finds” carry the
-missing operation.
+## Promote computation without hiding it
 
-Detailed deduction does not mean maximal expansion. Show an uninterrupted chain
-of meaning-preserving operations. Avoid components when an invariant pairing,
-factorization, quotient, projection, universal property, or representation map
-performs the same calculation more directly. If a component check is the shortest
-available witness, isolate it and explain what invariant claim it certifies.
+Heavy work remains in a computation artifact. Promote only its typed request,
+finite reduction, decisive intermediate equalities, certificate, resulting reusable
+rule, and domain. Do not paste traces into the paper or replace them with “the
+computer verifies.” The reader must see what was calculated and why its certificate
+supports the edge.
 
-## Use the mathematics–explanation sandwich
+Expose distinctions that change use: supplied/generated, exact/approximate,
+invariant/convention-dependent, proved/cited, reusable/regression-only, and
+supported/open. Consume the domain disposition defined in
+[evidence-and-synthesis.md](evidence-and-synthesis.md); do not invent a separate
+manuscript status system.
 
-Immediately before a decisive display, identify the inputs, their types, the
-operation being applied, and the question the calculation answers. In the display,
-write every semantic step required to reach a common target. Immediately after,
-state:
+## Leave a wieldable result
 
-- what was forced or ruled out;
-- what meaning was preserved through the operations;
-- which later construction consumes the result; and
-- the validity boundary or remaining obligation.
+For every claimed constructor, compiler, or reduction, tell the reader:
 
-Prose may motivate and interpret mathematics. It must not substitute for the
-calculation underneath it. Conversely, a page of equations without this local
-orientation is not constructive exposition.
+- what input to provide and how admissibility is checked;
+- which operations to perform and in what semantic order;
+- which output or refusal is returned;
+- which downstream construction or observable consumes it; and
+- which cost, approximation, or failure boundary remains.
 
-## Promote worktable computation without hiding it
+When reusability is claimed, include a transfer to an admissible input not used to
+generate the tool. A replay of the seed example proves only regression.
 
-Heavy symbolic, numerical, graph, or component computation belongs in its own
-worktable artifact. Promote to the manuscript:
+Use a familiar textbook example only when it anchors semantics, checks conventions
+or limits, demonstrates transfer, or distinguishes the new route. Place it after the
+generative construction and label its role; do not let it generate the supposedly
+new machinery or become a redundant second derivation.
 
-1. the typed input and requested output;
-2. the operation or reduction that makes the computation finite;
-3. the smallest decisive intermediate equalities;
-4. the certificate or check owned by the worktable; and
-5. the resulting reusable rule and its domain.
+## Present the semantic shape
 
-Do not paste an execution trace into the paper, and do not replace it with “the
-computer verifies.” The manuscript must expose enough structure for the reader to
-understand what was calculated and why the certificate supports the stated edge.
-
-## Expose origin, status, and boundary
-
-Mark distinctions that change how a reader may use a statement:
-
-- supplied versus internally generated;
-- exact versus approximate;
-- representation-independent versus convention-dependent;
-- proved operation versus cited theorem contract;
-- reusable interface versus one-instance regression;
-- supported result versus open horizon.
-
-Do not silently strengthen a finite-spin check into an all-spin theorem, a formal
-identity into a domain statement, a perturbative coefficient into an exact
-observable, or a verification example into a construction method.
-
-## Leave practical instructions for retained tools
-
-A generative tool must survive its proof. For every claimed compiler, reduction,
-or constructor, tell the reader:
-
-1. what input to supply and how its admissibility is checked;
-2. what operation to perform, in what semantic order;
-3. what output or refusal is returned;
-4. which downstream observable or construction consumes it; and
-5. what cost, approximation, or failure boundary remains.
-
-Include one transfer to a genuinely new admissible input when reusability is part
-of the claim. Replaying the example that generated the tool proves only regression.
-
-## Use familiar examples only when they do work
-
-Textbook examples are optional. Include a small robust example only when it:
-
-- gives the reader familiar semantic anchors;
-- checks signs, normalization, dimensions, limits, or convention translation;
-- demonstrates transfer of the retained operation; or
-- distinguishes the new construction from the orthodox route.
-
-Place it after the generative construction and label its role. Do not let a
-textbook expression generate the supposedly new machinery, own the spine, or
-inflate the paper with a second derivation that adds no test.
-
-## Choose presentation by semantic shape
-
-- Use native mathematics for typed maps, equalities, and linear compositions.
+- Use native mathematics for typed maps, equalities, and linear composition.
 - Use prose and theorem-like environments for motivation, contracts,
   interpretation, and instructions.
 - Use Fletcher only when branching, rejoining, commutation, quotienting, or graph
   topology is itself meaningful.
 
-A diagram exposes relations; it never replaces a deduction. Do not use raw text
-as a substitute for mathematical typing, and do not add algorithm or code-listing
-packages merely to style a mathematical interface.
+A diagram exposes relations; it never replaces a deduction. Do not use raw text,
+algorithm packages, or code listings merely to style a mathematical interface.
 
-## Audit checklist
+## Audit
 
-Before calling a manuscript passage complete, ask:
+Before completion, locate the earliest failing item:
 
-- Did a capability and obstruction generate every nonstandard object?
-- Can every consequential equation be reconstructed from adjacent operations or
-  an explicitly bounded theorem contract?
-- Does explanation appear both before and after the mathematics?
-- Are supplied assumptions, conventions, approximations, and open claims exposed?
-- Does each retained tool have an executable reader-facing use and refusal rule?
-- Are heavy calculations independently inspectable without forcing their raw trace
-  into the paper?
-- Do examples test or transfer the construction rather than replace it?
-- Does every diagram encode a relation that prose or native math would obscure?
+- every nonstandard object has a capability and obstruction;
+- every consequential equation has adjacent computation or a bounded theorem
+  contract;
+- explanation occurs before and after decisive mathematics;
+- presumptions, conventions, approximations, dispositions, and boundaries are
+  visible;
+- each retained tool has a reader-usable operation and refusal;
+- heavy calculations are inspectable without entering the main argument;
+- examples test or transfer rather than replace the construction; and
+- every diagram makes a relation materially clearer.
 
-If any answer is no, record the earliest unsupported edge and repair it before
-polishing downstream prose.
+Repair that earliest unsupported edge before polishing downstream prose.

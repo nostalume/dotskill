@@ -1,159 +1,114 @@
-# Material-backed Research Graph
+# Material-Backed Research Graph
 
 ## Graph semantics
 
-Organize a research program as a directed acyclic graph. Each node is a bounded
-research question or construction. Each edge names an output used by another node.
+The research graph is a DAG of bounded epistemic objects. An edge names the exact
+output consumed downstream; it is not permission, work order, or a requirement that
+the source node be globally complete.
 
-The graph is not a delivery pipeline:
+Use successive objects to expose conceptual revision:
 
-- Nodes do not grant permission, impose approval gates, or prescribe work order.
-- Work may begin wherever useful material or insight exists.
-- Independent nodes may develop concurrently.
-- `A -> B` means B consumes a stated result of A, not that all work in A must finish
-  before any work on B starts.
+```text
+inquiry-v1 -> probe -> distinction -> claim-v1 -> evidence -> disposition
+  -> claim-v2
+```
 
-Keep the graph acyclic. If ideas inform each other, combine them into a joint node
-or expose successive revisions, such as `hypothesis-v1 -> test -> hypothesis-v2`.
+Do not draw a back edge for operational feedback. Combine genuinely inseparable
+objects or create an explicit revision. The current research view is the latest
+non-superseded disposition reachable through declared edges; version control, not a
+parallel archive, preserves obsolete wording.
 
-## Worktable
+## Worktable and ownership
 
-Bind nodes to the worktable specified by the user. It may contain:
+Bind graph objects to the user's papers, notes, manuscripts, derivations, data,
+plots, notebooks, and programs. Do not impose a new directory or one-file-per-node
+layout without a demonstrated navigation or ownership benefit.
 
-- papers, books, source annotations, and comparison notes;
-- a manuscript or note under development;
-- conjectures, definitions, and derivation fragments;
-- datasets, observations, and simulation outputs;
-- plots, diagrams, notebooks, and calculation programs;
-- reviews, contradiction logs, and comparison tables.
+The tracked worktable owns questions, presumptions, sources, constructions,
+computations, evidence, dispositions, open boundaries, and output artifacts.
+Repository-local ignored agent space owns inventories, editorial/implementation
+plans, migration ledgers, and temporary audits. Promote an audit only when it
+changes a research claim, domain, presumption, construction, or open question.
 
-Do not invent a new layout when the user has identified where materials live. Do
-not move or rewrite content merely to tidy the graph. When no worktable is specified,
-inspect available material and propose the smallest useful representation. A single
-Markdown graph is usually enough; schemas or one-file-per-node layouts require a
-specific benefit.
+Keep the graph entrypoint current and small: spine or inquiry, active frontier,
+material owners, and named edges. Detailed construction, source, computation, and
+evidence packets remain with their owning artifacts.
 
-## Lifecycle and ownership boundary
+## Bootstrap the smallest graph
 
-Separate epistemic material from work management by what consumes it:
+1. Inventory only relevant material with location, role, revision, and reliability.
+2. Identify the intended capability, phenomenon, theorem, observable, prediction,
+   classification, or algorithm.
+3. Extract live inquiries/claims, presumptions, contradictions, and constructions.
+4. Create objects around semantic obligations rather than manuscript sections.
+5. Name the exact value crossing each edge and why the consumer needs it.
+6. Represent a missing construction, computation, or evidence bridge explicitly;
+   do not fill it with connective prose.
 
-- The tracked research worktable owns sources, questions, presumptions,
-  constructions, computations, supported or rejected scientific results, open
-  boundaries, and manuscript artifacts that communicate those results.
-- The repository's ignored agent workspace owns inventories, implementation or
-  editorial plans, code-quality audits, migration checklists, temporary repair
-  ledgers, and sequencing decisions.
-- Version control owns superseded state. Do not retain a second tracked archive or
-  a chain of obsolete plans merely to preserve chronology.
-
-An audit belongs in the research graph only if its verdict changes the status,
-domain, presumption, or downstream use of a research claim. An audit of heading
-spacing, prose granularity, document migration, package selection, compilation,
-or revision progress is work management even when its target is a research paper.
-
-Keep the graph entrypoint compact and current. It should name the spine, active
-frontier, material owners, and exact edges needed for navigation. Detailed node
-contracts live in their node packets; source summaries live in source packets;
-computation instructions and results live with the computation. Do not duplicate
-those bodies in a growing central ledger.
-
-When reorganizing an existing worktable, classify before pruning:
-
-1. retain research objects with a current semantic consumer;
-2. merge duplicated current navigation into the smallest authoritative index;
-3. move active work-management material to the ignored agent workspace;
-4. delete superseded management artifacts only after their still-current
-   decisions have been promoted; and
-5. never assume an untracked artifact is recoverable from version control.
-
-## Bootstrap
-
-Build only enough graph to expose the current research frontier:
-
-1. Inventory relevant material with location, role, revision, and reliability.
-2. Identify the target observable, theorem, equation, classification, prediction,
-   or algorithm.
-3. Extract claims, unresolved questions, contradictions, and constructions.
-4. Create nodes around semantic problems rather than manuscript sections.
-5. Draw each edge by naming the exact output consumed downstream.
-6. Represent missing evidence or computation as a node instead of filling the gap
-   with prose.
-
-The graph is an incremental view, not append-only history. Correct or supersede
-stale nodes when bound materials change. Preserve durable artifacts through the
-user's normal version control or publication practice.
+The graph is an incrementally corrected view, not an append-only diary. Before
+pruning, assign every current object a semantic consumer or an explicit boundary.
+Never assume an untracked artifact is recoverable from Git.
 
 ## Node contract
 
-Each node states compactly:
+A substantial node states only fields that change its use:
 
 - **Question/capability:** what becomes known, constructible, or predictable?
-- **Presumptions:** empirical inputs, structural necessities, approximations,
-  representation choices, conventions, and inherited claims under challenge.
-- **Material bindings:** exact papers, manuscript sections, data, plots, programs,
-  or prior node outputs used as inputs.
-- **Construction/method:** the semantic operation intended to produce the result.
-- **Semantic computation:** typed inputs, explicit operation/composites, common
-  target, equality or obstruction witness, and the meaning preserved or produced.
-- **Output:** a claim, proof, counterexample, model, dataset, figure, operator,
-  algorithm, or manuscript fragment, with its worktable destination.
-- **Checks:** consistency laws, comparisons, limiting cases, falsifiers,
-  uncertainty, or independent reproduction.
-- **Edges:** which output enters which downstream node and why.
-- **Open boundary:** what remains unknown and what evidence would revise the node.
+- **Presumptions and domain:** empirical inputs, necessities, approximations,
+  representations, conventions, and assumptions under challenge.
+- **Material bindings:** exact sources, data, programs, figures, or prior outputs.
+- **Construction:** the typed operation intended to produce the result.
+- **Semantic computation:** common target, explicit composites/operation, witness,
+  preserved meaning, and failure boundary.
+- **Output:** claim, proof, counterexample, model, dataset, operator, algorithm,
+  figure, or manuscript fragment and its destination.
+- **Evidence/disposition:** IDs and domain-indexed result from
+  [evidence-and-synthesis.md](evidence-and-synthesis.md).
+- **Edges:** named outputs consumed downstream and open obligations that could
+  revise them.
 
-Do not let “method” remain prospective once a node claims support. A supported
-deduction must contain its semantic computation. If an equation is only motivated
-or guessed, label it as a candidate and create the computation or derivation needed
-to establish it.
+Do not let “method” remain prospective once a result is propagated. An equation
+that is motivated but not computed remains an open candidate.
 
-Use states such as `open`, `developing`, `supported`, `rejected`, or `superseded`
-only when they help. State is descriptive, never an execution gate.
+Use specialized nodes only where ownership clarifies: inquiry/challenge,
+presumption, source contract, construction/derivation, computation, observation,
+evidence, disposition, visualization, or output composition. Node kind and status
+never authorize action.
 
-## Node kinds
+## Durable state and loop cursor
 
-Use kinds only when they clarify ownership:
+The DAG owns durable epistemic state; the operational cursor described in
+[research-loop.md](research-loop.md) owns attention only. A cursor must be
+regenerable from the active inquiry, latest dispositions, open downstream
+obligations, and declared horizon.
 
-- **Question:** isolates an unknown or capability target.
-- **Source:** gathers and compares primary or authoritative literature.
-- **Presumption:** tests whether an inherited assumption is necessary or generative.
-- **Construction:** defines objects, reductions, or representations.
-- **Derivation:** turns constructions into a theorem or equation.
-- **Computation:** owns substantial symbolic, numerical, combinatorial, simulation,
-  data, or plotting work. Read [computation.md](computation.md).
-- **Observation/data:** acquires, cleans, or characterizes empirical material.
-- **Visualization:** produces a plot or diagram with a stated interpretive role.
-- **Synthesis:** integrates supported outputs into the developing manuscript.
-- **Challenge:** seeks counterexamples, failed limits, or competing accounts.
+Evidence does not mutate a claim. It enters a disposition node together with the
+frozen claim contract and policy snapshot. A semantic-contract change creates a
+successor claim version; ordinary evidence or prose does not duplicate the graph.
 
-## Evidence and synthesis
+For multiple outputs, keep one semantic owner and project it:
 
-Use primary papers, authoritative monographs or lecture notes, and current research
-where the field has materially developed. Search results are leads, not evidence.
-Label established theorem, standard method, reconstruction, plausible extension,
-and conjecture distinctly.
+```text
+shared construction/claim/disposition
+  -> paper A snapshot
+  -> paper B snapshot
+  -> plot or dataset snapshot
+```
 
-Synthesis nodes assemble only outputs supported by incoming edges. Prefer a coherent
-deduction over adjacent background. Material that does not serve the argument stays
-bound to its own node; gathering it does not justify adding it to the manuscript.
+Each output pins the consumed disposition and boundary. A changed disposition
+marks only explicit downstream consumers stale. Unrelated papers remain separate;
+do not build a universal mega-graph.
 
-In a developing paper or figure, every displayed equation, plotted transformation,
-or derived quantity must bind to a node computation that constructs it. Sources may
-validate theorem contracts or inputs; they do not replace the internal semantic
-bridge used by the output.
+## Sources, computations, and outputs
 
-## Incremental continuation
+Search results locate sources; they are not themselves evidence. A source packet
+records provenance, hypotheses, exact consumed result, disagreements, and limits.
+Its theorem becomes usable only through an admitted theorem contract.
 
-For the node currently chosen by the user:
+Heavy symbolic, numerical, combinatorial, simulation, data, or plotting work lives
+in a computation artifact. Return only the compact witness, error, boundary, and
+meaning consumed downstream. Read [computation.md](computation.md).
 
-1. Reinspect its bound material.
-2. Refresh presumptions and incoming evidence.
-3. Produce or revise the smallest useful output artifact.
-4. Run the declared checks.
-5. Propagate only supported results and validity conditions.
-6. Revise the graph when a dependency, contradiction, or better construction
-   appears.
-
-Do not declare the graph complete because one path reaches a manuscript. Report the
-supported frontier, rejected paths, unresolved nodes, and materials available for
-whichever node the user chooses next.
+An output manuscript or figure is a coherent projection of supported graph paths,
+not the graph itself. Alternatives, failed routes, raw calculations, and open
+boundaries remain on the worktable unless they delimit the output's claim.

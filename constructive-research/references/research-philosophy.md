@@ -3,350 +3,155 @@
 ## Reflective intuitionism
 
 Treat intuition as provisional formalization. It selects phenomena, objects,
-relations, invariances, and plausible operations before their conditions are fully
-known. Mathematics rigorizes intuition by making its content and consequences
-inspectable. The resulting formal theory remains a reflection of the intuition,
-not its final replacement.
-
-Research is recursive:
+relations, invariants, and plausible operations before their conditions are fully
+known. Mathematics makes that content inspectable; its consequences then expose
+presumptions from which intuition can be reconstructed.
 
 ```text
-intuition
-  -> mathematical reflection
-  -> consequences
-  -> reflection on hidden presumptions or failures
-  -> reconstructed intuition
-  -> new formalization
+intuition -> mathematical reflection -> consequences and failures
+  -> exposed presumptions -> reconstructed intuition -> new formalization
 ```
 
-The cycle may repeat without making an earlier theory worthless. Newtonian
-mechanics makes absolute time and flat Galilean spacetime part of its effective
-intuition. Reflecting on those presumptions, their transformation laws, and their
-empirical limits opens the reconstruction into relativistic spacetime. The later
-theory recovers the earlier one in a controlled regime while changing its basic
-objects.
+The later view need not erase the earlier one. Relativity reflects on the absolute
+time and flat spacetime implicit in Newtonian mechanics, changes the primitive
+objects, and recovers Newtonian predictions in a controlled regime. A vague
+presumption may likewise be a compressed sign of a missing theory: equilibrium
+principles delimit, but do not exhaust, fluctuation and nonequilibrium physics.
 
-Do not treat a vague presumption only as a defect to eliminate. It may be a compressed
-indication of a missing theory view. Ask:
-
-- What phenomenon is the presumption trying to express?
-- Where does it cease to be coherent, invariant, or predictive?
-- What object, scale, fluctuation, or limiting process would make it explicit?
-- What new theory appears when the presumption becomes variable or is allowed to
-  fail?
-
-Equilibrium principles, for example, are not the whole of statistical mechanics.
-Their scope and failure point toward nonequilibrium dynamics, fluctuation theory,
-and large-deviation structures.
+Ask what phenomenon a presumption expresses, where it loses coherence or
+predictive force, what would make it variable, and which old success a replacement
+must recover. Intuition proposes a path; construction and evidence earn it.
 
 ## Construction over formal closure
 
-Definitions and proofs stabilize intuition, expose error, and enable reuse. Formal
-consistency alone is not the research goal. Prefer results that create predictive or
-calculational leverage: an operator, representation, reduction, algorithm,
-asymptotic law, invariant, normal form, diagrammatic rule, or experimentally
-testable relation.
+Definitions and proofs stabilize reasoning, but formal consistency is not the
+research endpoint. Separate:
 
-Build the simplest nontrivial construction completely before generalizing. Preserve
-useful classical results as consequences, limits, or comparison points. A modern
-reconstruction earns its place by explaining more, assuming less, or reducing the
-semantic and computational route to an output.
+```text
+formal organization       known facts in a consistent language
+verification              recovery of a supplied result
+semantic compression      removal of distinctions irrelevant to a named output
+computational leverage    a cheaper controlled route to the same output
+predictive leverage       a new consequence, discriminator, or experiment
+semantic reconstruction   new primitives with controlled old-regime recovery
+```
 
-## Capability-directed construction
+A sophisticated proof that only recovers a textbook equation remains valuable
+regression evidence. It should not own the spine unless a downstream theorem,
+observable, reduction, no-go result, approximation, or theory view consumes it.
 
-A rigorous construction can still serve the wrong goal. Audit two independent
-questions:
+## Obstruction-driven internal construction
 
-1. **Generative origin:** why was this object built in this form?
-2. **Consequential endpoint:** what capability changes because it was built?
-
-For the first, use an obstruction-driven construction:
+Generate a mathematical object from the task it must perform:
 
 ```text
 required capability
-  -> simplest candidate
-  -> explicit obstruction or failed equality
-  -> correction terms and conditions forced by that obstruction
-  -> solved object
-  -> equality, universal property, or other witness.
+  -> cheapest typed candidate
+  -> explicit failed equality, ambiguity, or obstruction
+  -> additional structure forced by that failure
+  -> constructed object and operations
+  -> witness, consequence, and refusal boundary
 ```
 
-Writing down a finished operator and checking that it works is verification, not its
-derivation. Verification remains valuable, especially as a regression test, but it
-must not be narrated as though the object had been generated from the active need.
-If the generation cannot be supplied, state the object as an ansatz or theorem input
-and expose that dependency.
+Do not introduce a group, measure, quotient, bundle, operator, topology, or
+representation as unexplained machinery when the argument depends on why it
+exists. For example, construct transport nonuniqueness and calculate that the
+relative transport fixes a standard object before naming its stabilizer.
 
-For the second, distinguish the role of the result:
-
-```text
-formal organization
-  -> places known facts in a consistent language;
-
-verification computation
-  -> recovers a known equation, representation label, or degree-of-freedom count;
-
-semantic compression
-  -> removes distinctions irrelevant to a named downstream question;
-
-computational or predictive leverage
-  -> computes a named observable by a cheaper controlled route, produces a new
-     consequence, or changes which experiment, approximation, or theory view is
-     available.
-```
-
-These are legitimate but different outputs. Do not promote a technically uniform
-recovery of familiar textbook physics into the central thesis merely because its
-machinery is sophisticated. Treat such recovery as baseline or regression material
-unless it changes a downstream theorem, no-go result, observable, approximation, or
-reconstruction. Likewise, distinguishing representation spaces prevents category
-errors, but it is supporting infrastructure unless a later claim actually depends
-on the distinction.
-
-For representation-based physics, representation theory does not supply the
-dynamics. Its constructive role is to identify observable-visible channels and
-distinctions that may be quotiented once the dynamics, preparation, and observable
-are supplied:
-
-```text
-(representation, dynamics H, preparation P, observable O)
-  -> symmetry-resolved channels
-  -> quotient distinctions invisible to O
-  -> minimal cyclic or effective object
-  -> recover the same O with equality or controlled error.
-```
-
-Possible useful outputs include an invariant amplitude basis, Hamiltonian block,
-cyclic spectral measure, reduced resolvent, recursion or transfer operator, effective
-generator with error control, and a graph quotient preserving a correlator. Their
-value is not their modern vocabulary but the bridge from the supplied physical
-problem to a shorter, reusable, and verified route.
-
-Before generalizing, compare one complete benchmark on the same model, preparation,
-observable, and accuracy target. Count the cost of discovering and constructing the
-reduction, solving the reduced problem, and recovering the observable. A smaller
-carrier space or shorter formula is not by itself a computational gain. The field
-equation or textbook recovery is then an intermediate contract and regression test,
-not the endpoint of the research spine.
+Some foundations cannot reasonably be reproved locally. Admit them as theorem
+contracts: exact hypotheses, exact output, the semantic bridge supplied, and the
+boundary where it cannot be used. A finished formula without generative origin is
+an ansatz or theorem input, not an internally derived construction.
 
 ## Generative tools and proof-in-construction
 
-Obstruction motivation is necessary but not sufficient. A derivation can begin from
-a genuine obstruction and still end as a one-use proof of a familiar object. A
-construction becomes generative only when it retains the operation that produced
-the object and exposes that operation for new admissible input:
-
-```text
-typed capability request and resource budget
-  -> cheapest candidate
-  -> calculated obstruction
-  -> reusable repair or generation rule
-  -> generated object and usable operations
-  -> internal certificates and failure boundary
-  -> a downstream calculation that consumes the generated output.
-```
-
-The proof belongs inside this route. It certifies typing, obstruction cancellation,
-recovery, completeness or minimality within the declared search region, and failure
-conditions. Do not reverse the dependency by importing a finished object, organizing
-a proof around it, and then discarding every mathematical tool after the theorem.
-That route may be rigorous, but its durable output is verification rather than a
-constructor.
-
-A research tool is generative when it has all of the following:
-
-- inputs stated independently of the expected solution;
-- operations derived from the obstruction rather than hard-coded from the answer;
-- an inspectable output usable without repeating the whole derivation;
-- certificates explaining why the output works and when construction fails;
-- a transfer test on an admissible case not named in advance by its known answer;
-- a downstream theorem, computation, observable, or design decision that reuses the
-  output.
-
-Represent the retained interface schematically as
+Obstruction motivation alone may still end in a one-use proof. A construction is
+generative only when it retains an operation for new admissible inputs:
 
 ```text
 Construct(data, capability, resource budget)
-  -> (generated object, reusable operations, certificates, failure record).
+  -> generated object
+  -> reusable operations
+  -> correctness/recovery certificates
+  -> explicit failure or refusal
 ```
 
-The returned operations may be an invariant-map basis, quotient projector,
-normal-form reducer, propagator lift, recursion, effective generator, graph rule, or
-another calculational interface. The theorem is one certificate attached to this
-return value, not the return value itself.
+The input must not encode the expected answer. Repair rules must arise from a
+calculated residual, rank defect, failed invariance, incompatibility, or another
+obstruction. The proof certifies typing, obstruction cancellation, recovery,
+minimality or completeness within scope, and failure conditions; it is not the
+returned tool.
 
-Textbook recovery remains valuable as a regression bench. It proves that the
-generator has not lost an established regime, but it does not demonstrate transfer.
-Before a generative calculus owns a paper's spine, apply it blindly to at least one
-new input and compare the complete route with the relevant baseline. If no reusable
-interface or transfer case can be supplied, compress the mathematics into a theorem
-contract, appendix, or verification backend instead of presenting it as the main
-constructive achievement.
+Evaluate the retained interface at three distinct levels:
 
-## Reformulation, compression, and semantic reconstruction
+- **Regression:** recover a known result without hard-coding its final formula.
+- **Transfer:** apply the unchanged interface to a new admissible input, including
+  a meaningful refusal when construction is impossible.
+- **Use:** consume the output in a downstream calculation and compare the complete
+  route with a baseline.
 
-Distinguish three strengths of theory change:
+Regression alone yields a verification backend. Transfer without use yields a
+formal generator whose computational value remains open. A generative tool should
+survive in the worktable with reader-usable inputs, operations, certificates, and
+boundaries rather than disappearing after its theorem.
+
+## Compression and reconstruction
+
+Distinguish changes of view carefully:
 
 ```text
-reformulation
-  -> the same objects and information in another representation;
-
-compression
-  -> the same theory computes a named observable through less information or a
-     cheaper verified route;
-
-semantic reconstruction
-  -> new primitive objects and dynamics replace the old description, while a
-     controlled bridge recovers its successful regime.
+reformulation   same objects and information in another representation
+compression     less information or work for a named observable
+reconstruction  different primitive objects and dynamics
 ```
 
-An invertible change of variables may expose sparsity, locality, conditioning, or
-recursion and thereby reduce execution cost. It is not, by invertibility alone, a
-new theory view. A quotient may remove distinctions irrelevant to an observable,
-but it still works inside the old theory. Reconstruction is stronger in a different
-sense: it changes what counts as a state, cause, interaction, or observable.
+An invertible change of variables can still improve sparsity, conditioning,
+locality, or recursion, but invertibility alone does not make a new theory. A
+quotient may be the strongest semantic compression when it removes distinctions
+invisible to the observable. Judge every gain by the whole path: finding the
+reduction, solving it, and recovering the requested output.
 
-Let `P_new` be the reconstructed physical object and `P_old,eff` the regime where
-the older theory was successful. Construct a bridge
+Ptolemaic epicycles illustrate a warning, not an automatic verdict: a successful
+correction scheme may encode the wrong primitive view. Perturbation is productive
+when a physical scale orders terms and errors are controlled. Proliferating
+repairs, nonanalytic targets, secular growth, phase changes, topology, collective
+modes, or bound-state poles can instead motivate a reconstruction probe. They do
+not prove one.
+
+A reconstructed theory must construct a bridge to the earlier successful regime:
 
 ```text
-L:P_new -> P_old,eff
+L : P_new -> P_old,eff
+O_old(L(p)) = O_new(p) + controlled error
 ```
 
-and evaluate both observable constructions on the same new state:
+It must also produce a consequence outside that regime. Conceptual economy does
+not guarantee tractability: spectral, combinatorial, inverse, or recovery problems
+may remain hard or undecidable.
 
-```text
-O_old(L(p))=O_new(p)+controlled error.
-```
+## Presumptions and modern lenses
 
-This recovery is mandatory. A new vocabulary that cannot construct the old
-successes, delimit its regime, and produce a consequence outside it is not yet a
-supported reconstruction.
+Classify presumptions as empirical inputs, mathematical conveniences,
+representation choices, approximations, or structural necessities. Separate
+kinematics from dynamics, classification from realization, on-shell from off-shell
+content, gauge redundancy from physical symmetry, and exact statements from
+approximations. Symmetry constrains admissible dynamics; it does not select dynamics
+without additional assumptions.
 
-Treat recurring correction patterns as possible evidence of missing primitives,
-not as proof. Perturbation is productive when a physical scale or coupling orders
-terms, the reference objects remain valid, and errors or asymptotics are controlled.
-It becomes a reconstruction signal when unrelated repairs proliferate, cancellations
-systematically hide simpler variables, the target is nonanalytic at the reference
-point, the chosen vacuum or degrees of freedom fail, or a finite expansion cannot
-represent the phenomenon being requested. Bound-state poles, phase changes,
-collective modes, topology, and secular growth are common tests, not automatic
-verdicts.
-
-Use the resulting discovery cycle:
-
-```text
-locate the old theory's successful regime
-  -> identify stable correction patterns and failure boundaries
-  -> propose the missing semantic object
-  -> construct its dynamics and observable
-  -> recover the old expansion or limit
-  -> test a prediction outside the old regime.
-```
-
-Do not infer that conceptual economy guarantees computational ease. A reconstructed
-theory may explain more yet retain hard spectral, combinatorial, or numerical
-problems. There is no universal procedure for recognizing the right new ontology;
-semantic reconstruction is a research regime whose claims are earned locally.
-
-## Internal mathematical construction
-
-When a mathematical object participates in the argument, construct why it is
-needed and how it arises from prior objects. Do not introduce a group, measure,
-bundle, operator, quotient, topology, or representation as external vocabulary and
-then calculate inside it.
-
-Use this order:
-
-```text
-physical or mathematical capability
-  -> obstruction or ambiguity
-  -> object that resolves or represents it
-  -> definition in typed terms
-  -> construction/equality witness
-  -> consequence and failure boundary.
-```
-
-For example, do not begin with “let `K` be the little group.” Construct a standard
-state or momentum, show that its transporting map is nonunique, calculate that the
-difference of two transports fixes the standard object, and only then name that
-stabilizer and its action.
-
-Some foundational results cannot reasonably be reproved inside each research node.
-Treat them as **theorem contracts**, not imported conclusions: state exact
-hypotheses, exact output, the semantic bridge supplied, and the boundary where the
-theorem no longer applies. Give a constructive local model or check when it makes
-the bridge readable.
-
-## Semantic computation
-
-Regard every deduction as computation: a checkable transformation of semantic
-content. Machine algebra and numerical work are only heavier instances. A
-mathematical operation is admissible when its input and output are typed, its action
-can be evaluated or witnessed, and its semantic content is preserved or changed in
-the declared way.
-
-Maintain **semantic invariance** across a derivation. Name the content that survives
-each representation change—such as the same event, state, orbit point, solution,
-probability, observable, equivalence class, or physical degree of freedom. When two
-expressions are claimed equal, exhibit their **semantic coincidence** by evaluating
-both constructions on the same input or by giving another explicit witness such as
-a commuting diagram, universal property, substitution, limit, or inverse.
-
-Component-wise expansion and term-by-term manipulation usually leave the level of
-meaningful objects, obscure why a result holds, and multiply computational burden.
-Minimize them as aggressively as the problem permits; do not organize a derivation
-around an expansion merely because it is executable.
-
-Before expanding coordinates or components, seek reduction through:
-
-- invariants, conserved quantities, quotient spaces, or orbit classification;
-- irreducible representations and symmetry-adapted decompositions;
-- natural maps, universal properties, or functorial constructions;
-- spectral, variational, generating-function, or diagrammatic methods;
-- normal forms, sufficient statistics, effective variables, or exact sequences;
-- duality or a representation change that removes rather than relocates work.
-
-Prefer transformations that preserve recognizable objects and state what semantic
-content each step carries. Low transformation depth is evidence—not proof—of a
-theorem's directness, robustness, and versatility. Judge the whole route, including
-the cost of constructing the abstraction and recovering observables. Do not hide
-work in notation, an unnamed inverse, an existence theorem, or a black box.
-
-Use components only when they are themselves the meaningful observable
-representation, no structural reduction is known, or a local verification requires
-them. Isolate that calculation, explain its semantic input and output, and return to
-the invariant statement rather than allowing the expansion to become the theory.
-
-Intuition proposes the objects or paths to compare; computation earns the
-deduction. Phrases such as “compare the two routes” are incomplete until both routes
-are constructed as composites with common domain/codomain and their equality or
-obstruction is calculated.
-
-## Presumption-driven reconstruction
-
-Start from the phenomenon or capability, not inherited chapter order. Classify each
-presumption as empirical input, mathematical convenience, representation choice,
-approximation, or structural necessity. Ask both whether it can be weakened or
-derived and what theory becomes visible if it fails.
-
-Separate kinematics from dynamics, classification from realization, on-shell from
-off-shell content, gauge redundancy from physical symmetry, and exact results from
-approximations. Name the extra locality, regularity, representation, boundary, or
-minimality assumptions whenever a structure is claimed to determine dynamics.
-
-Preferred lenses are starting points, not mandatory answers:
+Modern views are probes, not mandatory answers:
 
 - electromagnetism through `U(1)` connections, curvature, gauge equivalence,
   topology, and observables;
 - statistical mechanics through large deviations, concentration, conditioned
   measures, and nonequilibrium variational structure;
-- quantum field theory through symmetry representations, combinatorics, graph
-  reduction, effective descriptions, and renormalization structure;
-- analytical mechanics through symplectic or Poisson geometry, group actions,
-  momentum maps, constraints, and reduction;
+- quantum field theory through representations, combinatorics, graph reduction,
+  effective descriptions, and renormalization structure;
+- mechanics through symplectic/Poisson geometry, group actions, momentum maps,
+  constraints, and reduction;
 - mathematical computation through Lie representations, invariant decomposition,
   and symmetry-adapted bases.
 
-If a preferred lens does not shorten or strengthen the route to the target output,
-say so and choose a better one.
+Use a lens only when it shortens or strengthens the route to the target capability.
+For operational discovery, adjudication, and stopping, read
+[research-loop.md](research-loop.md); for the computation beneath every deduction,
+read [computation.md](computation.md).

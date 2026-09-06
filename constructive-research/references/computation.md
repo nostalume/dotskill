@@ -2,273 +2,144 @@
 
 Computation has two scales:
 
-1. **Deductive computation** is mandatory inside every conceptual node. It is the
-   finite, verifiable construction that makes a deduction or equation valid.
+1. **Deductive computation** is the finite construction that makes every
+   consequential deduction or equation checkable inside its conceptual node.
 2. **Heavy computation** is symbolic expansion, numerical solution, combinatorial
    enumeration, simulation, data transformation, or plotting large enough to
-   obscure the conceptual node. Isolate this scale in a computation node.
+   obscure that node. Isolate it in a computation artifact.
 
-Do not isolate the small equality witness that makes prose rigorous; do isolate raw
-expansions, programs, runs, tables, and numerical diagnostics.
+Keep small equality witnesses with the argument. Keep raw expansions, programs,
+runs, tables, and diagnostics outside it, returning compact results and boundaries.
 
 ## Deductive-computation contract
 
-For every nontrivial deduction or displayed equation, record in the surrounding
-argument:
+For every nontrivial claim or display, expose:
 
-- **constructed inputs:** where each object came from and its domain/type;
-- **operation:** the map, composition, restriction, quotient, substitution,
-  variation, limit, or algorithm actually performed;
-- **common target:** why expressions being equated inhabit the same space or answer
-  the same semantic question;
-- **witness:** the explicit evaluation, identity, inverse, universal property,
-  commuting diagram, bound, or reproducible check;
-- **semantic invariant/coincidence:** what mathematical or physical content is the
-  same across the step;
-- **output boundary:** assumptions used and cases in which the step fails.
+- constructed inputs and their types/domains;
+- the map, composition, quotient, substitution, variation, limit, or algorithm;
+- the common target that makes the comparison meaningful;
+- an evaluation, identity, inverse, universal property, commuting diagram, bound,
+  or reproducible certificate;
+- the event, state, solution, observable, equivalence class, or other semantic
+  content preserved or changed; and
+- assumptions and failure boundary.
 
-An equation should originate in this computation, not appear first and receive an
-interpretation afterward. A definition may introduce notation, but it cannot be
-used to disguise an unverified claim of existence, uniqueness, equivalence, or
-invariance.
+An equation must arise from this operation rather than appear first and acquire an
+interpretation afterward. A definition cannot prove existence, uniqueness,
+equivalence, or invariance.
 
-### Example: constructing a residual transformation
-
-Suppose `B(r)` has already been constructed with `B(r)k=r`, and let
-`q=Lambda(A)^(-1)p`. Do not write only “compare `B(p)` and `A B(q)`.” Compute:
+For example, if `B(r)k=r` and `q=Lambda(A)^(-1)p`, “compare two routes” is not a
+deduction. Compute the common endpoint:
 
 ```text
-B(p)k = p,
-
-[A B(q)]k
-  = A[B(q)k]
-  = A q
-  = A[Lambda(A)^(-1)p]
-  = p.
+B(p)k = p
+[A B(q)]k = A[B(q)k] = A q = A[Lambda(A)^(-1)p] = p
 ```
 
-Both composites have domain containing `k`, land at the same momentum `p`, and
-preserve the semantic endpoint. Their relative map is therefore constructed as
+Then the relative map is constructed and tested:
 
 ```text
-W(A,p) = B(p)^(-1) A B(q),
-
-W(A,p)k
-  = B(p)^(-1)[A B(q)k]
-  = B(p)^(-1)p
-  = k.
+W(A,p) = B(p)^(-1) A B(q)
+W(A,p)k = B(p)^(-1)[A B(q)k] = B(p)^(-1)p = k
 ```
 
-The calculation, not the phrase “two ways,” proves that `W(A,p)` belongs to the
-stabilizer of `k`. Further claims—cocycle, unitarity, or representation law—need
-their own computations.
+This witnesses that `W(A,p)` stabilizes `k`; cocycle, unitarity, and representation
+claims still require their own computations.
 
-## Reduction before execution
+## Reduce before expanding
 
-State the semantic question and seek a structural reduction before choosing an
-algorithm. Prefer invariants, quotienting, representations, normal forms, spectral
-or variational formulations, generating functions, and graph reductions over
-component-wise or term-by-term work.
+Seek invariants, quotients, symmetry-adapted decompositions, universal maps,
+normal forms, spectral/variational formulations, generating functions, sufficient
+statistics, graph reduction, or effective variables before components.
 
-Compare candidate routes by:
+Compare routes by semantic transformation depth, asymptotic work and memory,
+symbolic growth, conditioning, reusable intermediate structure, assumptions, and
+the cost of recovering the requested observable. Short notation or a smaller formal
+space is not a gain when it hides an inverse, measure, basis, solver, or recovery
+map.
 
-- number and meaning of representation changes;
-- asymptotic cost and memory scale;
-- numerical conditioning or symbolic expression growth;
-- reusable intermediate structure;
-- cost of recovering the requested observable;
-- assumptions hidden by libraries, solvers, or existence theorems.
-
-Low algebraic length is not enough. A reduction must decrease the whole semantic
-and computational route rather than move difficulty into a black box.
+Use components only when they are the observable representation, no structural
+reduction is known, or a local independent check needs them. Restrict to the
+smallest symmetry-adapted sector, automate repetitive algebra, check signs/indices/
+dimensions/boundaries, and compress the result back into an invariant statement.
 
 ## Admit the computational substrate
 
-Choose a toolchain from the mathematical operations that must be preserved, not
-from the language already used by the first probe. Repeated project-owned rational
-arithmetic, matrix multiplication, elimination, nullspaces, tensor
-canonicalization, quadrature, or eigensolvers are evidence that a maintained exact,
-symbolic, or numerical package should own those generic operations.
-
-Keep the boundary semantic:
+Choose tools from the operations that must be preserved, not from the first probe's
+language:
 
 ```text
-typed research request and admissible domain
+typed research request
   -> project-owned semantic policy
-       (grammar, obstruction, reduction order, resource bound, refusal)
-  -> maintained algebra/numerical substrate
-       (exact coefficients, linear solve, canonicalization, quadrature)
-  -> generated object, certificate, error estimate, and boundary.
+     (grammar, reduction order, obstruction, budget, refusal)
+  -> maintained exact/symbolic/numerical substrate
+  -> object, certificate, error, provenance, and boundary
 ```
 
-A computer-algebra system does not supply the meaning of an operation. Do not use
-an unrestricted simplifier, implicit coercion, undecided symbolic zero test, or
-generic tensor expansion as a proof step. Declare the coefficient domain, rewrite
-orientation, canonical form, zero policy, assumptions, and resource bound. Retain a
-small custom rewrite kernel when these choices are themselves the research object;
-delegate generic arithmetic and linear algebra beneath it rather than rebuilding a
-private CAS.
+Repeated private rational arithmetic, matrix operations, elimination, nullspaces,
+tensor canonicalization, quadrature, or eigensolvers usually belong to a maintained
+package. Retain a small custom kernel only when coefficient domain, rewrite
+orientation, canonical form, zero policy, termination, or resource refusal is the
+research object. A CAS does not supply semantic meaning; unrestricted simplification
+or undecided symbolic equality is not a proof.
 
-Classify executable artifacts by their consumers:
+Prefer one pinned environment and canonical runner for a connected computation
+graph. Additional runtimes, notebooks, dependency layers, or generated artifacts
+need a named consumer. During migration, characterize old behavior, port one
+vertical semantic slice, compare exact output or tolerance and failure, then remove
+the replaced substrate rather than retaining adapters indefinitely.
 
-- a **probe** tests a candidate and may be deleted after its conclusion is promoted;
-- a **certificate** reproducibly checks one node result and remains local to it;
-- a **tool** is consumed by another node or generates new admissible output, so its
-  input, output, refusal, and error contracts must be maintained independently of
-  its checks.
+## Probe, certificate, and tool
 
-A tool may be checked by a certificate; it must not import one. Promote shared code
-only for demonstrated common semantics, not similar helper names. Prefer one pinned
-environment and one canonical runner for a connected computation graph; a second
-runtime, notebook, package layer, or generated artifact needs a named consumer that
-justifies its maintenance cost.
+- A **probe** discriminates a candidate and may disappear after its conclusion is
+  promoted.
+- A **certificate** reproducibly checks one result and remains local to it.
+- A **tool** generates output consumed by another node; maintain its input, output,
+  refusal, provenance, and error contracts independently of tests.
 
-For a toolchain migration, keep the old executable only as a temporary oracle:
+A tool may be checked by a certificate but must not import one. Share code only for
+demonstrated common semantics, not similar helper names.
+
+For a generative tool, retain:
 
 ```text
-characterize result and failure behavior
-  -> port one vertical semantic slice
-  -> compare exact output or declared tolerance
-  -> run regression, transfer, and refusal cases
-  -> delete the replaced substrate and adapter.
+Tool(data, capability, resource bound)
+  -> generated structure and reusable operations
+  -> correctness/recovery certificates
+  -> explicit obstruction or refusal
 ```
 
-Set local limits on direct dependencies, shared modules, file size, and retained LOC
-before migration. If the new route mostly transliterates the old machinery, grows an
-adapter around library operations, or hides a formerly explicit semantic boundary,
-stop and reassess the package or representation choice.
+Its input must not encode the answer; corrections arise from calculated failures.
+Evaluate regression, transfer, and downstream use separately as defined in
+[evidence-and-synthesis.md](evidence-and-synthesis.md).
 
-## Verification computation versus computational leverage
+## Computational leverage
 
-A verification computation checks consistency: a quotient has the expected degrees
-of freedom, a carrier realizes a supplied representation, or an operator recovers a
-known field equation. Such checks are necessary evidence, but they do not establish
-that the construction makes the physical problem easier or predicts anything new.
-
-Test a computational claim with a fixed contract:
+Test leverage on a fixed contract:
 
 ```text
-(model and dynamics, preparation, observable, accuracy target)
-  -> baseline route and cost
-  -> proposed reduced object
-  -> same-observable equality or controlled-error witness
-  -> complete reduced-route cost
-  -> validity and failure boundary.
+(model/dynamics, preparation, observable, accuracy)
+  -> baseline route and complete cost
+  -> proposed reduction and construction cost
+  -> same-observable equality or controlled error
+  -> recovery cost and failure boundary
 ```
 
-Include the cost of finding and constructing the reduced object and of recovering the
-observable; do not count only the small middle calculation. Lower dimension,
-coordinate-free notation, or a cleaner representation-space distinction is not yet
-computational leverage unless it reduces symbolic growth, integral or state-space
-size, conditioning, storage, runtime, proof depth, or repeated work for the named
-observable.
+Include discovery and construction of the reduced object. A correct quotient or
+representation may be semantic compression while offering no cheaper computation.
+Conversely, invertible reformulations can reduce work through locality, sparsity,
+conditioning, or recursion without changing ontology.
 
-In representation research, keep the roles typed: the representation constrains
-admissible channels and intertwiners, while the Hamiltonian or action supplies the
-dynamics. A useful reduction consumes both, together with preparation and observable,
-and returns a minimal cyclic or effective object from which that observable is
-recovered. Record textbook recovery as a regression obligation rather than the final
-computational claim.
+Representation constrains channels and intertwiners; dynamics, preparation, and
+observable supply the physical problem. Do not infer dynamics from symmetry alone.
+General Hamiltonian families may remain intractable or undecidable; state the model
+class, observable, accuracy, and resource scale rather than promising a universal
+solver.
 
-## Build and use a generative tool
+## Heavy-computation packet
 
-When repeated deductions share an algebra, invariant decomposition, residual, or
-reduction pattern, do not merely reuse the notation while proving each case by hand.
-Test whether the shared structure can be retained as a tool:
-
-```text
-Tool(input data, capability, resource bound)
-  -> generated structure
-  -> operations available to downstream work
-  -> correctness and recovery certificates
-  -> explicit refusal or obstruction when the bound is insufficient.
-```
-
-The input must not encode the expected answer. The generation rule must calculate
-corrections from failed equalities, rank defects, compatibility residuals, or other
-obstructions. Its output must be reusable without replaying the full proof. Proof
-calculations remain mandatory, but run as internal certificates of the generated
-object: they should check the tool, not replace it.
-
-Evaluate such a tool at three levels:
-
-1. **Regression:** recover a known result without special-casing its final formula.
-2. **Transfer:** apply the same interface to an admissible input whose output was not
-   supplied beforehand, including a meaningful failure result when construction is
-   impossible within budget.
-3. **Use:** consume the generated structure in a downstream calculation and compare
-   complete cost, recovery depth, and error with the baseline route.
-
-Passing only regression makes the artifact a verification engine. Passing transfer
-but not use makes it a formal generator whose computational value remains open.
-Claim constructive computational leverage only after the use-level comparison.
-
-Prefer the next computation that invents, exercises, or falsifies such an interface
-over another hand-derived example. Keep the generator, its executable realization,
-and compact certificates on the worktable so later nodes consume the tool rather
-than importing its proof prose.
-
-## Theory reconstruction does not evade computational complexity
-
-When repeated expansions suggest that the primitive objects are wrong, allow a
-semantic reconstruction rather than forcing further reduction inside the old
-presentation. Keep its computational claim separate from its explanatory claim.
-A supported reconstruction must provide:
-
-```text
-new physical objects and dynamics,
-a bridge recovering the old successful regime,
-a same-observable equality or controlled error,
-one consequence not naturally available in the old view,
-and a fresh whole-route cost audit.
-```
-
-Do not treat perturbation order or formula length alone as evidence of a failed
-theory view. A scale-organized perturbative expansion may be the most direct
-computation for its observable and regime. Conversely, a compact new formalism may
-hide an equally difficult inverse, spectral problem, graph contraction, or
-recovery map.
-
-General Hamiltonian families impose a hard boundary. Broad spectral questions can
-be computationally intractable or even undecidable, so neither symmetry reduction,
-semantic quotienting, nor theory reconstruction supplies a universal solver. No
-workflow can guarantee discovery of variables that make every Hamiltonian easy.
-State the restricted model class, observable, accuracy, and resource scale; treat a
-failed local reconstruction as evidence about that candidate, not as failure of the
-research philosophy.
-
-## Computation-node contract
-
-Record:
-
-- the mathematical input and exact semantic question;
-- the presumption or prior-node result being tested;
-- the chosen reduction and why it preserves the required meaning;
-- algorithm, complexity, and expected scale;
-- executable notebook, script, CAS worksheet, query, or plotting source;
-- data provenance, environment, parameters, seeds, precision, and tolerances;
-- compact outputs consumed by other nodes;
-- dimensional, algebraic, numerical, limiting-case, or independent checks;
-- instability, approximation, failure modes, and reproducibility limits.
-
-Keep raw traces, large tables, expansions, and generated figures on the worktable.
-Return only the compact result, error or validity bounds, and semantic interpretation
-to dependent nodes.
-
-## Component calculations
-
-Do not use component-wise expansion as the primary derivation when a structural
-operation exists. Use it only when components are the observable representation,
-no effective reduction is known, or an independent local check is valuable.
-
-When components are necessary:
-
-1. Name the invariant object being represented.
-2. Restrict expansion to the smallest symmetry-adapted basis or required sector.
-3. Automate repetitive algebra where that improves auditability.
-4. Check signs, indices, dimensions, normalization, boundary conditions, and a
-   solvable or symmetric limit.
-5. Compress the result back into an invariant statement before downstream use.
-
-Machine computation supplements the mathematical argument. State what was checked
-and what remains dependent on implementation, precision, or data quality.
+Record the semantic question, inputs/presumptions, chosen reduction, algorithm and
+scale, executable artifact, data/environment/seeds/precision, compact outputs,
+checks, error/tolerance, instability, and consumers. The downstream node receives
+the result, witness, boundary, and meaning—not a raw trace or “the computer
+verifies.”
