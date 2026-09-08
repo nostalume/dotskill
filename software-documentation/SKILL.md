@@ -43,9 +43,19 @@ were requested.
 - For CLI/API/schema reference, decision records, migration notes, or release
   notes, read [reference and change documentation](references/reference-and-change-documentation.md).
 
-Use a format-specific skill, such as `pdf`, when the physical format requires its
-own transformation or inspection. That skill owns format mechanics; this skill
-still owns software meaning and audience fitness.
+Use [document-artifacts](../document-artifacts/SKILL.md) when the physical format
+requires transformation, inspection, or rendering, including PDF work. That skill
+owns format mechanics; this skill still owns software meaning and audience fitness.
+Use its shared request/result for physical output, supplying the accepted text,
+source revision and required preservation. Check returned content and reported
+losses against the documentation contract. Multiple exports use the same accepted
+content.
+
+When documentation consumes extracted material, use the
+[located projection](../document-artifacts/references/ingestion.md), including
+source references and uncertainties. Check its claims against authoritative
+software behavior before incorporating them; successful extraction or rendering
+does not establish that the explanation is correct.
 
 ## Validation and handoff
 

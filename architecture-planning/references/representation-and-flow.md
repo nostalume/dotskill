@@ -4,6 +4,20 @@ Use this lens only to decide what values cross boundaries and how they are
 admitted, transformed, selected, and evidenced. It owns data shape and flow, not
 effect authority, public compatibility, resource lifetime, or mathematical laws.
 
+## Smallest complete representation
+
+Choose the smallest representation that preserves the complete contract. Judge
+simplicity by the concepts, boundaries and transformations a reader must track,
+not word count or line count. Remove a layer or field only when its meaning,
+authority, failure behavior, provenance and recovery obligations remain explicit
+in a named owner. A short plan that hides a dependency is incomplete, not simpler.
+
+Before adding an abstraction, identify the distinction or repeated operation it
+owns. Before merging abstractions, check that their contracts and lifecycles agree.
+Prefer direct names and visible flow; preserve necessary explanations, uncertainty
+and exact syntax in plans and deliverables. This is a design decision pattern,
+not a conversational persona or permission to reduce implementation scope.
+
 ## Typed admission
 
 - Prefer construction of an admitted type over check-then-reconstruct code.

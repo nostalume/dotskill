@@ -63,6 +63,30 @@ contracts: exact hypotheses, exact output, the semantic bridge supplied, and the
 boundary where it cannot be used. A finished formula without generative origin is
 an ansatz or theorem input, not an internally derived construction.
 
+## Semantic deduction
+
+Keep finite mathematical computation adjacent to the argument. For every
+consequential claim or equation, expose:
+
+```text
+typed inputs and domain
+  -> map, composition, quotient, substitution, variation, limit, or algorithm
+  -> common target and explicit evaluation, witness, or certificate
+  -> preserved or changed semantic content
+  -> assumptions and failure boundary
+```
+
+An equation must arise from the operation rather than appear first and acquire an
+interpretation afterward. A definition cannot establish existence, uniqueness,
+equivalence, or invariance. A theorem contract can bridge a step only after its
+hypotheses and output match exactly.
+
+Reduce before expanding: prefer invariants, quotients, symmetry-adapted
+decompositions, universal maps, normal forms, or spectral/variational formulations.
+Use components only when they are the observable representation, no structural
+reduction is known, or a small independent check needs them. Keep the smallest
+useful sector and return the result to an invariant statement.
+
 ## Generative tools and proof-in-construction
 
 Obstruction motivation alone may still end in a one-use proof. A construction is
@@ -153,5 +177,5 @@ Modern views are probes, not mandatory answers:
 
 Use a lens only when it shortens or strengthens the route to the target capability.
 For operational discovery, adjudication, and stopping, read
-[research-loop.md](research-loop.md); for the computation beneath every deduction,
-read [computation.md](computation.md).
+[research-loop.md](research-loop.md). Read [computation.md](computation.md) only
+when substantial execution or an executable certificate bears inferential weight.

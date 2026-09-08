@@ -1,6 +1,6 @@
 ---
 name: constructive-research
-description: Discover an unknown research spine or develop a known one as an internally constructed, computationally verifiable, material-backed DAG. Use for mathematical or physical inquiries, derivations, papers, plots, data, or technical notes that must expose presumptions, preserve semantics, and separate heavy computation.
+description: Discover an unknown research spine or develop a known one as an internally constructed, computationally verifiable, material-backed research state. Use for mathematical or physical inquiries, derivations, papers, plots, data, or technical notes that must expose presumptions, preserve semantics, and separate heavy computation.
 ---
 
 # Constructive Research
@@ -28,50 +28,47 @@ inherited chapter order, formal closure, or a sequence of convenient examples.
 
 ## Select references
 
-Read only what the active request requires:
+Select one primary reference by the unresolved research operation. Add another
+only when its distinct owner becomes active:
 
-- Research intuition, presumptions, obstruction construction, generative tools,
-  compression, or theory reconstruction:
+- **Construct or deduce:** intuition, presumptions, obstructions, generative tools,
+  compression, semantic deduction, or theory reconstruction:
   [research-philosophy.md](references/research-philosophy.md).
-- Unknown-spine discovery, known-spine adjudication, next-action selection,
-  research horizons, loop cursor, or policy/candidate revision:
+- **Discover or decide:** frontier selection, claim adjudication, evidence,
+  literature coverage, dispositions, retention, cursor, or policy revision:
   [research-loop.md](references/research-loop.md).
-- DAG and worktable construction, node/edge contracts, source ownership, or
-  manuscript projections: [research-graph.md](references/research-graph.md).
-- Evidence admission, confidence boundaries, synthesis triggers, conflicting or
-  failed evidence, literature coverage, and replayable dispositions:
-  [evidence-and-synthesis.md](references/evidence-and-synthesis.md).
-- Any mathematical deduction or substantial symbolic, numerical, combinatorial,
-  simulation, data, or plotting work: [computation.md](references/computation.md).
-- Writing or auditing a paper/note for motivation, complete equation deductions,
-  interpretation, and practical reuse:
+- **Bind or organize:** logical state, owner/edge bindings, artifact admission,
+  layout/naming, compaction, or projections:
+  [research-state.md](references/research-state.md).
+- **Execute:** substantial or inferentially decisive symbolic, numerical,
+  combinatorial, simulation, data, or plotting execution:
+  [computation.md](references/computation.md).
+- **Explain:** write or audit a paper/note for motivation, deductions,
+  interpretation, practical reuse, or a physical-artifact handoff:
   [research-writing.md](references/research-writing.md).
 
-For mathematical research, always read the philosophy and computation references.
-Read the loop reference whenever selecting or changing the active frontier, and the
-evidence reference whenever a result may change a research disposition.
+The five references are not a mandatory bundle. A result that may change the
+frontier activates the loop; executable work activates computation only at its
+routing boundary. Unknown mathematical/evidential content selects its producing
+owner; accepted content needing reader order selects writing. If only physical
+formatting remains, use the artifact handoff without reopening research owners.
 
 ## Operating rule
 
-1. Inspect the user's worktable and decide whether the active region is an inquiry
-   without a stable claim or a claim with a frozen local contract.
-2. In discovery, construct a tension and choose a probe only when its possible
-   outcomes distinguish live alternatives. Advance only when a result reduces
-   ambiguity, constructs a missing object/operation, or establishes a boundary.
-3. In development, bind the weakest consequential spine bridge, define its horizon,
-   and freeze the candidate, falsifiers, benches, and promotion conditions before
-   gathering decisive evidence.
-4. Build the smallest reusable construction and its semantic computation. Isolate
-   heavy execution while returning compact witnesses and boundaries to the graph.
-5. Admit evidence and synthesize it through the frozen decision kernel and local
-   contract. Propagate only the resulting domain- and claim-dimension disposition.
-6. Stop, restrict, reject, split, or reconstruct when the declared benchmark makes
-   further local detail unable to change the scoped spine.
+1. Inspect the worktable and enter at the earliest unresolved operation; do not
+   replay settled phases.
+2. Execute the primary owner's transition and reference other owners instead of
+   copying their contracts.
+3. Admit new material once. Only a loop disposition changes the durable frontier;
+   apply its `promote | compact | drop` retention result.
+4. Stop at the declared horizon or produce a semantic writing projection. Request
+   physical form only through the optional artifact handoff.
 
 ## Hard boundaries
 
-- The DAG owns durable epistemic memory; a loop cursor owns current attention only.
-- Graph position or status never grants permission or imposes work order.
+- Research state owns durable epistemic memory; a loop cursor owns current
+  attention only. State position or status never grants permission or imposes work
+  order.
 - Research material stays in the worktable; editorial, implementation, and
   migration plans stay in the repository's ignored agent workspace when present.
 - Sources and search results do not replace internal construction or evidence
@@ -80,5 +77,7 @@ evidence reference whenever a result may change a research disposition.
   beyond the exact domain and capability tested.
 - Do not hide work in notation, components, an existence theorem, a solver, or an
   unnamed inverse. State irreducible dependencies and refusal conditions.
+- Constructive research never owns format syntax, conversion, rendering, or
+  publication; a physical artifact remains a projection of accepted content.
 - Keep conceptual cycles explicit through successive inquiry, disposition, or
   semantic-contract revisions; do not create a global generation bureaucracy.

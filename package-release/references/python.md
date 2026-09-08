@@ -1,6 +1,6 @@
 # Python release
 
-Use the declared PEP 517/518 build backend and PEP 621 metadata. Prefer `uv build`
+Use the declared PEP 517/518 build backend and project metadata. Prefer `uv build`
 when the project already uses uv; do not introduce a second environment manager
 without a concrete need.
 
@@ -16,11 +16,34 @@ without a concrete need.
 6. Install the sdist into another clean environment and repeat the smoke check.
 7. Record SHA-256 hashes for both artifacts.
 
-Prefer PyPI trusted publishing from a protected GitHub environment over long-lived
-API tokens. Bind the workflow to the intended repository, tag, environment, and
-package identity. Inspect the workflow run and PyPI project page after publishing,
-then install the exact released version from PyPI.
+For publication, prefer PyPI trusted publishing from a protected GitHub environment
+over long-lived API tokens when that workflow fits the project. Bind any publishing
+workflow to the intended repository, trigger, environment and package identity.
+Inspect the workflow run when used and the PyPI record after publishing, then
+install the exact released version from PyPI.
 
-The Git tag and Python version must agree. If publication partially succeeds, do
-not overwrite the version; diagnose the observed registry state and release a new
-version when correction is required.
+When a Git tag is part of the release process, it and the Python version must agree.
+Preparation ends with the checked wheel/sdist and hashes; it needs no tag or upload.
+For verification, inspect the exact project/version and expected file set before
+the requested clean-install checks. Neither mode grants publication authority.
+
+## Reconcile PyPI files before resuming
+
+Use the [PyPI release JSON API](https://docs.pypi.org/api/json/) or equivalent
+official registry observation to inspect the exact version's filenames and SHA-256
+digests. Compare them with the prepared set; distinguish an absent file from an
+unavailable registry response. Then verify the actual downloaded artifact or
+installation source so a local wheel/cache does not stand in for registry evidence.
+
+[PyPI forbids filename reuse](https://pypi.org/help/#file-name-reuse), including
+after deletion. If one reviewed file is published and another is confirmed absent,
+resume only the missing file when its filename remains eligible and publication
+authority still covers that unchanged set. A matching existing file needs no
+replacement. Conflicting contents or corrections require a new appropriate version
+and fresh preparation; never delete a file to try to free its name.
+
+[Twine's skip-existing option](https://twine.readthedocs.io/en/stable/#twine-upload)
+is not a content-identity check or proof that every requested artifact arrived.
+After any resume, inspect the complete expected set and run required consumer
+checks. Return the shared release result with separate wheel/sdist publication
+and installation observations, including skipped or unverified checks.

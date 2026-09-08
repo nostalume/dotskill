@@ -56,9 +56,9 @@ history.
 7. After the last relevant edit, close the change with
    [delivery verification](references/delivery-verification.md).
 
-Use `external-tool-integration` for a new external capability and
-`system-mutation` when the software changes host state. Their specialized evidence
-augments this loop; it does not replace final verification.
+Use `system-mutation` for external tool acquisition/registration, file organization,
+or software that changes host state. Its specialized references and effect evidence
+augment this loop; they do not replace final verification.
 
 Use `software-documentation` when documentation is the primary artifact and
 `github-actions` when GitHub workflow behavior is primary. A code change records

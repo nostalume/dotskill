@@ -1,4 +1,4 @@
 interface:
   display_name: "Constructive Research"
   short_description: "Discover or develop a semantic research spine"
-  default_prompt: "Use $constructive-research to discover or adjudicate this inquiry through internally constructed mathematics, semantic computation, and a material-backed DAG with explicit evidence boundaries."
+  default_prompt: "Use $constructive-research to discover or adjudicate this inquiry through internally constructed mathematics, semantic computation, and a material-backed research state with explicit evidence boundaries."

@@ -19,9 +19,17 @@ These owners are not five mandatory serial phases. A code change records its
 documentation, automation, and release impact; additional owners participate only
 when their artifact or authority is actually in scope.
 
-Specialist skills such as `external-tool-integration` and `system-mutation` add
-their boundary-specific contracts when applicable; they do not replace software
-development's final verification.
+For physical document inspection, extraction, editing or rendering, including PDF,
+use [document-artifacts](document-artifacts/SKILL.md). Research, software-documentation
+and analytical owners retain meaning and evidence acceptance; extracted content
+returns with source locations and limitations.
+
+Use [system-mutation](system-mutation/SKILL.md) for host changes, external tool
+integration, and file organization. Its focused references share one authority and
+recovery lifecycle. Architecture planning applies the
+[smallest complete representation](architecture-planning/references/representation-and-flow.md)
+pattern to simplify designs while preserving their contracts. Neither replaces
+software development's final verification.
 
 From a project root:
 

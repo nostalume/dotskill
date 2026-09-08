@@ -1,115 +1,108 @@
-# Constructive Research Writing
+# Research Writing Projection
 
-Use this reference when a supported research spine must become a readable paper,
-technical note, figure, or revision. It governs exposition, not discovery or
-evidence adjudication.
+Use this reference when accepted research state must become a readable paper,
+technical note, figure, or revision. It owns reader order and semantic exposition,
+not discovery, evidence adjudication, computation execution, or physical format.
 
-## Keep management outside the research record
+## Select the semantic projection
 
-Keep outlines, revision audits, migration ledgers, formatting defects, package
-choices, and repair sequences in the repository's ignored agent workspace when one
-exists. Promote a finding only when it changes a scientific claim, presumption,
-domain, construction, computation, or open question; update that canonical owner
-instead of keeping a parallel audit.
+Read the canonical owner bindings from [research-state.md](research-state.md) and
+the admitted disposition from [research-loop.md](research-loop.md). Pin the exact
+owner revisions, domain/boundary, and disposition consumed. Writing may reorder or
+explain them but cannot create a second claim, evidence, or status owner.
+
+Keep outlines, revision audits, migration ledgers, formatting defects, and repair
+sequences in confirmed-ignored agent space as defined by the state owner. Include
+alternatives, failed routes, or open boundaries only when they delimit the claim or
+make the reader path honest.
 
 ## Construct the reader path
 
-Let a reader reconstruct why an object was needed, how it was generated, what each
-operation computed, and how to reuse the retained result:
+Let a reader reconstruct why an object was needed, how it was generated, what the
+decisive operation computed, and how to reuse the result:
 
 ```text
-capability/question -> concrete obstruction -> typed request
-  -> generated candidate -> decisive computation -> interpreted output
-  -> retained interface and boundary
+capability/question -> obstruction -> typed request -> generated candidate
+  -> decisive computation -> interpreted output -> interface and boundary
 ```
 
 This is an explanatory path, not a mandatory section template. Merge trivial
-steps, but never remove the operation supporting a consequential claim.
+steps, but never remove the operation supporting a consequential claim. Introduce
+a nonstandard object only after naming the capability, supplied typed objects,
+failure of the current operation/representation, and smallest request forced by
+that failure. A definition establishes notation; it does not supply motivation or
+proof.
 
-Introduce a mathematical object only after naming the capability, supplied typed
-objects, exact failure of the current operation/representation, and smallest new
-request forced by that failure. A definition establishes notation; it does not
-motivate the object or prove that it works.
+## Expose mathematics and execution
 
-## Admit equations by role
-
-Classify each display as supplied input, definition, semantic computation, theorem
-contract, derived result, regression translation, or open obligation. Every
-nontrivial equality, existence, uniqueness, invariance, vanishing, or consequence
-needs an adjacent computation or exact theorem contract.
-
-Do not let “directly,” “similarly,” “after substitution,” “solving gives,” or “one
-finds” carry an omitted operation. Detailed deduction means an uninterrupted chain
-of meaning-preserving operations, not maximal component expansion. Prefer an
-invariant pairing, factorization, quotient, projection, universal property, or
-representation map; isolate a component check only when it is the shortest witness.
+Apply the finite semantic-deduction contract from
+[research-philosophy.md](research-philosophy.md) without restating it. Classify a
+display as supplied input, definition, semantic computation, theorem contract,
+derived result, regression translation, or open obligation. A consequential step
+needs its adjacent computation or an exact theorem contract.
 
 Use a mathematics–explanation sandwich:
 
-1. Before a decisive display, state inputs/types, operation, and question.
-2. In the display, include every semantic step needed to reach a common target.
-3. After it, state what was forced or ruled out, what meaning survived, which later
-   construction consumes it, and its boundary/open obligation.
+1. Before the display, state the typed inputs, operation, and question.
+2. In it, show the meaning-preserving steps needed to reach a common target.
+3. After it, state what was forced or ruled out, what meaning survived, its
+   consumer, and its boundary.
 
-Prose motivates and interprets mathematics; it cannot replace the calculation.
-Equations without local orientation are equally incomplete.
+Do not let “directly,” “similarly,” “after substitution,” or “one finds” carry a
+missing operation. Prefer structural mathematics to component expansion; use a
+local component check only when it is the shortest witness.
 
-## Promote computation without hiding it
+For substantial execution, consume the compact result from
+[computation.md](computation.md). Show the typed request, decisive reduction or
+intermediate equality, certificate, interpreted result, and domain; keep raw traces
+outside the argument. “The computer verifies” is not an explanation.
 
-Heavy work remains in a computation artifact. Promote only its typed request,
-finite reduction, decisive intermediate equalities, certificate, resulting reusable
-rule, and domain. Do not paste traces into the paper or replace them with “the
-computer verifies.” The reader must see what was calculated and why its certificate
-supports the edge.
-
-Expose distinctions that change use: supplied/generated, exact/approximate,
-invariant/convention-dependent, proved/cited, reusable/regression-only, and
-supported/open. Consume the domain disposition defined in
-[evidence-and-synthesis.md](evidence-and-synthesis.md); do not invent a separate
-manuscript status system.
+Expose distinctions that change reader use: supplied/generated,
+exact/approximate, invariant/convention-dependent, proved/cited,
+reusable/regression-only, and supported/open. Do not invent manuscript-local
+versions of their underlying contracts.
 
 ## Leave a wieldable result
 
-For every claimed constructor, compiler, or reduction, tell the reader:
+For a retained constructor, compiler, or reduction, explain the admissible input,
+ordered operation, output or refusal, downstream consumer, and cost/failure
+boundary. When reuse is claimed, show transfer to an admissible input that did not
+generate the tool; a seed replay is regression only.
 
-- what input to provide and how admissibility is checked;
-- which operations to perform and in what semantic order;
-- which output or refusal is returned;
-- which downstream construction or observable consumes it; and
-- which cost, approximation, or failure boundary remains.
+Use a textbook example only to anchor semantics, check conventions/limits,
+demonstrate transfer, or distinguish the route. Place it after the generative
+construction and label that role.
 
-When reusability is claimed, include a transfer to an admissible input not used to
-generate the tool. A replay of the seed example proves only regression.
+Use native mathematics for typed maps and equalities. Use a diagram only when the
+relation is clearer than prose or equations; use Fletcher only when branching,
+rejoining, commutation, quotienting, or topology is itself meaningful. A diagram
+never replaces a deduction. Use prose or theorem forms for motivation, contracts,
+and interpretation; do not use raw text or code listings merely as styling.
 
-Use a familiar textbook example only when it anchors semantics, checks conventions
-or limits, demonstrates transfer, or distinguishes the new route. Place it after the
-generative construction and label its role; do not let it generate the supposedly
-new machinery or become a redundant second derivation.
+## Request a physical artifact
 
-## Present the semantic shape
+For requested physical output, use the shared request and result in
+[document-artifacts](../../document-artifacts/SKILL.md). Supply the supported
+semantic projection, pinned owner revisions and disposition/boundary as source
+references. Carry the requested format and preservation needs into that contract;
+the artifact owner selects format mechanisms and reports checks and losses.
 
-- Use native mathematics for typed maps, equalities, and linear composition.
-- Use prose and theorem-like environments for motivation, contracts,
-  interpretation, and instructions.
-- Use Fletcher only when branching, rejoining, commutation, quotienting, or graph
-  topology is itself meaningful.
-
-A diagram exposes relations; it never replaces a deduction. Do not use raw text,
-algorithm packages, or code listings merely to style a mathematical interface.
+Two formats consume the same supported semantic source, not separately rewritten
+research authorities. Compare returned artifacts with that source and retain
+unresolved fidelity limits. An artifact result cannot change research disposition:
+route any newly exposed evidence or boundary through
+[the research loop](research-loop.md), then refresh affected projections only
+from its resulting disposition.
 
 ## Audit
 
-Before completion, locate the earliest failing item:
+Before completion, repair the earliest failing edge:
 
 - every nonstandard object has a capability and obstruction;
-- every consequential equation has adjacent computation or a bounded theorem
-  contract;
-- explanation occurs before and after decisive mathematics;
-- presumptions, conventions, approximations, dispositions, and boundaries are
-  visible;
-- each retained tool has a reader-usable operation and refusal;
-- heavy calculations are inspectable without entering the main argument;
-- examples test or transfer rather than replace the construction; and
-- every diagram makes a relation materially clearer.
-
-Repair that earliest unsupported edge before polishing downstream prose.
+- every consequential equation has an adjacent computation or theorem contract;
+- decisive mathematics is oriented and interpreted;
+- presumptions, approximations, disposition, and boundaries are visible;
+- retained tools have reader-usable operations and refusals;
+- executable results remain inspectable without raw traces in the argument;
+- examples test or transfer rather than replace construction; and
+- physical formats consume one accepted semantic projection.

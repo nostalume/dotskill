@@ -1,121 +1,115 @@
-# Research Computation
+# Executable Research Computation
 
-Computation has two scales:
+Use this reference when symbolic, numerical, combinatorial, simulation, data, or
+plotting work is substantial because of scale, repetition, dependencies,
+nondeterminism, hardware, or reuse, or when an executable certificate bears
+inferential weight. Ordinary finite deduction follows
+[research-philosophy.md](research-philosophy.md). Reading this reference does not
+by itself admit a file, directory, notebook, or project.
 
-1. **Deductive computation** is the finite construction that makes every
-   consequential deduction or equation checkable inside its conceptual node.
-2. **Heavy computation** is symbolic expansion, numerical solution, combinatorial
-   enumeration, simulation, data transformation, or plotting large enough to
-   obscure that node. Isolate it in a computation artifact.
+## Admit execution before a project
 
-Keep small equality witnesses with the argument. Keep raw expansions, programs,
-runs, tables, and diagnostics outside it, returning compact results and boundaries.
+A bounded one-off execution may use an available tool without creating a project
+when its typed request, compact result, witness, provenance, and boundary fit an
+existing canonical owner. Keep exploratory commands and raw output transient.
 
-## Deductive-computation contract
+Admit a computation project only when execution must be maintained or rerun for a
+named consumer and cannot coherently use an existing compatible project. One
+compatible connected workload has one project owner, environment lock, and
+canonical runner. A second project requires one explicit incompatibility:
 
-For every nontrivial claim or display, expose:
+- runtime or dependency constraints cannot share a reproducible environment;
+- authority, protected data, or security policy requires isolation;
+- hardware or resource execution needs a distinct platform lifecycle; or
+- a tool has an independent distribution lifecycle.
 
-- constructed inputs and their types/domains;
-- the map, composition, quotient, substitution, variation, limit, or algorithm;
-- the common target that makes the comparison meaningful;
-- an evaluation, identity, inverse, universal property, commuting diagram, bound,
-  or reproducible certificate;
-- the event, state, solution, observable, equivalence class, or other semantic
-  content preserved or changed; and
-- assumptions and failure boundary.
+Probe, certificate, tool, notebook, language, and result kinds do not independently
+justify projects. Notebooks and scripts in one substrate share the environment and
+canonical runner; a notebook is an interface, not a second implementation owner.
+Reject a split whose only rationale is convenience, experimentation, or local
+self-containment.
 
-An equation must arise from this operation rather than appear first and acquire an
-interpretation afterward. A definition cannot prove existence, uniqueness,
-equivalence, or invariance.
+For each admitted project, name its owner/root, compatibility boundary,
+environment lock, one supported run command, resource/refusal policy, generated
+output policy, and consumers. Follow the physical admission and naming rules in
+[research-state.md](research-state.md).
 
-For example, if `B(r)k=r` and `q=Lambda(A)^(-1)p`, “compare two routes” is not a
-deduction. Compute the common endpoint:
+## Choose the smallest substrate
 
-```text
-B(p)k = p
-[A B(q)]k = A[B(q)k] = A q = A[Lambda(A)^(-1)p] = p
-```
-
-Then the relative map is constructed and tested:
-
-```text
-W(A,p) = B(p)^(-1) A B(q)
-W(A,p)k = B(p)^(-1)[A B(q)k] = B(p)^(-1)p = k
-```
-
-This witnesses that `W(A,p)` stabilizes `k`; cocycle, unitarity, and representation
-claims still require their own computations.
-
-## Reduce before expanding
-
-Seek invariants, quotients, symmetry-adapted decompositions, universal maps,
-normal forms, spectral/variational formulations, generating functions, sufficient
-statistics, graph reduction, or effective variables before components.
-
-Compare routes by semantic transformation depth, asymptotic work and memory,
-symbolic growth, conditioning, reusable intermediate structure, assumptions, and
-the cost of recovering the requested observable. Short notation or a smaller formal
-space is not a gain when it hides an inverse, measure, basis, solver, or recovery
-map.
-
-Use components only when they are the observable representation, no structural
-reduction is known, or a local independent check needs them. Restrict to the
-smallest symmetry-adapted sector, automate repetitive algebra, check signs/indices/
-dimensions/boundaries, and compress the result back into an invariant statement.
-
-## Admit the computational substrate
-
-Choose tools from the operations that must be preserved, not from the first probe's
-language:
+Choose tools from the operations and validity properties that must be preserved,
+not from the first probe's language:
 
 ```text
-typed research request
-  -> project-owned semantic policy
-     (grammar, reduction order, obstruction, budget, refusal)
+typed request and request-owned semantic contract
+  -> project-owned execution policy
+     (realization, numerical policy, budget, refusal)
   -> maintained exact/symbolic/numerical substrate
-  -> object, certificate, error, provenance, and boundary
+  -> compact result, certificate, provenance, and boundary
 ```
 
-Repeated private rational arithmetic, matrix operations, elimination, nullspaces,
-tensor canonicalization, quadrature, or eigensolvers usually belong to a maintained
-package. Retain a small custom kernel only when coefficient domain, rewrite
-orientation, canonical form, zero policy, termination, or resource refusal is the
-research object. A CAS does not supply semantic meaning; unrestricted simplification
-or undecided symbolic equality is not a proof.
+Use maintained packages for commodity rational arithmetic, matrix operations,
+elimination, nullspaces, tensor canonicalization, quadrature, eigensolvers, data
+transforms, and plotting. Retain a custom kernel only when coefficient domain,
+rewrite orientation, canonical form, zero policy, termination, or resource refusal
+is itself the research object. A CAS supplies execution, not semantic meaning;
+unrestricted simplification or undecided symbolic equality is not a proof.
 
-Prefer one pinned environment and canonical runner for a connected computation
-graph. Additional runtimes, notebooks, dependency layers, or generated artifacts
-need a named consumer. During migration, characterize old behavior, port one
-vertical semantic slice, compare exact output or tolerance and failure, then remove
-the replaced substrate rather than retaining adapters indefinitely.
+Prefer invariant or symmetry-adapted reductions before large expansion. Bound
+time, memory, precision, seeds/repetitions, hardware, and output volume as relevant;
+refuse work whose declared boundary cannot be enforced or observed.
 
-## Probe, certificate, and tool
+## Canonical run and result
+
+Expose one runtime-neutral interface through the project's canonical command:
+
+```text
+Run(request_ref, input_refs, resource_bound)
+  -> result_ref
+  -> witness_or_certificate
+  -> error_and_validity_boundary
+  -> environment/provenance/output_digest
+  -> named_consumers
+```
+
+The request owner supplies the semantic question, admitted inputs/presumptions,
+observable, reduction/algorithm, expected result type, and refusal conditions.
+Input references carry revisions or digests. The project owns dependency/runtime
+identity and execution policy, not the scientific claim.
+
+Return a compact result plus the witness/certificate, exact or estimated error,
+validity and instability boundary, environment/tool revisions, seeds/precision,
+output digest, and consumers. Return an explicit failure or refusal when execution
+does not satisfy the request; a partial run cannot silently propagate success.
+Exact runs must replay exactly under the declared environment. Approximate or
+stochastic runs declare tolerances, seed/repetition policy, and accepted variation.
+
+## Probe, certificate, and tool roles
 
 - A **probe** discriminates a candidate and may disappear after its conclusion is
   promoted.
-- A **certificate** reproducibly checks one result and remains local to it.
-- A **tool** generates output consumed by another node; maintain its input, output,
-  refusal, provenance, and error contracts independently of tests.
+- A **certificate** reproducibly checks one result and remains local to that result.
+- A **tool** generates output for an independent consumer and owns an input/output,
+  refusal, provenance, and error contract.
 
-A tool may be checked by a certificate but must not import one. Share code only for
-demonstrated common semantics, not similar helper names.
+Compatible roles share the same project and runner. A tool may be checked by a
+certificate but must not depend on the certificate or its test as production
+authority. Share code for demonstrated common semantics, not similar helper names.
 
-For a generative tool, retain:
+## Retain execution material
 
-```text
-Tool(data, capability, resource bound)
-  -> generated structure and reusable operations
-  -> correctness/recovery certificates
-  -> explicit obstruction or refusal
-```
+Track the minimal source, lock/configuration, canonical runner, and small fixtures
+needed to reproduce retained results. Keep caches, raw traces, logs, intermediate
+tables, plots, and regenerable outputs ignored or transient unless the state
+admission rule gives exact bytes an independent consumer or evidential role.
 
-Its input must not encode the answer; corrections arise from calculated failures.
-Evaluate regression, transfer, and downstream use separately as defined in
-[evidence-and-synthesis.md](evidence-and-synthesis.md).
+Do not add a parallel notebook, script, package, environment, or runner without a
+named semantic role and consumer. During migration, characterize the old result,
+port one vertical semantic slice, compare exact output or declared tolerance and
+failure behavior, then remove the replaced adapter when no live consumer remains.
 
-## Computational leverage
+## Test computational leverage
 
-Test leverage on a fixed contract:
+Compare complete routes on one frozen contract:
 
 ```text
 (model/dynamics, preparation, observable, accuracy)
@@ -125,21 +119,11 @@ Test leverage on a fixed contract:
   -> recovery cost and failure boundary
 ```
 
-Include discovery and construction of the reduced object. A correct quotient or
-representation may be semantic compression while offering no cheaper computation.
-Conversely, invertible reformulations can reduce work through locality, sparsity,
-conditioning, or recursion without changing ontology.
-
-Representation constrains channels and intertwiners; dynamics, preparation, and
-observable supply the physical problem. Do not infer dynamics from symmetry alone.
-General Hamiltonian families may remain intractable or undecidable; state the model
-class, observable, accuracy, and resource scale rather than promising a universal
-solver.
-
-## Heavy-computation packet
-
-Record the semantic question, inputs/presumptions, chosen reduction, algorithm and
-scale, executable artifact, data/environment/seeds/precision, compact outputs,
-checks, error/tolerance, instability, and consumers. The downstream node receives
-the result, witness, boundary, and meaning—not a raw trace or “the computer
-verifies.”
+Include discovery/construction of the reduced object, execution, and recovery of
+the requested observable. Semantic compression may offer no cheaper computation;
+an invertible reformulation may still gain locality, sparsity, conditioning, or
+recursion. Compare transformation depth, time/memory, symbolic growth, conditioning,
+reusable intermediates, assumptions, and recovery cost. Representation constrains
+admissible channels but does not determine dynamics, preparation, or observables.
+State the model class, accuracy, resource scale, and refusal rather than promising
+a universal solver.
