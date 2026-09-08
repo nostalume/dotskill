@@ -1,11 +1,17 @@
 ---
 name: package-release
-description: Prepare and publish a language package through reproducible artifacts, clean-version evidence, CI or trusted publishing, and registry observation; includes Python-specific guidance.
+description: Prepare and, when explicitly approved, publish a language package by binding one clean revision to reproducible artifacts, version identity, and registry observation. Use for release admission and completion, not ordinary CI or workflow authoring; includes Python guidance.
 ---
 
 # Package Release
 
 Use this skill when preparing or publishing a package to a registry.
+
+`software-development` owns the meaning and final evidence of the underlying code
+change. `github-actions` owns creation or review of GitHub workflow structure,
+permissions, action versions, and remote orchestration. This skill consumes that
+evidence and owns the separate decision to admit a version, tag, artifact set, and
+registry publication.
 
 ## Release contract
 

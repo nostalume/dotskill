@@ -11,6 +11,9 @@ to authority; public failure promises to contracts.
 - Identify the durable record or protocol transition that proves commitment or
   ownership transfer. Allocator hints, pointers, indexes, and summaries are
   recoverable projections, not lifecycle truth.
+- Express single-consumer ownership with native linear, affine, move, borrowing,
+  RAII, or typestate mechanisms when available. Otherwise use a guarded explicit
+  state machine; unenforced convention is not lifecycle evidence.
 - Separate behavior from geometry and physical representation. Preserve lifecycle
   invariants across architectures without coercing one ABI into another.
 - A process-local allocator may supply blocks but cannot establish recoverable

@@ -1,11 +1,11 @@
 ---
 name: architecture-planning
-description: Inspect an implemented codebase, resolve architecture or refactor decisions from revision-scoped evidence, and prepare dependency-ordered private plans before coding.
+description: Inspect an implemented codebase, resolve architecture or refactor decisions from revision-scoped evidence, and prepare and audit dependency-ordered private plans before coding.
 ---
 
 # Architecture Planning
 
-Use `Gather -> Plan -> Stage -> Task` as private reasoning concepts. Stop before implementation.
+Use `Gather -> Plan -> Stage -> Task -> Audit` as private reasoning concepts. Stop before implementation.
 
 ## Private notation
 
@@ -28,7 +28,7 @@ Keep planning artifacts ignored and untracked:
 
 Ensure the root `.gitignore` contains `/.agents/`. If `.agents/` is already tracked, report it; do not untrack files without approval.
 
-At entry, resolve the project root, read applicable agent instructions, and inspect revision, dirty state, manifests, public entry points, tests, authoritative docs, and relevant source. Resume a matching readable plan when goal and status are unambiguous; otherwise initialize the ignored workspace and gather only enough evidence to frame the goal. Do not add redundant planning directories, schemas, parsers, machine state, or archives.
+At entry, resolve the project root, read applicable agent instructions, and inspect revision, dirty state, manifests, public entry points, tests, authoritative docs, and relevant source. Where design or code style matters, also inspect applicable project formatter, linter, type, build, and architecture configuration plus the nearest maintained source and test analogues when they exist. Resume a matching readable plan when goal and status are unambiguous; otherwise initialize the ignored workspace and gather only enough evidence to frame the goal. Do not add redundant planning directories, schemas, parsers, machine state, or archives.
 
 ## Gather
 
@@ -45,36 +45,64 @@ Rank external evidence: primary specification/upstream docs, maintainer statemen
 Choose lenses by the unresolved decision, not by artifact or technology. Each
 general rule belongs to one primary lens:
 
+- What domain concepts, identities, invariants, and transitions mean: [domain-and-invariants.md](references/domain-and-invariants.md)
 - Who may decide, mutate, or perform an effect: [authority-and-effects.md](references/authority-and-effects.md)
 - What value crosses each edge and how it is admitted or transformed: [representation-and-flow.md](references/representation-and-flow.md)
 - What externally observable operation must remain compatible: [contracts-and-compatibility.md](references/contracts-and-compatibility.md)
 - How a bounded resource is acquired, committed, released, or recovered: [resources-and-recovery.md](references/resources-and-recovery.md)
+- What time, memory, allocation, copying, I/O, and concurrency cost is acceptable: [cost-and-scale.md](references/cost-and-scale.md)
 - What mathematical domain, law, scale, or solver claim must hold: [mathematics-and-numerics.md](references/mathematics-and-numerics.md)
 
 Use specialized lenses only after the applicable general lenses:
 
 - Evidence-bearing DEC algorithms: [dec-algorithms.md](references/dec-algorithms.md)
 
-When an issue spans lenses, assign each decision to exactly one and cross-link
-the dependency; do not duplicate the rule.
+When an issue spans lenses, give the decision one primary owner lens and import
+constraints from the others; cross-link dependencies without duplicating the
+decision. Specialized lenses are overlays and never compete for primary ownership.
 
 ## Plan
 
-Write `.agents/plan/<functional-name>.md` with goal, scope, non-goals, invariants, current and target ownership/dataflow, approved decisions, ordered stages, success conditions, and reopen conditions. Keep it abstract enough to survive local edits and record ready, blocked, landed, and deferred work.
+Write `.agents/plan/<functional-name>.md` with goal, scope, non-goals, invariants, current and target ownership/dataflow, resolved decisions, unresolved proposals, ordered stages, success conditions, and reopen conditions. Keep it abstract enough to survive local edits and record ready, blocked, landed, and deferred work.
 
-Grill unresolved choices in dependency order. For each, give current evidence, viable alternatives, recommendation, cost, and failure cases. Planning cannot invent decisions; only explicit user approval freezes one. Reconcile each answer through downstream decisions.
+Grill unresolved choices in dependency order. For each, give current evidence, viable alternatives, recommendation, cost, and failure cases. Classify resolutions as observed constraints, consequences entailed by observed constraints or approved policy, user-approved policy, or unresolved proposals. Facts and entailed consequences need evidence and rationale, not ceremonial approval; only a discretionary proposal or material tradeoff requires explicit user approval. Reconcile each answer through downstream decisions.
 
 ## Stage
 
 Create `<functional-name>-stage-NN.md` for each independently reviewable outcome. Make it self-contained: state outcome, invariant, relevant evidence, scope, non-goals, owners, dependencies, inputs, outputs, current-to-target boundary, entry conditions, completion checks, rollback, and reopen conditions.
 
-Stage numbers must follow dependencies. A stage is ready only when its governing decisions are approved, inputs are known, and predecessor outcomes have landed.
+Stage numbers must follow dependencies. A stage is ready only when governing proposals are approved, observed and entailed constraints are evidenced, inputs are known, and predecessor outcomes have landed.
+
+## Cross-lifecycle impacts
+
+Every stage and task classifies these dependencies:
+
+- **Documentation impact:** `none` with a reason, or the audience, artifact,
+  authoritative claims, owner, and validation obligation.
+- **Automation impact:** `none` with a reason, or the remote claim, event, trust or
+  permission boundary, owner, and required execution evidence.
+- **Release impact:** `none` with a reason, or the versioned artifact, admission
+  authority, observer, and registry/deployment evidence.
+
+An impact records a downstream dependency; it does not make that work universally
+mandatory or grant authority to edit documentation/workflows, execute automation,
+tag, deploy, or publish.
 
 ## Task
 
-Embed numerically ordered tasks in their stage document. Each task states observable outcome and owner, dependencies, constraints, affected sources/tests/docs, behavioral pseudocode when useful, RED evidence, minimum GREEN behavior, cleanup, verification command/environment, hard gate, rollback, and reopen condition. Select tests by the durable-contract rules in [contracts-and-compatibility.md](references/contracts-and-compatibility.md); do not plan checks of ephemeral implementation shape.
+Embed numerically ordered tasks in their stage document. Each task states observable outcome and owner, dependencies, constraints, affected sources/tests/docs, behavioral pseudocode when useful, pre-change or falsification evidence, minimum accepted behavior, selected implementation-feedback method and rationale, cleanup, verification command/environment, hard gate, rollback, and reopen condition.
 
-A task is ready only when its contract is complete and dependencies have landed. Name the first ready task, then stop until implementation is authorized.
+Use RED-GREEN-refactor when a settled observable contract has a stable test boundary. Otherwise select evidence that matches the work: characterization and mutation sensitivity for behavior-preserving refactors, laws or proofs for mathematical claims, benchmarks for cost claims, static tooling for structural policy, or disposable integration checks for effects. An uncertain domain or API requires bounded exploration and renewed planning before production implementation. Select behavioral tests by the durable-contract rules in [contracts-and-compatibility.md](references/contracts-and-compatibility.md); do not test ephemeral implementation shape or manufacture a test-first history.
+
+A task is ready only when its contract is complete, dependencies have landed, and the plan audit has no blocking finding. Do not treat planned pseudocode or predicted code shape as implementation evidence.
+
+## Audit
+
+After drafting or materially revising a plan, stage, or task, read [plan-audit.md](references/plan-audit.md) and audit the artifacts against fresh repository evidence. Review the written artifact as a new implementer would; do not fill gaps from conversational memory or authorial intent.
+
+Correct evidence-supported defects at the smallest governing level and re-audit the affected dependency chain. Stop rewriting when no blocker remains. Return genuine policy choices to the user once with evidence and alternatives; do not churn on unsupported style preferences. Name the first audited ready task, then stop until implementation is authorized.
+
+The audit establishes plan readiness, not implementation conformance. Each task must name the repository-native formatting, static, build, test, and behavioral checks needed after implementation; the authorized delivery workflow must inspect the actual diff and reopen design when it contradicts an invariant.
 
 ## Replanning
 
@@ -92,5 +120,7 @@ Reinspect affected source before relying on stored guidance. When demand, develo
 - Current-state documentation never presents proposals as implemented facts.
 - Every named current path exists; locate its current owner before proposing a target API or owner.
 - No stage or task has hidden inputs, effects, or dependencies.
+- No task is ready while an audit blocker remains; warnings are accepted or deferred explicitly.
+- A style or structural gate cites project configuration, an applicable instruction, or multiple maintained analogues; personal preference is not a gate.
 - Planning does not authorize production implementation or unrelated mutation.
 - Reopen design for changed requirements, source contradiction, failed invariants, development drift, or material new evidence.

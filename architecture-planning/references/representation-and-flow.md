@@ -22,6 +22,11 @@ effect authority, public compatibility, resource lifetime, or mathematical laws.
   admitted type, variant selector, and next consumer.
 - When runtime identity matters, bind it once during construction and carry it in
   the admitted value.
+- Distinguish linear flow from linear or affine use. When a capability or resource
+  must have exactly one or at most one consumer, prefer native ownership, moves,
+  borrowing, move-only values, or typestate. Otherwise contain the transition
+  behind private construction and an explicit state machine. Do not impose linear
+  machinery on ordinary immutable values.
 
 ## Composable flow
 
@@ -30,12 +35,14 @@ effect authority, public compatibility, resource lifetime, or mathematical laws.
 - Arrange transformations in visible pipe-in/out order. Prefer shallow methods,
   early typed results, composable intermediates, and final delegation over nested
   orchestration and relay objects.
-- Tail delegation must preserve errors, cancellation, and resource handoff. Use a
-  linear orchestrator or iterative state transition when the language lacks
-  tail-call optimization.
+- Terminal delegation must preserve errors, cancellation, and resource handoff.
+  Use an actual tail call only when the language and runtime make it sound and
+  useful; otherwise prefer a linear orchestrator or iterative state transition.
 - Fluent syntax is acceptable only when intermediate types remain visible and it
   does not hide effects, retries, mutation, or failures.
 - Compute expensive intermediates once; projections do not recompute them.
+- Local mutation is acceptable inside one visible owner when it preserves the
+  external value contract and materially improves clarity or measured cost.
 
 ## Evidence preservation
 
