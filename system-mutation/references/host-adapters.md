@@ -1,34 +1,24 @@
-# Host adapters
+# Host-specific invocation
 
-## Capability observation
+Use a direct official command or API unless a demonstrated interface gap requires
+an adapter. Inspect command identity, resolution precedence and manager shims before
+probing; even a version command can trigger acquisition. Distinguish missing tools,
+denied access, ambiguous identity and failed execution in ordinary task output.
 
-Probe with a harmless authoritative command or API operation. Return a contextual
-result, not a Boolean:
+Use native paths and quoting for the selected shell. Resolve links and filesystem
+boundaries before destructive changes. Prefer stable structured output or exit
+semantics to parsing localized diagnostic text. Verify the relevant resulting state.
 
-- `Available(capability)`
-- `Unavailable(reason)`
-- `Unauthorized(identity, scope)`
-- `Ambiguous(evidence)`
-- `ProbeFailed(error)`
+## When implementing a PowerShell command or provider
 
-Bind the result to the executable or endpoint identity, version, arguments,
-environment, and precedence that produced it. Do not infer capability from
-localized diagnostic text. Refresh observations before an irreversible effect.
+Preserve native parameter binding, common parameters, streams and error records.
+Resolve module dependencies explicitly. Use SupportsShouldProcess for mutations
+and honor WhatIf/Confirm without adding a second approval protocol. Verify module
+loading and invocation in a fresh process when session state could hide defects.
 
-## PowerShell providers
+## When implementing mutation code
 
-- Resolve commands in module scope; do not depend on the caller's session state.
-- Preserve native parameter binding, common parameters, streams, and error records.
-- Use `SupportsShouldProcess` for state changes and respect `-WhatIf`/`-Confirm`.
-- Keep provider discovery separate from mutation.
-- Verify loading and invocation in a fresh PowerShell process.
-
-## Effect verification
-
-For each admitted effect, capture the relevant before-state, invoke the exact
-adapter once, and observe the after-state independently. A successful process exit
-is evidence of execution, not proof of the postcondition.
-
-Use disposable integration targets with unique names and bounded timeouts. Inject
-failures around each external boundary. Always test cleanup and assert that no
-unexpected files, services, accounts, processes, or configuration remain.
+Use software-development's claim-appropriate tests. Disposable fixtures should
+exercise promised retry, partial-failure and cleanup behavior at the affected
+boundaries. For a direct command, check the actual outcome and owned residue;
+do not create test infrastructure or induce unrelated host failures.

@@ -1,32 +1,27 @@
-# Backup repository migration
+# Backup transfer and verification
 
-Treat an encrypted repository as an identity-bearing graph, not a directory of
-independent files. Preserve repository identity, encryption keys, backend endpoint,
-bucket or container, namespace or prefix, snapshot lineage, and retention policy.
+Inspect source and destination using the backup tool's supported interface. Resolve
+repository identity, namespace, snapshot inventory, credentials and retention
+requirements. Classify the destination as empty, compatible, different or unknown.
+Never initialize or overwrite an unknown repository to make inspection succeed.
 
-## Admission
+Select the tool's official migration method. A physical relocation may require
+unchanged object names, bytes, keys and lineage; a supported logical transfer may
+create new identifiers or encryption state. Establish which history and restore
+properties must survive before choosing. Do not infer a safe raw copy from the
+fact that the backend exposes files. Respect the tool's consistency/locking rules.
 
-Observe the target read-only and classify it as exactly one of:
+For an authorized migration, keep the source recoverable, transfer the selected
+history, and compare the required inventory and metadata. Restore representative
+content into owned scratch when restore validation is in scope and compare it with
+known source content. Test continued writes only if the requested migration includes
+that claim and a new snapshot is authorized.
 
-- empty;
-- the same repository lineage;
-- a different repository;
-- inaccessible or ambiguous.
+For verification-only, perform the requested read/check operations; do not create
+snapshots, initialize, repair, prune or change retention. A restore writes local
+output and must fit the agreed verification scope.
 
-Never initialize an unknown target, overwrite a different lineage, or prune either
-side before restore evidence exists. Keep the source readable and unchanged during
-the migration.
-
-## Procedure
-
-1. Record redacted source identity, namespace, snapshot inventory, policy, and keys.
-2. Create or select the target only after classification and approval.
-3. Copy repository objects without changing their logical names or contents.
-4. Open the target using the original repository identity and credentials.
-5. Compare snapshot lineage and repository metadata.
-6. Restore representative files into a disposable directory and compare digests.
-7. Create one new snapshot through the target and verify it joins the same lineage.
-8. Retain source and recovery material until the user accepts the migration.
-
-Redact credentials from commands, logs, receipts, and reports. A completed copy is
-not a successful migration until both restore and continued-write checks pass.
+Report transferred and verified scope separately, including changed identities,
+missing history and unrun restore/write checks. Keep source and recovery material
+until their retirement is authorized. A completed copy alone does not prove a
+usable backup. Redact credentials and clean only owned verification output.

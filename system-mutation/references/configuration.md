@@ -1,34 +1,22 @@
-# Cross-platform configuration
+# Configuration and dotfiles
 
-## Ownership model
+Locate the source of truth before editing: a user-owned file, generated target,
+application-managed field or remote setting. Keep secrets and machine observations
+out of reusable desired state. Preserve fields another owner may legitimately edit.
 
-Classify every field or artifact before implementation:
+For a single setting, inspect its current value and applicable precedence, use the
+supported interface, and verify the effective value. Preserve the prior value when
+needed for recovery. Do not design a render/merge engine for a direct edit.
 
-- declarative source: user-owned desired state;
-- generated target: deterministic output that may be replaced;
-- mutable state: state another program legitimately changes;
-- secret: sensitive material with explicit source and exposure rules;
-- recovery material: backup or rollback evidence;
-- machine fact: observed input, never silently promoted to desired state.
+For a generator or synchronizer, define which fields it owns, how local changes
+survive, and whether synchronization is one-way or supports a round trip. Test
+initial application and a meaningful update in a disposable target. Stop if the
+platform cannot preserve a required semantic.
 
-Define deterministic `render`, `apply`, `update`, `merge`, and `recover` behavior.
-Fail closed when a platform lacks a required semantic; do not silently emulate a
-different contract.
+For an existing chezmoi project, use direct files for owned content, templates for
+declarative variation, and attributes for applicability. Modify scripts are useful
+only for actual field-level coexistence; ignore rules do not store target data.
+Inspect the proposed diff and preserve permitted local mutations on reapplication.
 
-## Chezmoi and dotfiles
-
-Choose direct files for fully owned content, templates for declarative variation,
-attributes for applicability or lifecycle, and modify scripts only for genuine
-field-level coexistence. Ignore rules select applicability; they are not a store
-for target data.
-
-Verify in a disposable destination:
-
-1. render from a fresh source state;
-2. apply to an empty target;
-3. preserve permitted local mutations;
-4. update the source and reapply;
-5. prove the intended round trip or explicitly document one-way ownership.
-
-Scan rendered output, logs, diffs, and receipts for secrets. Require approval
-before applying to the real home or host, then re-observe exact target fields.
+Apply within existing session authority. Check the changed fields and effective
+configuration, and keep secrets out of rendered output, diffs and diagnostics.

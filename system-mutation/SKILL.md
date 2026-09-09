@@ -1,101 +1,58 @@
 ---
 name: system-mutation
-description: Inspect, plan, execute, or test bounded host changes, including tool installation and registration, file organization and undo, cross-platform configuration, PowerShell providers, and backup migrations with explicit authority and recovery.
+description: Set up tools and local environments, register integrations, change host configuration, organize files with recovery, or migrate backups. Use for deliberate host or environment changes, not ordinary source edits, artifact creation, or tests merely writing files.
 ---
 
 # System Mutation
 
-Use this skill for requested operations or software that changes a host: files,
-accounts, packages, services, configuration, repositories, or external tool state.
-Keep discovery and planning
-safe; make each admitted effect explicit and observable.
+Carry out the requested host change using existing tools and the smallest useful
+procedure. Ordinary code and document edits stay with their respective skills.
 
-## Contract
+## Inspect, act and verify
 
-Model one lifecycle:
+Identify the requested operation, exact targets, relevant existing state and
+conflicts. Inspect only what can affect the decision. Preview and verification
+requests do not authorize installation, repair, deletion or other unrequested work.
 
-`desired -> observe -> plan -> admit -> apply -> receipt`
+Use authority already supplied by the user and session. Ask only for genuinely
+missing permission or information. For an authorized direct operation, its command
+and observed result can be the entire plan and record; no typed request, receipt
+schema or custom runner is required.
 
-- `desired` describes the requested end state without host facts.
-- `observe` records fresh identity, capability, policy, and current state.
-- `plan` is deterministic and non-mutating.
-- `admit` is the explicit boundary for approval and stale-observation rejection.
-- `apply` performs only the bounded effects in the admitted plan.
-- `receipt` records outcomes, cleanup, and a fresh post-observation.
+Use the selected tool's official interface. Before a destructive operation, resolve
+the actual target and preserve the recovery material the task requires. Refresh
+identity immediately before acting when links, concurrent changes or remote state
+could change the target. Keep secrets out of command text and reports.
 
-Hard invariants:
+Verify the requested end state, including the actual consumer when readiness is
+claimed. A successful command alone may not prove it. Report material changes,
+partial results and remaining limits briefly. Keep durable mappings or logs only
+when needed for batch recovery, reproducibility or an explicit request.
 
-- Observation and planning never mutate the host.
-- Apply never guesses identity, capability, ownership, or precedence.
-- Every effect has an exact target, precondition, postcondition, and failure result.
-- Partial failure preserves enough evidence for retry, cleanup, or recovery.
-- Ordinary tests never mutate the developer host.
-- Real mutation requires explicit user approval. Reuse existing authority for
-  unchanged scope and preconditions; ask only for a missing or changed effect.
-- Success is proved by post-observation, not by a zero exit code alone.
+## Recovery
 
-The request names the operation and postcondition, exact targets/exclusions,
-source identities and preconditions, relevant consumer or destination, conflict
-policy, authority and resource bounds. Mode-specific references add only their
-necessary fields. Preview/inspection ends without apply; verify does not silently
-install or repair; undo does not repeat the original operation.
+After interruption, inspect what actually changed before retrying. Preserve useful
+partial output and later user edits. Undo only recorded, still-identifiable effects;
+do not infer ownership from a path name or old PID. Stop the affected operation if
+identity or authority is uncertain. Describe irreversible effects honestly rather
+than requiring a fictional rollback. Clean only owned disposable work.
 
-## Receipt and recovery
+## Read the relevant procedure
 
-Record intent before each effect and observed state afterwards, with operation
-identity, changed locations/configuration, completed and unapplied work, checks,
-losses and available recovery. Distinguish complete, partial, unavailable, failed,
-refused and cancelled outcomes; preserve earlier effects without hiding terminal
-refusal or cancellation. Complete means the requested operation's postconditions
-were observed, not that every lifecycle step ran.
+- Missing dependencies or a new task environment:
+  [minimal project environments](references/project-environments.md).
+- Installing or registering a CLI, MCP server or API integration:
+  [external integration](references/external-integration.md).
+- File layout, conflicts, moves or undo:
+  [file organization](references/file-organization.md).
+- Platform/API details or implementing a PowerShell provider:
+  [host adapters](references/host-adapters.md).
+- Configuration edits or dotfile synchronization:
+  [configuration](references/configuration.md).
+- Backup transfer or verification:
+  [backup repositories](references/backup-repository.md).
 
-After interruption between an effect and its receipt, reconcile actual source,
-destination and intermediate states with intent before resuming. Missing log entries
-do not prove absence of effects. Stop affected work when identity is ambiguous;
-never blindly repeat an operation or roll back over later user changes.
-Recovery requires current identities, usable preserved state and authority for its
-effects. Record recovery failures alongside the primary outcome. A rollback plan
-is not executed recovery, and not every external effect is reversible.
-
-## Workflow
-
-1. Classify the owned state, generated state, mutable state, secrets, and host facts.
-2. Probe capabilities with harmless authoritative operations.
-3. Build a typed observation; preserve unavailable, unauthorized, ambiguous, and
-   failed outcomes instead of collapsing them.
-4. Derive a minimal plan and state its approval and rollback boundaries.
-5. Reject stale observations immediately before admission when races matter.
-6. Apply one bounded effect at a time and retain exact receipts.
-7. Re-observe the target and prove the requested postconditions.
-8. For implemented mutation software, exercise relevant retry, partial failure,
-   timeout, cleanup and idempotency paths. For direct operations, verify the actual
-   effects and recovery state without inducing unrelated host failures.
-
-## Testing gate
-
-For implemented mutation software, select applicable layers:
-
-1. Pure tests for observation-to-plan behavior.
-2. Adapter tests with injected effects and deterministic failures.
-3. Disposable integration tests with unique roots, timeouts, before/after
-   snapshots, and residue checks.
-
-Do not run a real-host integration test merely because it is convenient.
-
-## Routed references
-
-- External CLI/MCP/API installation, registration and consumer verification:
-  [external integration](references/external-integration.md)
-- Directory classification, duplicate handling, moves and undo:
-  [file organization](references/file-organization.md)
-- Host tools, capability probes, PowerShell, and side-effect tests:
-  [host-adapters](references/host-adapters.md)
-- Cross-platform configuration and dotfiles:
-  [configuration](references/configuration.md)
-- Encrypted backup repository migration:
-  [backup-repository](references/backup-repository.md)
-
-## Stop line
-
-Stop before apply when the target, authority, ownership, approval, rollback, or
-postcondition is not concrete. Report the missing contract instead of improvising.
+When implementing mutation software, use software-development for code and tests.
+Exercise the specific failure/recovery behavior that software promises in disposable
+fixtures. Running an ordinary command does not require building an adapter or
+injecting failures into the user's host.

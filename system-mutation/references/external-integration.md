@@ -1,50 +1,33 @@
 # External tool integration
 
-Use the [shared mutation contract](../SKILL.md) for authority, effects, results and
-recovery. This reference specializes tool acquisition and consumer access; ordinary
-invocation of an already usable tool remains with its consumer.
+The consumer selects the capability it needs. This reference handles acquisition
+and registration; [system-mutation](../SKILL.md) supplies authority and recovery.
+For local dependencies, start with [project environments](project-environments.md).
 
-## Select the requested operation
+Use current official documentation and the selected tool's local help. Inspect
+manager shims before invoking commands that might acquire a missing runtime.
 
-Carry the required capability/postcondition, consumer, provider identity and
-compatibility constraints into the shared request. Include the installation or
-configuration scope, credential references and resource bounds when relevant.
+| Requested operation | Work and completion |
+| --- | --- |
+| Inspect | Observe installed/configured state without installing or repairing |
+| Install | Acquire the selected provider in the agreed scope; report its location |
+| Register | Use the consumer's supported interface; preserve the previous named entry |
+| Verify readiness | Invoke the requested capability through the actual consumer |
+| Upgrade/remove | Change only the named owned component; preserve shared dependencies and unrelated registrations |
 
-- Inspect: observe the provider and existing registration without changing them.
-- Install: acquire the named provider at the admitted destination. Report installation
-  separately from consumer readiness.
-- Register: connect an existing entrypoint/endpoint to the named consumer; preserve
-  the prior entry and expose only the necessary tool surface.
-- Verify: establish identity and make one harmless real consumer call for a usability
-  claim. Use a fresh session after registration changes. Report startup, transport,
-  authentication, discovery and invocation failures distinctly.
-- Upgrade/remove: act only on named owned components; preserve shared dependencies
-  and unrelated registrations. Verify the replacement capability or scoped absence.
-  Removal does not require calling the removed provider.
+Install-only needs no registration. A one-shot CLI needs no MCP service. Follow the
+application's dependency contract for an in-process library; keep an external
+provider's environment separate from the consumer's own runtime. Do not install
+providers into an assistant application's internal environment or edit its private
+implementation to bypass a configuration problem.
 
-Choose CLI, MCP, API or a native capability by lifetime, interface, isolation and
-total cost, not a fixed ranking. A one-shot CLI need not be registered as MCP.
-Use custom glue only for a demonstrated interface gap.
+Expose only the required interface and credential references. Prefer a narrow
+server over a general shell when that satisfies the task. Never weaken
+authentication or expand host access to make a readiness check pass.
 
-Keep out-of-process provider environments outside the consumer runtime. For an
-in-process client, follow the application's existing dependency contract. Do not
-put secrets in arguments, source, logs or returned evidence. Check current official
-interfaces and local help before choosing version-sensitive commands.
-
-## Check consumer readiness and partial setup
-
-Extend the shared receipt with executable/endpoint identity and version, observed
-installation/registration/discovery/invocation states, changed configuration and
-probe evidence. These are separate observations, not mandatory sequential gates.
-Install-only can complete without registration; ready-to-use requires a successful
-consumer invocation. A listed executable or successful registration is insufficient.
-
-If installation succeeds but registration fails, report the installed residue and
-preserve or restore the prior entry under the shared recovery rules. Failed reload
-leaves discovery and invocation unproved. Missing credentials or incompatible
-versions remain explicit limits; do not weaken authentication or change the
-consumer's required mechanism to obtain a success result.
-
-Keep resolved paths, versions, endpoints and probe receipts with this execution,
-not reusable configuration or a persistent capability catalogue. For Hermes,
-read [Hermes integration](hermes.md).
+After registration changes, reload or use a fresh consumer session when required,
+then make one suitable consumer call. Distinguish installation, registration and
+invocation: partial setup does not establish readiness. Preserve or restore the
+prior entry within existing authority, and report installed residue if integration
+fails. Keep observed paths, versions and diagnostics with the task, not a persistent
+capability catalogue.
