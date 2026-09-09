@@ -1,6 +1,6 @@
 ---
 name: software-development
-description: Implement, refactor, review, or verify a settled software change through claim-appropriate feedback, actual-diff conformance, and fresh completion checks. Use for ordinary code work; route material unresolved architecture to architecture-planning and publication to package-release.
+description: Implement, refactor, review, or verify a settled software change through claim-appropriate feedback, actual-diff conformance, and fresh completion checks. Use for ordinary code work; route material unresolved architecture to architecture-planning and package publication to package-release.
 ---
 
 # Software Development
@@ -56,8 +56,9 @@ history.
 7. After the last relevant edit, close the change with
    [delivery verification](references/delivery-verification.md).
 
-Use `system-mutation` for external tool acquisition/registration, file organization,
-or software that changes host state. Its specialized references and effect evidence
+Use `system-mutation` for deliberate tool/environment setup, registration, host
+configuration, file organization or backup migration. Ordinary code edits and test
+files remain here. Its specialized references and effect evidence
 augment this loop; they do not replace final verification.
 
 Use `software-documentation` when documentation is the primary artifact and
@@ -71,5 +72,5 @@ Do not call the change complete unless the final scope is identified, the select
 feedback actually exercised each changed claim, conformance has no blocker, and
 fresh focused and project-canonical checks support the reported result. Report
 exact observed outcomes, skipped or failed checks, residual risks, and any changed
-documentation, automation, or release impact. Release remains a separately
+documentation, automation, or release impact. Package publication remains a separately
 authorized operation owned by `package-release`.

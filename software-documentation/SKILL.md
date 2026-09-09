@@ -1,6 +1,6 @@
 ---
 name: software-documentation
-description: Write or review software documentation for users or developers from authoritative, versioned behavior, with executable examples and artifact-specific validation. Use when documentation is the primary deliverable; route product changes to software-development and publication to package-release.
+description: Write or review software documentation for users or developers from authoritative, versioned behavior, with executable examples and artifact-specific validation. Use when documentation is the primary deliverable; route product changes to software-development and package publication to package-release.
 ---
 
 # Software Documentation

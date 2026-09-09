@@ -1,14 +1,15 @@
 # Release and publish workflows
 
-Use this guide to author remote orchestration for an already admitted release. The
-`package-release` skill owns the clean revision, version, artifact, tag, approval,
-registry observation, and post-publication smoke contract.
+Use this guide for authorized package-release or deployment orchestration.
+For packages, package-release defines payload identity and registry/consumer checks.
+For application or site deployment, use the requested target's deployment contract;
+it does not inherit a package registry lifecycle.
 
 ## Separate evidence from authority
 
 1. Select a trigger whose identity matches the release contract—such as an exact
    tag, protected manual input, or approved release event—and validate it against
-   package metadata before any privileged effect.
+   package metadata or the selected deployment revision before any privileged effect.
 2. Build and verify artifacts once from the intended clean revision in an
    unprivileged job. Inspect contents and metadata, record hashes, and create
    provenance/attestation when required.
@@ -31,7 +32,7 @@ permissions.
 
 ## Completion boundary
 
-Workflow success proves only the observed GitHub jobs and effects. Publication is
-complete only when `package-release` also observes the registry/deployment record
-and exercises the published consumer artifact. Do not create/push a tag, dispatch,
+Workflow success proves only the observed GitHub jobs and effects. Package publication
+also requires registry and consumer evidence under package-release. Deployment
+requires its target-specific health and revision checks. Do not create/push a tag, dispatch,
 approve an environment, deploy, or publish merely because this workflow exists.

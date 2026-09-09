@@ -1,49 +1,73 @@
-# Python release
+# Python / PyPI
 
-Use the declared PEP 517/518 build backend and project metadata. Prefer `uv build`
-when the project already uses uv; do not introduce a second environment manager
-without a concrete need.
+Inspect pyproject.toml, the declared build backend, package/import names, release
+artifact policy and supported Python versions. Use the project's build command;
+uv build is suitable in a uv project. The following alternative uses the official
+[build frontend](https://build.pypa.io/en/stable/) and
+[Twine](https://twine.readthedocs.io/en/stable/), installed in a local tool environment.
+Keep build caches/temp files inside the task root using the tools' native settings.
 
-## Artifact proof
+## Prepare
 
-1. Build both wheel and source distribution from a clean revision.
-2. Run `twine check` or the project's equivalent metadata validator.
-3. Inspect wheel and sdist file lists for tests, secrets, caches, local paths, and
-   missing licenses or type information.
-4. Compare name and version across source metadata, filenames, and embedded
-   metadata.
-5. Install the wheel into a clean environment and test import plus each public CLI.
-6. Install the sdist into another clean environment and repeat the smoke check.
-7. Record SHA-256 hashes for both artifacts.
+From the intended clean source, choose an unused output directory:
 
-For publication, prefer PyPI trusted publishing from a protected GitHub environment
-over long-lived API tokens when that workflow fits the project. Bind any publishing
-workflow to the intended repository, trigger, environment and package identity.
-Inspect the workflow run when used and the PyPI record after publishing, then
-install the exact released version from PyPI.
+```sh
+python -m build --outdir /absolute/task/artifacts
+python -m twine check /absolute/task/artifacts/example-1.0.0.tar.gz /absolute/task/artifacts/example-1.0.0-py3-none-any.whl
+```
 
-When a Git tag is part of the release process, it and the Python version must agree.
-Preparation ends with the checked wheel/sdist and hashes; it needs no tag or upload.
-For verification, inspect the exact project/version and expected file set before
-the requested clean-install checks. Neither mode grants publication authority.
+Replace filenames with the selected artifacts. The default build creates an sdist
+and builds a wheel from it; use the project's selected artifact options when that
+is not its release policy. Build isolation may acquire backend dependencies.
+Do not disable it merely to hide undeclared build requirements. If uv is already
+the selected installer, build also accepts --installer uv.
 
-## Reconcile PyPI files before resuming
+Inspect the selected archives' file lists and embedded metadata, not just filenames:
+package name/version, required files, license/type data, dependencies and entry
+points. Reject unintended secrets, caches and local paths. twine check validates
+distribution metadata/rendering; it does not prove contents or runtime behavior.
 
-Use the [PyPI release JSON API](https://docs.pypi.org/api/json/) or equivalent
-official registry observation to inspect the exact version's filenames and SHA-256
-digests. Compare them with the prepared set; distinguish an absent file from an
-unavailable registry response. Then verify the actual downloaded artifact or
-installation source so a local wheel/cache does not stand in for registry evidence.
+Create a separate consumer environment with the selected manager. For example:
 
-[PyPI forbids filename reuse](https://pypi.org/help/#file-name-reuse), including
-after deletion. If one reviewed file is published and another is confirmed absent,
-resume only the missing file when its filename remains eligible and publication
-authority still covers that unchanged set. A matching existing file needs no
-replacement. Conflicting contents or corrections require a new appropriate version
-and fresh preparation; never delete a file to try to free its name.
+```sh
+python -m venv /absolute/task/consumer
+/absolute/task/consumer/bin/python -m pip install /absolute/task/artifacts/example-1.0.0-py3-none-any.whl
+/absolute/task/consumer/bin/python -I -c "import example; print(example.__file__)"
+```
 
-[Twine's skip-existing option](https://twine.readthedocs.io/en/stable/#twine-upload)
-is not a content-identity check or proof that every requested artifact arrived.
-After any resume, inspect the complete expected set and run required consumer
-checks. Return the shared release result with separate wheel/sdist publication
-and installation observations, including skipped or unverified checks.
+On Windows use consumer/Scripts/python.exe. Run outside the source tree and verify
+the module path points into the consumer environment. Exercise a meaningful public
+operation or CLI required by this package. Install an sdist in another environment
+when its build/install behavior is part of the release claim; a direct source import
+does not test the sdist. Resolve runtime/build dependencies within the selected
+local setup policy. With uv-managed consumers, use uv pip install --python with the
+explicit consumer interpreter instead of requiring pip in every environment.
+
+Record SHA-256 hashes with the platform's existing hash command or Python hashlib.
+Keep these exact files and their source revision for publication or resumption.
+
+## Publish or verify
+
+Only with authority for this payload and registry, use the existing release
+workflow or upload the exact selected files. A direct PyPI example is:
+
+```sh
+python -m twine upload --repository-url https://upload.pypi.org/legacy/ /absolute/task/artifacts/example-1.0.0.tar.gz /absolute/task/artifacts/example-1.0.0-py3-none-any.whl
+```
+
+Use the authorized registry URL and selected files; avoid a broad dist/* that can
+include stale builds. Follow existing authentication or supported trusted publishing;
+keep credentials out of arguments. TestPyPI is a separate publication, not a
+mandatory preparation check.
+
+Inspect the exact version using the [PyPI JSON API](https://docs.pypi.org/api/json/).
+Compare its filenames and SHA-256 digests with the prepared set. Fetch/install the
+exact published version from the selected index in a fresh consumer and check the
+actual source of the download; a cached local build is not registry evidence.
+Do not rerun preparation for a verification-only request.
+
+After interruption, observe each expected file first.
+[PyPI filename reuse is forbidden](https://pypi.org/help/#file-name-reuse), even
+after deletion. Resume only confirmed missing eligible files of the unchanged set.
+Twine --skip-existing does not compare content or prove the whole release arrived.
+Conflicts or corrected contents require an appropriate new version and preparation.

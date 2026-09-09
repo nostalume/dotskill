@@ -30,5 +30,6 @@ give required migration and rollback/recovery. Omit internal churn that changes 
 consumer decision.
 
 Derive claims from the actual diff, compatibility policy, and verified artifacts.
-Release notes do not authorize a tag, workflow, upload, or publication; those
-admissions belong to `package-release`.
+Release notes do not authorize a tag, workflow, upload, or publication. Use
+package-release when actually preparing or publishing a package; notes alone
+remain documentation work. Site/application deployment has its own target and authority.

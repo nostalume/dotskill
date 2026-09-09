@@ -1,6 +1,6 @@
 ---
 name: github-actions
-description: Create or review terse, secure GitHub Actions workflows for CI, reusable automation, maintenance, or release orchestration. Use when workflow behavior is the primary artifact; leave test meaning to software-development and publication authority to package-release.
+description: Create or review terse, secure GitHub Actions workflows for CI, reusable automation, maintenance, or release orchestration. Use when workflow behavior is the primary artifact; leave code correctness to software-development and package publication to package-release.
 ---
 
 # GitHub Actions
@@ -26,8 +26,9 @@ goal -> event -> trusted inputs -> token/secrets -> minimal jobs
 
 `software-development` owns what a build, test, lint, benchmark, or package command
 means. This skill invokes those repository-native commands and owns their remote
-orchestration. `package-release` owns version/tag/publication admission and registry
-observation; a workflow cannot grant that authority.
+orchestration. `package-release` owns package payload/version and registry evidence;
+application/site deployments follow their own requested target and checks.
+A workflow cannot grant publication or deployment authority.
 
 ## Keep workflows small
 
