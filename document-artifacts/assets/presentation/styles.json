@@ -1,0 +1,18 @@
+{
+  "paper": {
+    "font": "Arial",
+    "background": "F5F2EA",
+    "foreground": "172D32",
+    "muted": "52666A",
+    "accent": "087F73",
+    "panel": "E4EAE3"
+  },
+  "night": {
+    "font": "Arial",
+    "background": "11282E",
+    "foreground": "F5F2EA",
+    "muted": "ADC0C3",
+    "accent": "F4BE62",
+    "panel": "203C43"
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "title": "A small evidence brief",
+  "subtitle": "Original synthetic example • editable chart, table and notes",
+  "treatment": "briefing",
+  "evidence": {
+    "claim": "Response counts vary across three regions",
+    "categories": ["North", "Central", "South"],
+    "values": [24, 38, 31],
+    "series": "Observed responses",
+    "unit": "responses",
+    "source": "Source: original synthetic example; these counts do not describe real activity.",
+    "notes": [
+      "Central has the largest count in this illustrative sample. A count comparison alone cannot explain why it differs or establish a conversion rate.",
+      "Keep the qualification with the evidence. Change this project copy to use accepted content, an appropriate chart and the actual source."
+    ]
+  }
+}

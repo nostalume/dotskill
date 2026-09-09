@@ -1,0 +1,15 @@
+{
+  "title": "Choices that work together",
+  "subtitle": "An editable composition example",
+  "comparison_title": "Independent parts. Compatible results.",
+  "left": {
+    "heading": "Independent",
+    "body": "Choose a layout.\nApply a visual style.\nKeep content editable."
+  },
+  "right": {
+    "heading": "Composable",
+    "body": "Author with a suitable tool.\nRender with a suitable engine.\nCheck the result you need."
+  },
+  "closing_title": "Change one part.\nKeep the rest.",
+  "closing_body": "This sample demonstrates a composition; it makes no business or research claims."
+}

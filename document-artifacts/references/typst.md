@@ -50,8 +50,8 @@ boundaries, not a document template or required typography.
 
 ## Admit one compiler binding
 
-Create one execution-scoped `ToolBinding` for the official Typst CLI or for another
-provider only when the request explicitly requires it. Record:
+Select the official Typst CLI, or another provider when the request explicitly
+requires it. Keep the following execution details with the task:
 
 - executable/provider identity and observed version;
 - the project or user compatibility constraint and current official source used to

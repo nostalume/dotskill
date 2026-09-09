@@ -64,6 +64,11 @@ read
 claiming preservation. Its matrix defines portable requirements; tool availability
 is admitted anew for the current request.
 
+For presentation composition, visual revisions, or choosing authoring and rendering
+tools, read [presentation choices and resources](references/presentations.md).
+It offers independently usable operations and compatible examples; no language,
+platform, template or installer is mandatory.
+
 For Typst creation, editing, compilation, or rendered-output validation, read
 [Typst artifacts](references/typst.md). It defines source, project-root, compiler,
 font, input, package, and output boundaries; resolve every live binding anew.
@@ -82,8 +87,10 @@ packages, and build graph; compilation support depends on an admitted binding.
 3. Plan the smallest conditional producer-and-validation graph that satisfies the
    fixed postcondition; inspection selects its relevant branches. Conversion to
    Markdown is analysis-oriented and never a native-editing substitute.
-4. Admit each tool from a successful capability/version probe. Perform no implicit
-   installation, upgrade, package/model download, plugin enablement, or cache fill.
+4. Inspect the task root and available tools. Use the existing project environment;
+   acquire missing dependencies through direct official commands under existing
+   authority, following the execution reference. The actual operation can prove
+   readiness; do not require a separate probe or setup wrapper.
 5. Perform effects in one named owner and write a distinct output unless the user
    explicitly authorized in-place mutation.
 6. Reopen, compile, or render the result and validate only the fidelity claims made.
@@ -164,9 +171,9 @@ presenting Markdown as equivalent to the original. Use the current
   embedded-code execution, external-link retrieval, decryption, signature
   invalidation, source overwrite, directory reorganization, or publication.
 - Inspection, extraction, review, or validation does not authorize document edits.
-- Use `system-mutation` and its external-integration reference for provider
-  acquisition or registration
-  through the execution reference's request/receipt handoff. Preserve the document
+- Use [minimal project environments](../system-mutation/references/project-environments.md)
+  for local dependency setup and system-mutation for other provider acquisition or
+  registration. Preserve the document
   postcondition. For remote work, establish transmission, credential, cost, and
   retention implications. Use existing authorization; ask only for missing authority.
 - Do not create `output/`, `bridge/`, logs, manifests, projects, or per-page files

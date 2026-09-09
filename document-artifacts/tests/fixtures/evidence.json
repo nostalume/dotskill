@@ -1,0 +1,19 @@
+{
+  "title": "更长的说明也需要保持清晰：通过分层叙述呈现区域服务试点的观察结果，并保留数据与不确定性",
+  "subtitle": "Synthetic fixture • 原创示例数据，不代表真实业务",
+  "treatment": "briefing",
+  "evidence": {
+    "claim": "Pilot observations by region",
+    "categories": ["North", "Central", "South"],
+    "values": [24, 38, 31],
+    "series": "Observed responses",
+    "unit": "responses",
+    "source": "Source: original synthetic fixture; counts are illustrative.",
+    "notes": [
+      "这些数字来自用于验证排版的合成示例。读者应能同时找到结论、具体数值和来源说明；模板不能把示例转换为真实证据，也不能因为文字较长而删去限制条件。",
+      "The central region has the largest count in this illustrative sample. Counts alone do not establish a causal explanation, conversion rate, or statistically reliable difference.",
+      "后续工作需要检查各区域的样本量、观察时间和一致的口径。中文与英文混排时，应使用包含所需字形的字体，并检查导出后的实际换行与段落间距。",
+      "Keep this additional paragraph visible on a continuation slide when the chosen composition reaches its capacity. This is accepted content, not optional decoration."
+    ]
+  }
+}

@@ -6,10 +6,14 @@ It owns shared OOXML package mechanics and
 format-specific fidelity checks. It does not own document meaning, business
 analysis, provider installation, or a default visual style.
 
+For PPTX creation and visual revision, use the conditional recommendations and
+composable resources in [presentations](presentations.md). Choose authoring,
+editing and rendering by their separate feature contracts below.
+
 ## Admit the requested capability
 
 Freeze format, operation, required fidelity set, preservation-critical features,
-accepted losses, and output before selecting a mechanism. Then admit a live `ToolBinding`
+accepted losses, and output before selecting a mechanism. Then verify the selected tool
 against the applicable row:
 
 | Operation | Binding must prove | Completion evidence |
