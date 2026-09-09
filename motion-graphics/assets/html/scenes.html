@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Evidence in two scenes</title>
+  <style>
+    :root { --paper: #f5f2ea; --ink: #172d32; --accent: #087f73; }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; background: var(--paper); }
+    main { position: relative; overflow: hidden; color: var(--ink); font-family: Arial, sans-serif; }
+    .label { position: absolute; top: 52px; left: 64px; font-size: 20px; letter-spacing: 2px; }
+    .scene { position: absolute; inset: 156px 64px 110px; display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
+    h1, h2 { font-size: 60px; line-height: 1.1; font-weight: 500; margin: 0 0 24px; }
+    p { font-size: 28px; line-height: 1.45; margin: 0; }
+    .number { font-size: 160px; color: var(--accent); line-height: 1; }
+    .rule { height: 8px; width: 160px; background: var(--accent); margin: 32px 0; }
+    footer { position: absolute; bottom: 48px; left: 64px; right: 64px; font-size: 18px; }
+    .portrait .scene { inset: 180px 56px 140px; grid-template-columns: 1fr; gap: 32px; align-content: start; }
+    .portrait h1, .portrait h2 { font-size: 58px; }
+    .portrait .label, .portrait footer { left: 56px; right: 56px; }
+    .portrait .number { font-size: 144px; margin-top: 32px; }
+  </style>
+</head>
+<body>
+  <!-- Change dimensions here; the layout has intentional landscape/portrait treatments. -->
+  <main id="root" data-composition-id="root" data-width="1280" data-height="720" data-duration="6" data-fps="30">
+    <div class="label">SYNTHETIC EXAMPLE</div>
+    <section class="scene" id="question">
+      <div><h1>Start with the question.</h1><p>How many responses were observed in the central region?</p></div>
+      <div><div class="rule"></div><p>Keep the measure, scope and source visible.</p></div>
+    </section>
+    <section class="scene" id="answer">
+      <div><h2>Describe the observation.</h2><p>A count is evidence of volume. It does not establish a cause or a rate.</p></div>
+      <div><div class="number">38</div><div class="rule"></div><p>Illustrative responses</p></div>
+    </section>
+    <footer>Source: original synthetic example. Replace with accepted content.</footer>
+  </main>
+  <script src="node_modules/gsap/dist/gsap.min.js"></script>
+  <script>
+    const root = document.querySelector('main');
+    root.style.width = `${Number(root.dataset.width)}px`;
+    root.style.height = `${Number(root.dataset.height)}px`;
+    root.classList.toggle('portrait', Number(root.dataset.height) > Number(root.dataset.width));
+    const timeline = gsap.timeline({paused: true});
+    timeline.fromTo('#question', {opacity: 0, y: 24}, {opacity: 1, y: 0, duration: .6}, 0);
+    timeline.to('#question', {opacity: 0, duration: .3}, 2.5);
+    timeline.fromTo('#answer', {opacity: 0, y: 24}, {opacity: 1, y: 0, duration: .6}, 2.9);
+    timeline.to({}, {duration: .1}, 5.9);
+    window.__timelines = {root: timeline};
+    timeline.seek(0);
+  </script>
+</body>
+</html>
