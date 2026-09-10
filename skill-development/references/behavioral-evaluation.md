@@ -14,11 +14,14 @@ could show it is false.
 | Claim | Distinguishing evidence |
 | --- | --- |
 | Activation and exclusion | Neighboring positive, negative, and ambiguous requests route to the correct owner for reasons grounded in requested behavior |
+| Semantic and operational closure | Without network retrieval, the core still constructs the needed state, preserves invariants, runs provider-independent protocols, refuses safely, and identifies the exact missing adapter fact |
+| Protocol and adapter separation | Replacing a provider or local tool preserves semantic states and completion/refusal rules while changing only the selected binding |
 | Domain invariant or safety rule | Positive, boundary, failure, and adversarial cases preserve the rule and expose its refusal condition |
 | Contextual judgment | Contrasting content or constraints produce appropriately different choices, with criteria tied to the request |
 | Progressive structure | A simple case stays complete and small; a complex case adds only resources with named consumers and direct routes |
 | Refactor or consolidation | Baseline behavior and callers are characterized; unique rules survive once; stale or competing ownership is removed only after cutover evidence |
 | External operation | Data, authority, credentials, cost, bounds, commit semantics, verification, fallback, and recovery are resolved where applicable; no effect occurs in a policy-only test |
+| Temporal adapter claim | Project version, compatible local interface, provider-current authority and relied-upon claim are reconciled; changed bindings invalidate only dependent evidence |
 | Portability or degradation | Missing tools, provider access, network, or local bindings lead to a compatible alternative, bounded partial result, request for missing authority, or accurate unavailability |
 | Structural contract | The repository-supported validator, link inspection, metadata rules, and relevant static checks pass on the final files |
 
@@ -55,6 +58,24 @@ available, but it is not a substitute for an inspectable contract. Otherwise run
 primary-agent forward cases in isolated, task-owned workspaces and disclose that
 limit.
 
+When knowledge placement or an evolving adapter changes, include the applicable
+temporal mutations:
+
+- omit one grammar/error/version rule from a self-contained DSL;
+- reorder one safety-critical document or data-handling protocol step;
+- remove a restricted audit's burden of proof, stop or reopen condition;
+- evaluate pull-request feedback against a changed revision or location;
+- hold the semantic core fixed while replacing a provider adapter;
+- compare a project-pinned client with unversioned latest documentation;
+- change provider target or policy after an otherwise reusable observation; and
+- remove network access while distinguishing offline-capable preparation from an
+  operation requiring fresh remote policy.
+
+Change one semantic, temporal or availability input at a time. A useful case makes
+only the corresponding decision, evidence requirement or bounded failure change.
+Current structural validity and an old successful integration cannot satisfy a
+changed operational or temporal claim.
+
 ## Inspect decisions and artifacts
 
 For each case, trace:
@@ -62,7 +83,8 @@ For each case, trace:
 ```text
 request and current authority
   -> activation and admitted scope
-  -> invariant / heuristic / recipe / evidence decisions
+  -> role, normative force, authority and temporal-binding decisions where material
+  -> semantic or operational kernel and selected adapter
   -> structure and resource selection
   -> any effect admission or refusal
   -> produced artifact and validation
@@ -78,7 +100,11 @@ Inspect the complete output, not only its summary. Ask whether:
 - adaptable choices name the context that controls them;
 - every reference, script, asset, setup step, and compatibility layer has a real
   consumer;
+- provider-independent behavior remains operationally closed without mirroring an
+  external specification;
 - tools and providers are bound only on the selected route;
+- reused or fetched claims retain their source authority, applicability, selected
+  version or target, invalidation identity and consequence-appropriate freshness;
 - unavailable capabilities and partial failures remain accurately distinguished;
 - review or narrow-edit authority was not silently broadened; and
 - the final response claims only what the observed checks establish.

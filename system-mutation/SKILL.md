@@ -14,6 +14,14 @@ Identify the requested operation, exact targets, relevant existing state and
 conflicts. Inspect only what can affect the decision. Preview and verification
 requests do not authorize installation, repair, deletion or other unrequested work.
 
+Keep an authorized direct local operation concise. When the selected route
+downloads code or data, registers a provider, transmits task content, calls a
+hosted service, incurs cost, or mutates remote state, read
+[external integration](references/external-integration.md) and admit only the
+external-edge concerns material to that operation. Local installation or
+registration authority does not silently authorize disclosure, billing, remote
+mutation, retention or publication.
+
 Use authority already supplied by the user and session. Ask only for genuinely
 missing permission or information. For an authorized direct operation, its command
 and observed result can be the entire plan and record; no typed request, receipt
@@ -41,7 +49,8 @@ than requiring a fictional rollback. Clean only owned disposable work.
 
 - Missing dependencies or a new task environment:
   [minimal project environments](references/project-environments.md).
-- Installing or registering a CLI, MCP server or API integration:
+- Installing or registering a CLI, local service, MCP server, API or hosted
+  integration:
   [external integration](references/external-integration.md).
 - File layout, conflicts, moves or undo:
   [file organization](references/file-organization.md).

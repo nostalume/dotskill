@@ -5,6 +5,11 @@ verification. Planned pseudocode and predicted file shape are not evidence. Judg
 the diff against the authorized contract, current architecture, repository rules,
 and the nearest maintained analogues.
 
+When the diff materially changes flow, error handling, effects/resources,
+abstraction, compatibility or cost, apply the
+[implementation normal form](implementation-normal-form.md) as a preservation
+review. It consumes settled constraints; it does not authorize a new architecture.
+
 ## Review map
 
 1. **Domain:** vocabulary, identities, legal states/transitions, invariant owners,
@@ -13,21 +18,25 @@ and the nearest maintained analogues.
    deterministic decisions remain separated from I/O, clocks, randomness,
    persistence, logging, and host capabilities.
 3. **Representation and flow:** untyped input is admitted once; variants and
-   failures are explicit; transformations are shallow and linear; expensive values
-   are not repeatedly interpreted or recomputed; terminal delegation preserves
-   error, cancellation, and resource handoff.
-4. **Contracts and compatibility:** public behavior, errors, schemas, sync/async
+   failures are explicit; transformations are shallow and composable; expensive
+   values are not repeatedly interpreted or recomputed; terminal delegation adds
+   no relay work and preserves result, error, cancellation, and resource handoff.
+4. **Failure ownership:** each handler owns bounded recovery, settled contract
+   translation with cause, compensation, resource cleanup, or necessary consumer
+   context. Otherwise the original failure propagates without duplicate logging,
+   generic wrapping, blind retry, swallowed cancellation, or hidden partial state.
+5. **Contracts and compatibility:** public behavior, errors, schemas, sync/async
    parity, and named compatibility windows match the task and live consumers.
-5. **Resources and cost:** acquisition, release, recovery, bounds, backpressure,
+6. **Resources and cost:** acquisition, release, recovery, bounds, backpressure,
    allocations, copies, I/O, concurrency, and caches have explicit owners and meet
    any stated budget.
-6. **Local code style:** formatter, linter, type/build policy, applicable
+7. **Local code style:** formatter, linter, type/build policy, applicable
    instructions, and multiple maintained analogues support the chosen structure.
    Personal preference alone is not a blocker.
-7. **Change economy:** no parallel authority, relay-only abstraction, speculative
+8. **Change economy:** no parallel authority, relay-only abstraction, speculative
    generality, compatibility residue without a consumer, or unrelated cleanup has
    entered the diff.
-8. **Evidence mapping:** every changed claim has claim-appropriate development
+9. **Evidence mapping:** every changed claim has claim-appropriate development
    feedback and a final verification obligation; docs, automation, and release
    impact are stated.
 

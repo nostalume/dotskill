@@ -1,6 +1,6 @@
 ---
 name: document-artifacts
-description: "Create, edit, inspect, extract, convert, or render DOCX, PPTX, XLSX, Markdown, Typst, LaTeX, or PDF artifacts when physical format behavior matters, including PDF OCR, protection, and forms."
+description: "Create, edit, inspect, extract, convert, or render native Microsoft Word, PowerPoint, and Excel OOXML artifacts—including macro-enabled and template variants—or Markdown, Typst, LaTeX, and PDF artifacts when physical format behavior matters. Also recognizes legacy Office formats for bounded conversion, and handles PDF OCR, protection, and forms."
 ---
 
 # Document Artifacts
@@ -50,7 +50,9 @@ Inspect available sources and project conventions before asking for information
 that the files can answer safely. Preserve existing layout and source formats by
 default. Treat these as distinct source variants:
 
-- native editable containers: DOCX, PPTX, and XLSX;
+- native OOXML families: Word documents/templates, PowerPoint presentations/
+  templates/shows, and Excel workbooks/templates, including their macro-enabled
+  package variants; editability still depends on the exact feature and binding;
 - text/source languages covered here: Markdown, Typst, and LaTeX;
 - analysis projections: derived Markdown, JSON, text, images, or tables;
 - fixed-layout PDF: page content, geometry, text layers, and interactive features.
@@ -58,8 +60,8 @@ default. Treat these as distinct source variants:
 Select the variant and operation once. Do not repeatedly reinterpret extensions or
 dispatch again through whichever tool happens to be installed.
 
-For DOCX, PPTX, or XLSX work, or legacy `.doc/.ppt/.xls` recognition and conversion,
-read
+For Word, PowerPoint, or Excel OOXML-family work—including macro-enabled and
+template variants—or legacy `.doc/.ppt/.xls` recognition and conversion, read
 [native Office artifacts](references/office.md) before choosing a mechanism or
 claiming preservation. Its matrix defines portable requirements; tool availability
 is admitted anew for the current request.
@@ -68,6 +70,15 @@ For presentation composition, visual revisions, or choosing authoring and render
 tools, read [presentation choices and resources](references/presentations.md).
 It offers independently usable operations and compatible examples; no language,
 platform, template or installer is mandatory.
+
+When a document request has a material open choice of chart, diagram, map,
+uncertainty encoding, perceptual hierarchy, or other information-bearing visual
+representation, use [visualization design](../visualization-design/SKILL.md) to
+resolve and evaluate that choice. Keep `document-artifacts` as the artifact owner:
+it applies the accepted representation through native objects and remains
+responsible for container preservation, rendering, fidelity, and delivery. A
+precise text correction, fixed conversion, or already-settled representation does
+not load visualization guidance merely because the artifact is visual.
 
 For Typst creation, editing, compilation, or rendered-output validation, read
 [Typst artifacts](references/typst.md). It defines source, project-root, compiler,

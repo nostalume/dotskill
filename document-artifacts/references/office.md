@@ -1,7 +1,20 @@
 # Native Office artifacts
 
-Read this reference for DOCX, PPTX, or XLSX inspection, extraction, creation,
-editing, conversion, or rendering, and legacy Office recognition/conversion.
+Read this reference for Word, PowerPoint, or Excel OOXML-family inspection,
+extraction, creation, editing, conversion, or rendering, and legacy Office
+recognition/conversion. The routed package families include the following common
+document, template, and show variants:
+
+| Family | Macro-free packages | Macro-enabled packages |
+| --- | --- | --- |
+| WordprocessingML | `.docx`, `.dotx` | `.docm`, `.dotm` |
+| PresentationML | `.pptx`, `.potx`, `.ppsx` | `.pptm`, `.potm`, `.ppsm` |
+| SpreadsheetML | `.xlsx`, `.xltx` | `.xlsm`, `.xltm` |
+
+This table is an activation and safety route, not a claim that one library can
+edit every variant. Add-in packages such as `.xlam` and `.ppam`, binary `.xlsb`,
+and producer-specific extensions require their own exact capability proof; they
+still receive active-content and container recognition before any operation.
 It owns shared OOXML package mechanics and
 format-specific fidelity checks. It does not own document meaning, business
 analysis, provider installation, or a default visual style.
@@ -35,12 +48,12 @@ defines the required capability; the examples below are not an installed-tool li
 
 | Format / operation / feature | Portable mechanism requirement and limitation | Checks and loss boundary |
 | --- | --- | --- |
-| DOCX inspect/extract: stories, revisions, nested tables | Reader exposing requested body/header/footer/comment/revision parts; basic paragraph collections are incomplete | Compare requested source parts and locators; omissions remain unresolved |
-| DOCX create/edit: styled runs, fields, comments | Native producer that edits the target while retaining the relevant relationships and untouched content | Reopen and compare text, run formatting, anchors/fields and relationships; render when visual fidelity is required |
-| PPTX inspect/extract: slides, notes, masters | Reader observing existing slide/shape identities and notes without creating parts | Check order, notes presence, inheritance and source locators; reading order is not automatically shape order |
-| PPTX create/edit: text, shapes, media | Producer supporting the affected feature while preserving layout/master/media relationships | Reopen and compare identities, geometry, z-order and values; animations or unsupported embedded content need their own proof |
-| XLSX inspect/edit: cells, formulas, cached values | Workbook reader/writer retaining requested types, formulas, formats, merges and relationships | Reopen formula and cached-value views separately; a cache is not recalculation |
-| XLSX create/edit: fresh formula results | Compatible calculation engine for the exact formulas and inputs, without unauthorized link refresh or macro execution | Reopen calculated values and check expected results/errors; setting a recalculate-on-open flag is insufficient |
+| Word-family inspect/extract: stories, revisions, nested tables | Reader exposing requested body/header/footer/comment/revision parts; basic paragraph collections are incomplete | Compare requested source parts and locators; omissions remain unresolved |
+| Word-family create/edit: styled runs, fields, comments | Native producer that edits the exact document/template variant while retaining the relevant relationships and untouched content | Reopen and compare text, run formatting, anchors/fields and relationships; render when visual fidelity is required |
+| PowerPoint-family inspect/extract: slides, notes, masters | Reader observing existing presentation/template/show identities and notes without creating parts | Check order, notes presence, inheritance and source locators; reading order is not automatically shape order |
+| PowerPoint-family create/edit: text, shapes, media | Producer supporting the affected feature and exact package variant while preserving layout/master/media relationships | Reopen and compare identities, geometry, z-order and values; animations or unsupported embedded content need their own proof |
+| Excel-family inspect/edit: cells, formulas, cached values | Workbook/template reader/writer retaining requested types, formulas, formats, merges and relationships | Reopen formula and cached-value views separately; a cache is not recalculation |
+| Excel-family create/edit: fresh formula results | Compatible calculation engine for the exact formulas and inputs, without unauthorized link refresh or macro execution | Reopen calculated values and check expected results/errors; setting a recalculate-on-open flag is insufficient |
 | Legacy DOC/PPT/XLS convert | Converter that recognizes the actual source format and produces the admitted target | Preserve original, validate target, and report feature/layout losses; no implicit legacy native-edit promise |
 | Any Office convert to text/Markdown/CSV | Extractor for selected content and a named target dialect/encoding | Record omitted stories/slides/sheets, formulas versus values, formatting, media and metadata as relevant; never call this a native round trip |
 | Any Office render | Compatible rendering engine, fonts and page/slide/sheet selection | Inspect exact output for clipping, overflow, substitutions and layout; semantic/structural checks still apply when required |
@@ -52,7 +65,7 @@ format metadata before selecting its parser. A ZIP reader may find an embedded
 archive inside a compound file; successful ZIP opening does not establish that the
 outer document is an OPC package. Check the outer container and its document-type
 relationships, not just ZIP readability or a content-types entry.
-Legacy `.doc/.ppt/.xls` is not OOXML;
+Legacy `.doc/.ppt/.xls` and their legacy template/show variants are not OOXML;
 neither renaming the file nor feeding it to an OOXML ZIP parser converts it.
 Non-ZIP input is not automatically malformed: legacy formats and encrypted Office
 containers need their own recognition. A compound-file signature alone does not
@@ -197,6 +210,7 @@ Resolve version-sensitive rules from current primary sources at use time:
 
 - [ECMA-376 Office Open XML](https://ecma-international.org/publications-and-standards/standards/ecma-376/)
 - [Microsoft Open XML SDK documentation](https://learn.microsoft.com/en-us/office/open-xml/open-xml-sdk)
+- [Microsoft Office XML extension reference](https://learn.microsoft.com/en-us/office/compatibility/xml-file-name-extension-reference-for-office)
 - [python-docx document API](https://python-docx.readthedocs.io/en/latest/api/document.html)
 - [python-pptx documentation](https://python-pptx.readthedocs.io/en/stable/)
 - [python-pptx notes behavior](https://python-pptx.readthedocs.io/en/latest/user/notes.html)

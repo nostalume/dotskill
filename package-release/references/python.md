@@ -7,6 +7,15 @@ uv build is suitable in a uv project. The following alternative uses the officia
 [Twine](https://twine.readthedocs.io/en/stable/), installed in a local tool environment.
 Keep build caches/temp files inside the task root using the tools' native settings.
 
+Bind the project-selected backend, build frontend and Twine versions to their local
+interfaces before relying on a command or option. Bind upload authentication,
+accepted files, filename reuse, indexing and provenance separately to the chosen
+repository's current authoritative policy. The links here locate current evidence;
+they do not override a pinned project tool or make PyPI policy universal to another
+Python index. If latest-only documentation and the selected client cannot be
+reconciled for the required claim, use a compatible observed interface or report
+that claim unavailable rather than silently upgrading or guessing.
+
 ## Prepare
 
 From the intended clean source, choose an unused output directory:
@@ -24,8 +33,10 @@ the selected installer, build also accepts --installer uv.
 
 Inspect the selected archives' file lists and embedded metadata, not just filenames:
 package name/version, required files, license/type data, dependencies and entry
-points. Reject unintended secrets, caches and local paths. twine check validates
-distribution metadata/rendering; it does not prove contents or runtime behavior.
+points. Reject unintended secrets, caches and local paths. `twine check` checks
+whether each distribution's long description renders correctly on PyPI. It does
+not validate the rest of the embedded metadata, archive contents, installation or
+runtime behavior; inspect and test those independently.
 
 Create a separate consumer environment with the selected manager. For example:
 
@@ -56,15 +67,28 @@ python -m twine upload --repository-url https://upload.pypi.org/legacy/ /absolut
 ```
 
 Use the authorized registry URL and selected files; avoid a broad dist/* that can
-include stale builds. Follow existing authentication or supported trusted publishing;
-keep credentials out of arguments. TestPyPI is a separate publication, not a
-mandatory preparation check.
+include stale builds. Select either the repository's account/token route or its
+currently supported trusted-publisher/OIDC route; availability of one does not
+imply the other. For PyPI trusted publishing, consult the current
+[PyPI trusted-publisher documentation](https://docs.pypi.org/trusted-publishers/)
+and verify that the configured issuer and workload claims, project, target and
+upload client match the authorized publication. `github-actions` owns workflow and
+OIDC-permission configuration; this route owns matching the resulting publisher
+identity to the release unit. Keep credentials out of arguments. If the required
+current authentication or target policy cannot be established, do not upload.
+
+TestPyPI is a separate publication, not a mandatory preparation check. Include
+signatures, attestations or other provenance only when required by the project,
+repository or admitted release claim, and verify them through the interface that
+consumes them. Trusted authentication alone does not establish provenance or
+artifact integrity.
 
 Inspect the exact version using the [PyPI JSON API](https://docs.pypi.org/api/json/).
 Compare its filenames and SHA-256 digests with the prepared set. Fetch/install the
 exact published version from the selected index in a fresh consumer and check the
 actual source of the download; a cached local build is not registry evidence.
-Do not rerun preparation for a verification-only request.
+An accepted upload does not by itself establish index visibility or successful
+consumer resolution. Do not rerun preparation for a verification-only request.
 
 After interruption, observe each expected file first.
 [PyPI filename reuse is forbidden](https://pypi.org/help/#file-name-reuse), even

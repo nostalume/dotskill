@@ -17,7 +17,7 @@ mandatory stages in a single workflow.
 | Implement, review, or verify a settled software change | [software-development](software-development/SKILL.md) | Code changes and evidence that the actual result satisfies the task |
 | Explain software to users or developers | [software-documentation](software-documentation/SKILL.md) | Accurate explanations, examples, and documentation validation |
 | Create or review GitHub Actions workflows | [github-actions](github-actions/SKILL.md) | Workflow events, jobs, permissions, dependencies, and run evidence |
-| Prepare, publish, or verify a package | [package-release](package-release/SKILL.md) | Practical Python/PyPI and npm recipes, reviewed payloads and registry checks |
+| Prepare, publish, verify, promote, or withdraw an installable/resolvable release | [package-release](package-release/SKILL.md) | Release identity, variants, reviewed artifacts or build inputs, repository/catalog states, selectors, and consumer evidence across maintained language, system-package, catalog, OCI, and standalone-asset routes |
 | Inspect, extract, create, edit, convert, or render documents | [document-artifacts](document-artifacts/SKILL.md) | DOCX, PPTX, XLSX, Markdown, Typst, LaTeX, and PDF format behavior and fidelity |
 | Design, create, revise, or evaluate a visualization | [visualization-design](visualization-design/SKILL.md) | Honest charts, diagrams, maps, infographics, and explanatory static, temporal, or interactive representations |
 | Install or register tools, configure a host, or organize files | [system-mutation](system-mutation/SKILL.md) | Bounded changes, existing authority, observed outcomes, and recovery |
@@ -39,6 +39,9 @@ image synthesis. Its [temporal and interaction guidance](visualization-design/re
 keeps one bounded HTML/GSAP example that separates source, frame capture and
 encoding; it is an optional recipe, not the default visual system. Neither it nor
 the presentation workflow requires one language, platform or complete tool bundle.
+For a chart or diagram inside a native document, visualization design owns the
+material encoding decision; document artifacts retains the container, native-object,
+preservation, rendering, fidelity, and delivery work.
 
 ## Boundaries
 
@@ -62,6 +65,8 @@ the presentation workflow requires one language, platform or complete tool bundl
   approach.
 - **Publication has its own authority.** Implementation or documentation work
   does not by itself authorize a package release or other external publication.
+  Package publication does not authorize installation on the user's host or an
+  application/site deployment; those remain separate effects and owners.
 
 External integration and file organization are focused references within
 `system-mutation`, sharing its authority and recovery rules.

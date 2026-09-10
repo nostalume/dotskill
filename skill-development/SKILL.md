@@ -20,20 +20,23 @@ working-tree state. Do not replace direct user changes or unique behavior merely
 to make the skill resemble a preferred template.
 
 Read [portable capability](references/portable-capability.md) before authoring or
-revising skill policy. It defines the distinction between invariants, contextual
-heuristics, recipes, and evidence, plus the portability and ownership rules that
-govern every skill.
+revising skill policy. It defines the knowledge roles, force, authority, temporal
+binding, consequence and availability decisions, plus the portability and
+ownership rules that govern every skill. Apply those dimensions only when they
+change placement, execution or evidence; they are not a required manifest.
 
 ## Develop the capability
 
 1. Admit the intended requests, exclusions, outputs, authority, failure states,
    and observable quality claims. Reopen a material unresolved choice instead of
    hiding it in prose.
-2. Separate durable invariants from adaptable heuristics, selected-operation
-   recipes, and current evidence. Give each decision or effect one owner.
+2. Preserve the smallest semantic and operational kernel that closes the claimed
+   provider-independent behavior. Separate it from contextual policy, selected
+   adapters and time-scoped evidence. Give each decision or effect one owner.
 3. Choose the smallest complete structure. Keep the entry point focused on
-   activation, governing behavior, and routing; add a resource only for a named
-   consumer.
+   activation, governing behavior, and routing; add a resource only for a repeated
+   decision, operation, validation obligation or delivered artifact that consumes
+   it.
 4. Author within the target skill and preserve the current project's authority.
    Bind paths, tools, versions, credentials, and providers only when the selected
    operation requires them.
@@ -54,6 +57,10 @@ effects rather than wording or template resemblance.
 
 - A self-contained simple skill stays simple; references, scripts, assets, setup,
   and compatibility layers require actual consumers.
+- Without network retrieval, the claimed provider-independent core must still
+  activate, decide, preserve its invariants, run its portable protocol, and name
+  the exact unavailable adapter fact. This does not promise offline completion of
+  work that intrinsically requires a remote service or missing tool.
 - Portable behavior must not depend on this conversation, an installed authoring
   skill, a workstation path, a hidden runtime, or one provider.
 - Examples and successful local observations may illustrate behavior but do not

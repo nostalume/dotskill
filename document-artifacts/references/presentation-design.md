@@ -3,20 +3,25 @@
 Use this reference when choosing a structure, adapting a template or interpreting
 visual feedback. Content and evidence stay with their domain owner. The
 [presentation workflow](presentations.md) governs execution and review decisions.
+An accepted representation may come from
+[visualization design](../../visualization-design/SKILL.md) when information
+encoding is materially open. This reference places and adapts that representation
+inside a deck; it does not independently choose a competing chart, diagram, map,
+or uncertainty encoding.
 
-## Select structure from the message
+## Place the accepted structure in the deck
 
-| Intended reading task | Useful structure | Adaptation cue |
+| Accepted representation or reading task | Container treatment | Adaptation cue |
 | --- | --- | --- |
-| Decide between alternatives | Aligned comparison with the same criteria | Split criteria across slides before narrowing every column |
-| Understand a result | Claim, evidence, qualification and source | Separate overview from detailed data when their reading densities differ |
-| Compare categories | Native bar/column chart; explicit units and baseline | Horizontal bars accommodate longer labels; preserve data and ordering meaning |
-| Look up exact values | Native table with stable headers | Repeat headers on continuation slides; keep units and row labels together |
-| Follow a process or explanation | Ordered steps or successive scenes | Give each step a purpose; arrows should express actual relations |
-| Read supporting detail | Appendix or continuation with a clear link to the claim | Preserve required content even when it leaves the main slide |
+| Accepted aligned comparison | Keep criteria aligned and comparable | Split criteria across slides before narrowing every column |
+| Claim with evidence and qualification | Allocate a clear claim/evidence/source hierarchy | Separate overview from detailed data when their reading densities differ |
+| Accepted categorical chart | Create native editable chart objects when required and preserve units, baseline, labels, ordering, and source | Change orientation or slide allocation only when label capacity demands it; do not change the encoding silently |
+| Accepted exact-value table | Keep stable headers, units, and row identity | Repeat headers on continuation slides; keep units and row labels together |
+| Accepted process or explanatory diagram | Preserve the decided relations in native shapes or an explicitly accepted placed asset | Give each step enough space; arrows must retain the accepted relation semantics |
+| Supporting detail | Use an appendix or continuation with a clear link to the claim | Preserve required content even when it leaves the main slide |
 
-Establish the conclusion the slide must communicate, then allocate space to its
-evidence. Choose density for the audience: a spoken briefing needs readable holds
+Start from the accepted conclusion and representation, then allocate slide space
+to its evidence. Choose density for the audience: a spoken briefing needs readable holds
 and fewer simultaneous details; a self-contained report needs context and source
 information. A title-only slide does not replace an evidence slide.
 
@@ -36,8 +41,10 @@ renderer behavior determine fit. Browser measurements do not establish PPTX fit.
 Preserve accepted wording and values. Repair overflow by widening/rebalancing the
 layout, separating detail or adding a continuation. Edit wording only within the
 accepted scope. Do not crop paragraphs, hide qualifiers or shrink every font to
-force one template. In a reused chart, update labels, units, series, axis bounds
-and source together; a template's illustrated values have no factual authority.
+force one template. In a reused accepted chart, update labels, units, series, axis
+bounds and source together; if that would materially change the encoding, return
+the decision to visualization design. A template's illustrated values have no
+factual authority.
 
 For Chinese and other scripts, choose an admitted font with the required glyphs
 and inspect mixed Latin/CJK runs, punctuation and fallback. A declared font name

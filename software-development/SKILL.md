@@ -40,9 +40,12 @@ history.
 2. Read [feedback methods](references/feedback-methods.md) and select evidence that
    can falsify the actual claim; do not impose TDD where no stable behavioral seam
    exists.
-3. Implement the smallest coherent domain capability. Prefer admitted types,
-   visible linear transformations, explicit failures, terminal delegation, one
-   owner per decision/effect, and bounded work.
+3. Implement the smallest coherent domain capability. Preserve the settled change
+   as a visible path: admit input once, select an explicit variant, transform
+   through domain-bearing values, invoke named effect/resource owners, observe the
+   promised result, then return or terminally delegate. When the change materially
+   affects flow, error handling, effects/resources, abstraction, compatibility or
+   cost, read [implementation normal form](references/implementation-normal-form.md).
 4. Apply linear or affine machinery only to genuinely single-use capabilities or
    resources. Local mutation is acceptable inside one visible owner when it
    preserves the external value contract and improves clarity or measured cost.
@@ -55,6 +58,15 @@ history.
    contradicts an invariant.
 7. After the last relevant edit, close the change with
    [delivery verification](references/delivery-verification.md).
+
+The implementation normal form preserves settled architecture; it does not supply
+missing architecture. An error boundary must own bounded recovery, contract
+translation, compensation, cleanup, or necessary consumer context. Otherwise
+preserve the original failure, cancellation, and resource handoff through direct
+propagation or terminal delegation. If making the code locally coherent would
+change domain meaning, authority, a public contract, lifecycle, compatibility or a
+material cost decision, reopen that smallest decision through
+`architecture-planning` instead of redesigning it inside the diff.
 
 Use `system-mutation` for deliberate tool/environment setup, registration, host
 configuration, file organization or backup migration. Ordinary code edits and test

@@ -19,6 +19,17 @@ not select this skill. Use the native container owner for document mechanics, th
 analysis/research owner for new conclusions, and the software owner for generic
 application behavior.
 
+For an information-bearing visual inside a DOCX, PPTX, XLSX, or another native
+document container, this skill owns only the material representation choice and
+its perceptual evaluation. Hand the accepted representation back to
+[document artifacts](../document-artifacts/SKILL.md), which remains responsible
+for the user's artifact request, native objects and relationships, preservation,
+rendering, fidelity evidence, and delivery. Do not make the user relay state
+between owners. A typo fix, settled template-preserving layout repair, or
+format-only document conversion stays with the container owner; a materially open
+chart, diagram, map, uncertainty encoding, or perceptual hierarchy activates this
+skill even when its carrier is a document.
+
 ## Maintain the whole
 
 Form a working visual contract from the evidence already available:

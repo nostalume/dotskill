@@ -30,14 +30,45 @@ as a discovery boundary: say what the skill owns, when it should activate, and�
 confusion is likely—what adjacent work it does not own. Keywords alone do not make
 the boundary discriminating.
 
+## Close and place the knowledge
+
+Translate the contract using the orthogonal decisions in
+[portable capability](portable-capability.md). Preserve the smallest semantic and
+operational kernel that can activate, construct the relevant state, choose or
+refuse, perform every claimed provider-independent protocol, and name an
+unavailable adapter fact without network retrieval. This operational-closure test
+does not promise offline execution of an intrinsically remote operation or require
+copying the external specification that owns an adapter.
+
+Place knowledge by owner, temporal binding, consequence, availability and actual
+consumer:
+
+- Embed stable semantic definitions, invariants and operational protocols when
+  omission changes safety, correctness, authority, compatibility or completion.
+- Read accepted project facts and version choices from project-local authoritative
+  sources rather than generalizing them into the skill.
+- Fetch or probe provider-, platform- or version-specific detail at the selected
+  adapter when it is large, uncommon, externally controlled or independently
+  mutable.
+- Use both sides for mutable high-consequence facts: embed the invariant and
+  refusal behavior, then establish the current adapter fact before its effect.
+- Keep observed evidence with the task or audit unless a named repeated consumer
+  justifies a durable resource.
+
+Reuse a fetched, probed or derived claim only while its source owner,
+applicability, selected version or target, and invalidation identity remain the
+same. Reobserve when consequence or drift makes freshness material. Do not impose
+a universal time-to-live, refetch unrelated documentation, or create a mandatory
+cache, claim ledger or documentation mirror. If authoritative evidence is
+unavailable, stop at the exact affected claim and return the compatible core,
+bounded partial result, missing decision or accurate unavailability.
+
 ## Design the smallest complete structure
 
-Translate the contract using the classifications in
-[portable capability](portable-capability.md). Keep each invariant with its
-precondition, owner, required outcome, and honest failure. Give contextual
-heuristics criteria and override conditions. Route recipes only after their
-operation has been selected. Bind evidence to the claim and environment in which
-it was observed.
+Keep each invariant with its precondition, owner, required outcome, and honest
+failure. Give contextual heuristics criteria and override conditions. Route
+adapters only after their operation has been selected. Bind evidence to the claim,
+source identity, selected bindings and conditions under which it was observed.
 
 Choose resources by their consumers:
 
@@ -51,8 +82,9 @@ Choose resources by their consumers:
 Prefer one direct link from the entry point to each conditional owner. A reference
 may link to a necessary sibling, but avoid long chains that hide governing rules.
 Do not duplicate another skill's contract; link to it at the operation boundary.
-Every durable resource needs a caller, and every caller should make clear when the
-resource is relevant.
+Every durable resource needs a consumer, and every route should make clear when the
+resource is relevant. A repeated intrinsic decision, operation or validation
+obligation is a real consumer even when no separate caller file names it.
 
 Write imperative instructions at the user's level of abstraction. Explain
 non-obvious reasoning where it changes a decision; omit generic advice an agent
@@ -83,10 +115,11 @@ author prose. If a selected operation actually needs an effect, follow
 ## Revise without losing behavior
 
 Freeze the requested change and characterize relevant current behavior before
-editing. Map each existing invariant, heuristic, recipe, resource, caller, and
-unique limitation to one intended owner. Distinguish deliberate behavior from
-obsolete residue using current callers, documentation, repository rules, and
-observed results—not personal preference.
+editing. Map each existing semantic model, decision policy, operational protocol,
+adapter, evidence item, resource, caller and unique limitation to one intended
+owner. Preserve its normative force and temporal binding where they matter.
+Distinguish deliberate behavior from obsolete residue using current callers,
+documentation, repository rules and observed results—not personal preference.
 
 Make the smallest coherent change that satisfies the new contract. Preserve
 unrelated wording and resources when they remain authoritative. A rename does not

@@ -44,6 +44,8 @@ These are alternatives for a new task root, not a sequence to run everywhere.
 Check installed help and current official documentation before use. Preserve an
 existing manifest; initialize only when absent. Keep manifests and locks with the
 source, and ignore generated environments and caches in version control.
+Angle-bracketed values below are consumer-supplied placeholders, not literal shell
+arguments or dependency choices made by this setup reference.
 
 For a Python project, set `UV_CACHE_DIR` to an absolute `.cache/uv` under the task
 root. Reuse an installed compatible Python. If uv must download Python, also set
@@ -52,13 +54,14 @@ PATH changes using the installed version's documented options. Then:
 
 ```sh
 uv init --bare
-uv add python-pptx
-uv run python native-python.py brief.json styles.json paper deck.pptx
+uv add <python-dependency>
+uv run python <entry.py> [arguments...]
 ```
 
 uv owns `.venv`, `pyproject.toml` and `uv.lock`. A one-off operation can instead use
-`uv venv .venv` and `uv pip install --python <venv-python> python-pptx`, then invoke
-that interpreter directly. Use `.venv/bin/python` on POSIX or
+`uv venv .venv` and
+`uv pip install --python <venv-python> <python-dependency>`, then invoke that
+interpreter directly. Use `.venv/bin/python` on POSIX or
 `.venv/Scripts/python.exe` on Windows. See the official
 [project workflow](https://docs.astral.sh/uv/guides/projects/) and
 [environment settings](https://docs.astral.sh/uv/reference/environment/).
@@ -67,7 +70,8 @@ For a compatible Deno project, set `DENO_DIR` to an absolute `.cache/deno` under
 task root, keep `deno.json` and `deno.lock` there, and add the selected dependency:
 
 ```sh
-deno add npm:pptxgenjs
+deno add npm:<js-dependency>
+deno run <required-permissions> <entry.mjs> [arguments...]
 ```
 
 Run the project source with the file/environment permissions its dependencies
@@ -77,9 +81,12 @@ Deno example. If local `node_modules` is needed, use Deno's documented
 [Node/npm compatibility](https://docs.deno.com/runtime/fundamentals/node/)
 and [environment variables](https://docs.deno.com/runtime/reference/env_variables/).
 
-For an existing Node/npm project, a direct `npm install pptxgenjs` uses the project
-manifest and local `node_modules`; set its cache under the task root too. Follow
-the corresponding native workflow for a user-selected Bun or other manager.
+For an existing Node/npm project, a direct `npm install <js-dependency>` uses the
+project manifest and local `node_modules`; invoke `node <entry.mjs> [arguments...]`
+afterward and set npm's cache under the task root too. Follow the corresponding
+native workflow for a user-selected Bun or other manager. The consuming capability
+selects dependency names, versions, entrypoints and permissions; this setup owner
+must not choose them on its behalf.
 Official acquisition guidance: [uv](https://docs.astral.sh/uv/getting-started/installation/),
 [Deno](https://docs.deno.com/runtime/getting_started/installation/),
 [Node](https://nodejs.org/en/download).

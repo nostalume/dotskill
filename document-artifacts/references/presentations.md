@@ -3,7 +3,12 @@
 Choose from the requested output and preservation needs. Recommend a complete
 compatible composition, then invoke only the operations needed for this request.
 The [Office contract](office.md) governs native feature preservation; the
-[execution contract](execution.md) governs bindings and effects.
+[execution contract](execution.md) governs bindings and effects. When a chart,
+diagram, map, uncertainty treatment, perceptual hierarchy, or other information
+encoding is materially open, [visualization design](../../visualization-design/SKILL.md)
+owns that representation decision and its evaluation. This presentation workflow
+still owns the deck request and carries the accepted decision through native
+composition, rendering, and delivery without asking the user to coordinate skills.
 
 ## Required checkpoints, flexible methods
 
@@ -54,8 +59,11 @@ output across rendering engines or fonts.
 
 ## Compose at explicit boundaries
 
-For content-to-layout choices, multilingual typography, contrasting evidence
-treatments and repair recipes, read [presentation design](presentation-design.md).
+For deck narrative assembly, placement of an accepted representation,
+multilingual typography, contrasting evidence treatments and repair recipes, read
+[presentation design](presentation-design.md). Route a materially open information
+encoding through visualization design first; do not create a second chart or
+diagram decision here.
 
 - Content supplies accepted wording, values and assets; a template contributes no
   factual authority. Keep a project's content and styling independently editable
@@ -107,9 +115,34 @@ python -I -B native-python.py brief.json styles.json night deck.pptx
 ```
 
 The JS example uses PptxGenJS; the Python example uses python-pptx. Inspect the task
-root and available tools, then follow the project's manager and constraints. For
-missing dependencies, use [minimal project environments](../../system-mutation/references/project-environments.md).
-Use direct package-manager commands and keep dependencies and caches in that root.
+root and available tools, then follow the project's manager and constraints. If the
+selected dependency is missing and installation is authorized, this presentation
+route supplies the concrete package and entrypoint while
+[minimal project environments](../../system-mutation/references/project-environments.md)
+supplies setup mechanics. Dependency commands edit project manifests/locks and may
+download packages; keep new dependencies and caches in that project.
+
+For a uv-managed Python project:
+
+```sh
+uv add python-pptx
+uv run python -I -B native-python.py brief.json styles.json night deck.pptx
+```
+
+For an existing Node/npm project:
+
+```sh
+npm install pptxgenjs
+node native-js.mjs brief.json styles.json paper deck.pptx
+```
+
+For a user-selected compatible Deno project, `deno add npm:pptxgenjs` records the
+dependency; derive the smallest file/environment permissions from the copied source
+and current Deno interface before invoking it. The maintained JS comparison runs
+under Node, so an unexecuted Deno route is not compatibility evidence. Follow the
+corresponding native workflow for Bun or another selected manager instead of
+migrating it to these examples.
+
 Node resolves imports from the project containing the copied source. Run the
 selected author and inspect its result; no installer bundle or generic probe is
 required. Rendering remains an independent operation.

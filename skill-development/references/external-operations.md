@@ -43,6 +43,36 @@ all operating-system writes. Admit the actual execution and storage behavior of
 the selected tool. Use the repository's environment or system-operation owner for
 concrete setup rules instead of duplicating them into each skill.
 
+## Bind the exact adapter claim
+
+For a selected consequential adapter, relate these distinct authorities before
+relying on a mutable claim:
+
+```text
+project-selected representation or tool version
+  <-> compatible local interface, help or bounded probe
+  <-> current provider policy or API
+  <-> exact claim required by this operation
+```
+
+A project manifest establishes the selected version, not current provider
+acceptance. Local help establishes an available interface, not remote authority or
+policy. Current provider documentation establishes only the policy it actually
+states and may describe a latest client incompatible with the project. A search
+result locates potential evidence; it is not the source authority. Reconcile the
+whole relation or return a bounded unavailable result—never silently upgrade,
+assume acceptance, or let one source prove another source's claim.
+
+Bind a reusable observation to its source owner, document or interface identity,
+applicability, selected version and target, observed conditions, and invalidation
+identity. Reobserve only the claims whose freshness is material. Triggers include
+an unversioned or provider-managed interface, version skew, deprecation, changed
+project/provider/account binding, uncertain prior evidence, or drift that can
+change destination, disclosure, authority, cost, irreversibility or result
+semantics. Elapsed time alone does not impose a universal time-to-live. Matching
+low-consequence evidence may be reused; high-consequence provider policy may need
+immediate reobservation before mutation even when a prior observation exists.
+
 ## Admit an external edge
 
 Before the effect, make the following decisions observable to the degree that they
@@ -56,7 +86,7 @@ affect safety, correctness, cost, or reproducibility:
 | Credentials | Which host or user facility owns them, what scope is required, and how absence or rejection is reported; never place secrets in skill files, assets, command text, or logs |
 | Cost and bounds | Applicable price, quota, size, concurrency, timeout, cancellation, and maximum attempts; obtain a missing material cost choice before execution |
 | Retry and commit | Whether the action is read-only or mutating, its idempotency key or duplicate-detection strategy when supported, and the point after which an uncertain retry could duplicate billing or publication |
-| Version and identity | Selected API/tool/model/version, admitted inputs, requested output identity and format, and compatibility or reproducibility limits |
+| Version and identity | Selected project representation and API/tool/model version, compatible local interface, current provider policy needed for the exact claim, admitted inputs, requested output identity and format, and compatibility or reproducibility limits |
 | Rights and lifecycle | Terms that matter to the use: retention, training or reuse policy, license, attribution, provenance, deletion, publication, and downstream handling |
 | Evidence and recovery | How the result and remote/local state will be observed, how partial or malformed output is handled, what can be cleaned up, and what cannot honestly be rolled back |
 
@@ -110,9 +140,10 @@ promise rollback when the provider does not offer one.
 ## Write provider recipes at the edge
 
 A provider-specific reference should state its supported operation, prerequisites,
-data boundary, concrete inputs and outputs, version assumptions, effects, limits,
-verification, failure mapping, and recovery. Keep provider names and commands out
-of the capability core unless the skill's explicit purpose is that provider.
+data boundary, concrete inputs and outputs, version assumptions, authoritative
+policy source and applicability, effects, limits, verification, invalidation
+triggers, failure mapping, and recovery. Keep provider names and commands out of
+the capability core unless the skill's explicit purpose is that provider.
 
 Evaluate at least the applicable contrast cases: offline or missing credentials,
 read-only connector versus mutation, generated artifact versus hosted rendering,
