@@ -13,26 +13,32 @@ mandatory stages in a single workflow.
 | --- | --- | --- |
 | Develop a mathematical or physical inquiry | [constructive-research](constructive-research/SKILL.md) | Construction, evidence, computation, and research meaning |
 | Resolve material architecture or refactor decisions | [architecture-planning](architecture-planning/SKILL.md) | Revision-backed decisions and dependency-ordered private plans |
+| Design, create, refactor, consolidate, or review a skill | [skill-development](skill-development/SKILL.md) | Portable capability boundaries, progressive resources, effect contracts, and behavioral evaluation |
 | Implement, review, or verify a settled software change | [software-development](software-development/SKILL.md) | Code changes and evidence that the actual result satisfies the task |
 | Explain software to users or developers | [software-documentation](software-documentation/SKILL.md) | Accurate explanations, examples, and documentation validation |
 | Create or review GitHub Actions workflows | [github-actions](github-actions/SKILL.md) | Workflow events, jobs, permissions, dependencies, and run evidence |
 | Prepare, publish, or verify a package | [package-release](package-release/SKILL.md) | Practical Python/PyPI and npm recipes, reviewed payloads and registry checks |
 | Inspect, extract, create, edit, convert, or render documents | [document-artifacts](document-artifacts/SKILL.md) | DOCX, PPTX, XLSX, Markdown, Typst, LaTeX, and PDF format behavior and fidelity |
-| Create or revise short motion graphics | [motion-graphics](motion-graphics/SKILL.md) | HTML/React composition, timing, preview and video export choices |
+| Design, create, revise, or evaluate a visualization | [visualization-design](visualization-design/SKILL.md) | Honest charts, diagrams, maps, infographics, and explanatory static, temporal, or interactive representations |
 | Install or register tools, configure a host, or organize files | [system-mutation](system-mutation/SKILL.md) | Bounded changes, existing authority, observed outcomes, and recovery |
 
 For example, a research paper starts with `constructive-research`; accepted
 content needing LaTeX compilation uses `document-artifacts`. Editing a PPTX starts
 with `document-artifacts`. Installing a missing renderer adds `system-mutation`
 for that operation. A settled bug fix starts with `software-development`; an
-unresolved architectural choice starts with `architecture-planning`.
+unresolved architectural choice starts with `architecture-planning`. Creating or
+reworking reusable skill instructions starts with `skill-development`; ordinary
+work performed by an existing skill stays with that skill's domain owner.
 
 [Presentation resources](document-artifacts/references/presentations.md) provide
 independent native authoring/editing examples, native chart/table treatments,
 and guidance for content adaptation and scoped revisions.
-[Motion recipes](motion-graphics/references/operations.md) separate HTML source,
-frame capture and encoding. Choose compatible parts for the request; neither
-workflow requires one language, platform or complete tool bundle.
+[Visualization design](visualization-design/SKILL.md) selects and evaluates
+information-bearing representations without owning generic UI or unconstrained
+image synthesis. Its [temporal and interaction guidance](visualization-design/references/temporal-interaction.md)
+keeps one bounded HTML/GSAP example that separates source, frame capture and
+encoding; it is an optional recipe, not the default visual system. Neither it nor
+the presentation workflow requires one language, platform or complete tool bundle.
 
 ## Boundaries
 

@@ -16,7 +16,7 @@ const run = promisify(execFile);
 
 async function fixture(t) {
   const parent = resolve(project);
-  const area = await mkdtemp(join(parent, 'motion-composition-'));
+  const area = await mkdtemp(join(parent, 'visual-composition-'));
   t.after(async () => {
     const child = relative(parent, area);
     assert(!isAbsolute(child) && child && !child.startsWith('..'));
