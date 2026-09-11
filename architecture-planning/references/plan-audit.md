@@ -42,6 +42,27 @@ and do not infer implementation success from detailed pseudocode.
 - No migration leaves duplicate authoritative writers or indefinite parallel
   paths.
 
+### Semantic topology
+
+When a proposal adds, removes, moves, groups or exposes a conceptual/physical
+boundary, dependency edge, visibility/re-export surface, or another layout for one
+semantic family, apply [module topology](module-topology.md) even when the user did
+not identify a layout risk.
+
+- Name the current and target semantic owners, permitted dependency/translation
+  edges, visibility, public/compatibility surface and evidenced change locality.
+- Give every proposed helper, module, file, directory, package or facade semantic
+  rent. File size, prefixes, mock convenience and hypothetical reuse do not supply
+  it.
+- Run the applicable direct-call, inline/merge, collapse/group, move-to-owner,
+  next-variant and representative-future-change counterfactuals. Record the
+  selected topology or exact material unresolved tradeoff, not a mandatory module
+  map.
+- Resolve evidence-entailed topology in the audit. Ask the user only when multiple
+  conforming projections preserve a material product or project tradeoff.
+- Keep an obvious implementation-local relay cleanup compact; it does not require
+  architecture planning merely because a helper or file is touched.
+
 ### Task executability
 
 - The outcome is observable or falsifiable, and the selected evidence can
@@ -64,6 +85,10 @@ and do not infer implementation success from detailed pseudocode.
 - Naming, visibility, module placement, error handling, and test organization cite
   applicable instructions, tool configuration, or multiple maintained analogues
   when they constrain the task.
+- Semantic topology is a conformance gate when ownership, dependency direction,
+  visibility, compatibility or evidenced change locality is affected even without
+  a formatter or style rule. Exact naming, prefix, file-size and flat/grouped
+  preferences remain project policy or taste when those semantics are unchanged.
 - The plan distinguishes enforced policy from a common pattern and from reviewer
   taste. Only enforced policy or evidence-backed architectural consistency is a
   hard gate.

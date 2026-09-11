@@ -6,6 +6,10 @@ resource lifecycle, compatibility and cost. It does not decide those constraints
 When any of them can still materially change the design, return to
 [architecture planning](../../architecture-planning/SKILL.md) before coding. An
 obvious local edit whose contract is already clear needs no plan artifact.
+When a settled change adds or alters material conceptual/physical boundaries,
+verify the actual diff against the architecture
+[module-topology](../../architecture-planning/references/module-topology.md)
+decision rather than inventing layout while coding.
 
 ## Optimize local semantic reasoning
 
@@ -45,6 +49,13 @@ its failure, cancellation and resource handoff. Do not add a relay variable,
 wrapper, callback, conversion, handler, or `await` solely to relay the same
 outcome. Retain such machinery when the current boundary owns observation,
 translation, cleanup, supervision, or other work after the call.
+
+When a proposed helper only calls a method or operation on the value that already
+owns it, with the same admitted input and outcome, remove the helper and delegate
+directly. This is not a universal preference for methods: retain a free function
+for an operation that belongs to no receiver or owns a reusable pure algorithm,
+and retain a wrapper for a real adapter, policy, translation, lifecycle or
+compatibility boundary.
 
 This is not a universal demand for compiler tail-call optimization. Use an actual
 tail call only when the language/runtime makes it sound and useful. Recursive
@@ -107,6 +118,21 @@ extra types or lines are necessary to preserve variants, evidence, failure or
 recovery. “Short,” DRY, immutable, functional, object-oriented and pattern-shaped
 are not independent acceptance criteria.
 
+## Preserve settled semantic topology
+
+Inspect every added, removed or moved helper, wrapper, type owner, file, module,
+directory, package/crate, import edge, visibility change, facade and re-export.
+The physical diff must preserve the settled semantic owners, permitted dependency
+direction, internal/public surface, compatibility gates and evidenced change
+locality. A passing test does not prove that topology.
+
+For a boundary introduced only during implementation, run the direct-call,
+inline/merge, collapse/group, move-to-owner or next-variant counterfactual that
+matches it. Remove an obvious private relay locally when no settled semantic or
+project obligation disappears. If the governing owner, edge or surface is absent,
+contradictory or materially selectable, preserve the evidence and reopen
+architecture rather than choosing topology while coding.
+
 ## Falsify the implementation
 
 Inspect the actual diff and use the smallest applicable counterfactual:
@@ -115,18 +141,23 @@ Inspect the actual diff and use the smallest applicable counterfactual:
 - inject failure or cancellation at each affected edge and inspect propagation,
   cleanup, compensation, downstream non-execution and surviving state;
 - delete a handler—if no owned decision or obligation disappears, keep it deleted;
+- replace a helper around an owning method/operation with the direct call;
 - inline/delete a wrapper—if no policy, lifecycle, compatibility, reusable
   algorithm or real variation disappears, move callers to the surviving owner;
+- merge a small file into its proposed owner, collapse/group its namespace, move a
+  symbol beside its authority, and add the next admitted variant as applicable;
 - replace an effect adapter while holding the settled decision fixed;
 - reorder two stages when order matters and confirm evidence detects the fault;
 - identify every compatibility path's live consumer and removal gate; and
 - perturb representative scale/concurrency or measure a claimed optimization
   against its accepted budget.
 
-A semantic-flow defect is a blocker when it changes or hides accepted meaning,
-authority, effects, failure/cancellation, lifecycle, public compatibility, or a
-required cost bound. A formatter preference, helper layout, syntax choice, or
-complexity threshold is gating only when current project policy or matching
-maintained analogues establish it. When the diff reveals that the settled contract
-itself is wrong or incomplete, preserve the evidence and reopen its architecture
-owner rather than patching around it.
+A semantic-flow or topology defect is a blocker when it changes or hides accepted
+meaning, authority, dependency direction, visibility, effects,
+failure/cancellation, lifecycle, public compatibility, evidenced change locality,
+or a required cost bound—even without a style rule. Exact syntax, naming, prefix,
+file-size, helper placement or flat/grouped preference is gating only when current
+project policy or matching maintained analogues establish it and those semantics
+are unchanged. When the diff reveals that the settled contract itself is wrong or
+incomplete, preserve the evidence and reopen its architecture owner rather than
+patching around it.

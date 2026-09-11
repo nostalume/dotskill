@@ -48,6 +48,8 @@ general rule belongs to one primary lens:
 - What domain concepts, identities, invariants, and transitions mean: [domain-and-invariants.md](references/domain-and-invariants.md)
 - Who may decide, mutate, or perform an effect: [authority-and-effects.md](references/authority-and-effects.md)
 - What value crosses each edge and how it is admitted or transformed: [representation-and-flow.md](references/representation-and-flow.md)
+- Which material semantic units and dependency/visibility edges deserve helpers,
+  modules, files, directories, packages, or re-exports: [module-topology.md](references/module-topology.md)
 - What externally observable operation must remain compatible: [contracts-and-compatibility.md](references/contracts-and-compatibility.md)
 - How a bounded resource is acquired, committed, released, or recovered: [resources-and-recovery.md](references/resources-and-recovery.md)
 - What time, memory, allocation, copying, I/O, and concurrency cost is acceptable: [cost-and-scale.md](references/cost-and-scale.md)
@@ -60,6 +62,13 @@ Use specialized lenses only after the applicable general lenses:
 When an issue spans lenses, give the decision one primary owner lens and import
 constraints from the others; cross-link dependencies without duplicating the
 decision. Specialized lenses are overlays and never compete for primary ownership.
+
+Select the module-topology lens without waiting for a user correction whenever a
+proposal adds, removes, moves, groups, or exposes a conceptual boundary, physical
+module/package boundary, dependency edge, re-export, or competing layout for one
+semantic family. Keep the decision compact when current meaning and topology make
+the result entailed; an obvious local relay cleanup needs no planning artifact and
+remains `software-development` work.
 
 ## Plan
 
@@ -121,6 +130,10 @@ Reinspect affected source before relying on stored guidance. When demand, develo
 - Every named current path exists; locate its current owner before proposing a target API or owner.
 - No stage or task has hidden inputs, effects, or dependencies.
 - No task is ready while an audit blocker remains; warnings are accepted or deferred explicitly.
-- A style or structural gate cites project configuration, an applicable instruction, or multiple maintained analogues; personal preference is not a gate.
+- A surface style or mechanically structural gate cites project configuration, an
+  applicable instruction, or multiple matching maintained analogues. Semantic
+  topology is instead gated by an evidenced effect on ownership, dependency
+  direction, visibility, compatibility, lifecycle or change locality; personal
+  preference is never a gate.
 - Planning does not authorize production implementation or unrelated mutation.
 - Reopen design for changed requirements, source contradiction, failed invariants, development drift, or material new evidence.

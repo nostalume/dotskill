@@ -11,7 +11,7 @@ final diff after the last relevant edit.
 | Settled observable behavior at a stable seam | RED-GREEN-refactor | Intended RED, focused GREEN, refactor confirmation |
 | Existing behavior under refactor | Characterization plus mutation sensitivity | Baseline behavior and proof the check detects a representative fault |
 | Domain or mathematical law | Law/property tests, derivation, or proof obligation | Positive, negative, boundary, and adversarial cases as applicable |
-| Settled implementation flow, failure or ownership | Counterfactual and mutation-sensitive conformance | Handler/wrapper deletion, failure/cancellation injection, stage reordering, adapter replacement, or another fault that changes the owned semantic obligation |
+| Settled implementation flow, failure, ownership or topology | Counterfactual and mutation-sensitive conformance | Handler/wrapper deletion, direct-owner call, failure/cancellation injection, stage reordering, adapter replacement, file/module merge or another fault that changes the owned semantic obligation |
 | Cost or scale | Benchmark, profile, or counters against a budget | Reproducible baseline, workload, repetitions, result, and noise limits |
 | Structural or style policy | Formatter, linter, type, dependency, or architecture tool | Applicable configuration/instruction and fresh tool result |
 | External effect | Approved disposable integration with post-observation | Exact target, pre/post state, receipt, cleanup, and residue check |
@@ -52,10 +52,13 @@ without pretending the feature was developed test-first.
 For a settled code-shape claim, use
 [implementation normal form](implementation-normal-form.md) and choose the
 smallest counterfactual that can falsify semantic preservation: delete a handler
-or wrapper, inject failure/cancellation, reorder a meaningful stage, replace an
-effect adapter, add/remove the claimed compatibility consumer, or perturb the
-accepted workload. Inspect cause, cancellation, cleanup, effects, surviving state
-and output—not private helper call counts. If the counterfactual changes only
+or wrapper, replace a helper around its owning method/operation with the direct
+call, merge a small file into its owner, collapse/group a namespace, move a symbol
+beside its authority, inject failure/cancellation, reorder a meaningful stage,
+replace an effect adapter, add/remove the claimed compatibility consumer, or
+perturb the accepted workload. Inspect meaning, owners, dependency direction,
+visibility, cause, cancellation, cleanup, effects, surviving state and output—not
+private helper call counts or raw file counts. If the counterfactual changes only
 unenforced syntax or taste, it is not a semantic failure.
 
 ## Laws, cost, structure, and effects
@@ -72,6 +75,11 @@ unenforced syntax or taste, it is not a semantic failure.
   lifecycle, compatibility, or an evidenced cost bound is contract conformance,
   not merely surface style; reopen architecture when the accepted constraint must
   change.
+- Helper/module layout that fragments a semantic owner, reverses dependency
+  direction, hides visibility/effects, or breaks compatibility is topology
+  conformance even without a style rule. When those semantics are unchanged, exact
+  method/function, prefix, file-size and flat/grouped preferences remain project
+  policy or taste.
 - For effects, separate deterministic decisions from adapters. Use unique
   disposable scope, bounded timeouts, post-observation, cleanup, and explicit
   approval for real mutation.

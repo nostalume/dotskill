@@ -21,9 +21,9 @@ governing decision.
 2. Freeze the requested outcome, authority, accepted behavior, affected owners,
    compatibility, effects, resource and cost constraints, and completion evidence.
 3. Use `architecture-planning` and stop before implementation when domain meaning,
-   ownership, public boundaries, effects, compatibility, lifecycle, or material
-   cost can still change the design. For an obvious local edit with a settled
-   contract, keep this admission record compact.
+   ownership, semantic module topology, public boundaries, effects, compatibility,
+   lifecycle, or material cost can still change the design. For an obvious local
+   edit with a settled contract, keep this admission record compact.
 
 Workflow selection grants no additional authority for host mutation, external
 integration, destructive operations, workflow execution, or publication.
@@ -43,9 +43,11 @@ history.
 3. Implement the smallest coherent domain capability. Preserve the settled change
    as a visible path: admit input once, select an explicit variant, transform
    through domain-bearing values, invoke named effect/resource owners, observe the
-   promised result, then return or terminally delegate. When the change materially
-   affects flow, error handling, effects/resources, abstraction, compatibility or
-   cost, read [implementation normal form](references/implementation-normal-form.md).
+   promised result, then return or terminally delegate. Read
+   [implementation normal form](references/implementation-normal-form.md) whenever
+   the actual diff adds a helper/wrapper or changes files, modules, packages,
+   imports, visibility or re-exports, and when it materially affects flow, error
+   handling, effects/resources, abstraction, compatibility or cost.
 4. Apply linear or affine machinery only to genuinely single-use capabilities or
    resources. Local mutation is acceptable inside one visible owner when it
    preserves the external value contract and improves clarity or measured cost.
@@ -67,6 +69,12 @@ propagation or terminal delegation. If making the code locally coherent would
 change domain meaning, authority, a public contract, lifecycle, compatibility or a
 material cost decision, reopen that smallest decision through
 `architecture-planning` instead of redesigning it inside the diff.
+
+Audit every new conceptual or physical boundary even when the task describes it as
+organization or cleanup. Remove an obvious local relay without demanding a plan;
+when the owner, dependency direction, visibility, compatibility or change locality
+can materially vary, consume or reopen the semantic-topology decision in
+`architecture-planning`.
 
 Use `system-mutation` for deliberate tool/environment setup, registration, host
 configuration, file organization or backup migration. Ordinary code edits and test

@@ -5,10 +5,12 @@ verification. Planned pseudocode and predicted file shape are not evidence. Judg
 the diff against the authorized contract, current architecture, repository rules,
 and the nearest maintained analogues.
 
-When the diff materially changes flow, error handling, effects/resources,
-abstraction, compatibility or cost, apply the
-[implementation normal form](implementation-normal-form.md) as a preservation
-review. It consumes settled constraints; it does not authorize a new architecture.
+Apply the [implementation normal form](implementation-normal-form.md) whenever the
+diff adds a helper/wrapper or changes files, modules, packages, imports, visibility
+or re-exports, even if the author calls the change organizational. Also apply it
+when flow, error handling, effects/resources, abstraction, compatibility or cost
+materially changes. It consumes settled constraints; it does not authorize a new
+architecture.
 
 ## Review map
 
@@ -21,6 +23,8 @@ review. It consumes settled constraints; it does not authorize a new architectur
    failures are explicit; transformations are shallow and composable; expensive
    values are not repeatedly interpreted or recomputed; terminal delegation adds
    no relay work and preserves result, error, cancellation, and resource handoff.
+   A helper around an already-owning method/operation survives only when it adds an
+   admitted semantic obligation.
 4. **Failure ownership:** each handler owns bounded recovery, settled contract
    translation with cause, compensation, resource cleanup, or necessary consumer
    context. Otherwise the original failure propagates without duplicate logging,
@@ -33,10 +37,15 @@ review. It consumes settled constraints; it does not authorize a new architectur
 7. **Local code style:** formatter, linter, type/build policy, applicable
    instructions, and multiple maintained analogues support the chosen structure.
    Personal preference alone is not a blocker.
-8. **Change economy:** no parallel authority, relay-only abstraction, speculative
+8. **Semantic topology:** actual helpers, files, modules, directories, packages,
+   imports, visibility and re-exports preserve settled semantic owners, dependency
+   direction, public/internal surfaces, compatibility gates and evidenced change
+   locality. Each new boundary survives the applicable direct-call, inline/merge,
+   collapse/group, move-to-owner or next-variant counterfactual.
+9. **Change economy:** no parallel authority, relay-only abstraction, speculative
    generality, compatibility residue without a consumer, or unrelated cleanup has
    entered the diff.
-9. **Evidence mapping:** every changed claim has claim-appropriate development
+10. **Evidence mapping:** every changed claim has claim-appropriate development
    feedback and a final verification obligation; docs, automation, and release
    impact are stated.
 
@@ -45,8 +54,9 @@ review. It consumes settled constraints; it does not authorize a new architectur
 Classify each finding:
 
 - **Blocker:** violates the accepted contract or invariant, duplicates authority,
-  hides an effect/failure, makes work or lifecycle materially unsafe/unbounded,
-  breaks a supported consumer, lacks required evidence, or violates an evidenced
+  fragments an owner or inverts/hides a dependency/visibility boundary, hides an
+  effect/failure, makes work or lifecycle materially unsafe/unbounded, breaks a
+  supported consumer, lacks required evidence, or violates an evidenced
   repository gate.
 - **Warning:** maintainability, cost, or consistency concern that does not currently
   violate an accepted claim; accept explicitly or correct it.
@@ -54,8 +64,8 @@ Classify each finding:
 
 Fix a local implementation defect and repeat the affected feedback. Reopen the
 smallest architecture decision when the diff contradicts governing meaning,
-ownership, compatibility, lifecycle, or cost. Stop for user direction when the
-only resolution materially changes the requested scope or policy.
+ownership, topology, compatibility, lifecycle, or cost. Stop for user direction
+when the only resolution materially changes the requested scope or policy.
 
 The review is complete only when no blocker remains, warnings are resolved or
 explicitly accepted, and every later edit has caused the affected review slice to
