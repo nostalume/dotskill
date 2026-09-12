@@ -48,6 +48,49 @@ content argument, then evaluates its nested expression. `#text("*literal*")`
 displays the asterisks; it does not create strong emphasis. These illustrate mode
 boundaries, not a document template or required typography.
 
+## Project semantic structures into Typst
+
+Apply [forward representation fidelity](representation-fidelity.md) before
+choosing Typst syntax or a package. Construct mathematics as an expression tree,
+not as a visually plausible token string. Deliberately choose inline `$x$` versus
+block `$ x $` form using the project-compatible equation grammar. Group a compound
+fraction side explicitly: for example, `(partial B_z)/(partial t)` preserves a
+different numerator/denominator tree from the ungrouped neighboring expression.
+Treat this as contrast evidence, not a derivative template.
+
+Attach `_` and `^` to the intended base and group compound attachments. Preserve
+whether an attachment is mathematical or textual, and separate identifiers and
+operations according to the accepted tree. When a following expression is not
+part of the attachment, use the mode-appropriate whitespace or group boundary so
+it cannot be absorbed into the attachment or identifier; spacing that merely
+looks acceptable is not binding evidence. Consult the compatible
+[equation](https://typst.app/docs/reference/math/equation/),
+[fraction](https://typst.app/docs/reference/math/frac/), and
+[attachment](https://typst.app/docs/reference/math/attach/) references when the
+construct is unfamiliar or version-sensitive.
+
+For relational content, retain prose or inline notation only when the audience
+does not need to trace material direction, branching, rejoining, grouping, or
+hierarchy. Otherwise consume the representation selected by visualization design
+and implement its nodes and typed edges with a compatible native construction,
+project package, or accepted placed asset. Choose a package only afterward and
+preserve its namespace/name/version identity. A cold cache without network
+authority is an unavailable adapter, not permission to flatten the relation into
+raw text.
+
+Bind table headers, spans, units, cell content, captions, and references to their
+accepted owners. Name the effective page, column, list, cell, or other containing
+region when sizing an equation, table, figure, or diagram. Relative width resolves
+against that region; resolve the compatible behavior from the current
+[layout reference](https://typst.app/docs/reference/layout/layout/). Keep outer
+placement separate from internal equation, label, or cell alignment; center an
+object only when the accepted composition or project style requires it.
+
+For overflow or excessive density, wrap labels, rebalance spacing/grouping,
+reorient or split the representation, or select an authorized wider region before
+scaling. Do not crop, overlap, or remove accepted meaning. Recheck the exact
+render after each source revision that changes geometry.
+
 ## Admit one compiler binding
 
 Select the official Typst CLI, or another provider when the request explicitly
@@ -129,11 +172,18 @@ failed or partial result separate from the prior valid artifact.
 ## Validate the claimed fidelity
 
 - Semantic: inspect the accepted text, values, equations, labels/references,
-  captions, links, and named inputs in source and output as applicable.
+  captions, links, table schema, relation paths, and named inputs in source and
+  output as applicable. Compare math grouping and attachment scope with the
+  accepted expression tree rather than inferring them from compilation.
 - Structural: require a successful compiler result, inspect diagnostics and source
   locations, and compare the observed dependency graph to admitted inputs.
 - Visual: inspect representative rendered pages for page geometry, overflow,
-  tables, figures, formulas, references, font substitution, and required scripts.
+  tables, figures, formulas, references, font substitution, required scripts, and
+  fit/alignment inside the named containing region.
+- Accessibility: when required by the target and representation contract, inspect
+  the delivered alternatives, reading sequence, link purpose, and structure with
+  a suitable target-aware mechanism; do not infer them from the Typst source or
+  rendered appearance.
 
 Compilation alone proves neither appearance nor semantic equivalence. For a PDF
 rendered from Typst, validation remains part of this source-language operation; an

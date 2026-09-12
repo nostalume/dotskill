@@ -55,6 +55,15 @@ engine when wrapping, pagination or complex scripts exceed simple placement.
 Verify requested text and page structure as well as clipping, fonts, images and
 layout. A PDF export does not establish equivalent editable source.
 
+For mathematical, relational, tabular, reference, or media content, apply
+[forward representation fidelity](representation-fidelity.md) before direct PDF
+creation or conversion. Painted glyphs, arrows, grid lines, and captions preserve
+appearance only; when the contract requires logical semantics, also preserve and
+inspect the applicable Formula, Figure, Table/header, link, reading-order, and
+alternative-representation structure through a compatible tagged-PDF mechanism.
+If the selected producer cannot express a required structure, return the exact
+loss or unavailable capability rather than inferring it from the render.
+
 ## Transform existing pages
 
 1. Write the intended source-to-output page sequence, including repeats and
@@ -78,6 +87,10 @@ target requires image resampling or other loss, choose it against the requested
 preservation requirements and report the actual result.
 For conversion, name the destination and its required properties before choosing
 an exporter; a rendered image loses PDF text and interactive structure.
+Treat media box, crop box, rotation, transformed page space, and a placed object's
+local region as distinct coordinate frames. Optimization, flattening, or
+rasterization must not discard required text, tags, links, vectors, forms, or
+logical associations merely to improve appearance or file size.
 
 ## Fill forms
 
@@ -134,3 +147,7 @@ for compatible operation details. Consult
 [OCRmyPDF security guidance](https://ocrmypdf.readthedocs.io/en/latest/pdfsecurity.html)
 before processing signed or encrypted inputs. Return checks on the exact delivered
 output and any unresolved properties through the shared artifact result.
+For tagged-PDF semantics, consult the selected profile and current authoritative
+guidance such as the PDF Association's
+[Tagged PDF Q&A](https://pdfa.org/resource/tagged-pdf-q-a/); conformance validation
+and semantic/source comparison remain separate evidence.

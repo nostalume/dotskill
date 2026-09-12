@@ -25,6 +25,13 @@ to its evidence. Choose density for the audience: a spoken briefing needs readab
 and fewer simultaneous details; a self-contained report needs context and source
 information. A title-only slide does not replace an evidence slide.
 
+Apply the shared [forward representation-fidelity protocol](representation-fidelity.md)
+to nested placement. Name the active slide safe area, master/layout region,
+placeholder or frame, and object-content region rather than treating the slide as
+one undifferentiated canvas. Whole-table/chart/diagram placement is separate from
+cell, plot, label, or text-frame alignment. Preserve the accepted relation and
+table structures while adapting their geometry.
+
 Brand fixes the requested palette, type choices and identity assets. Layout chooses
 their application, hierarchy and geometry. A supplied template may provide a
 master, placeholders or native charts that must survive; inspect those before
@@ -38,10 +45,12 @@ heading, densest table, actual number formats and mixed-script paragraph. Charac
 counts are only a rough layout budget; fonts, line spacing, glyph widths and
 renderer behavior determine fit. Browser measurements do not establish PPTX fit.
 
-Preserve accepted wording and values. Repair overflow by widening/rebalancing the
-layout, separating detail or adding a continuation. Edit wording only within the
-accepted scope. Do not crop paragraphs, hide qualifiers or shrink every font to
-force one template. In a reused accepted chart, update labels, units, series, axis
+Preserve accepted wording and values. Repair overflow by first correcting an
+unsuitable representation or irrelevant density, then widening/rebalancing the
+layout, wrapping labels, reorienting, separating detail, or adding a continuation.
+Edit wording only within the accepted scope. Do not crop paragraphs, hide
+qualifiers, rasterize required native objects, or shrink every font to force one
+template. In a reused accepted chart, update labels, units, series, axis
 bounds and source together; if that would materially change the encoding, return
 the decision to visualization design. A template's illustrated values have no
 factual authority.

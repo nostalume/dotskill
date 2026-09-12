@@ -35,6 +35,26 @@ provides focused lessons rather than a universal document template.
 | Tables and figures | Separate tabular content from a table float; placement requests do not promise exact position. Preserve captions, labels, units, graphics paths, and reading order. Use the defining package's interface for multipage tables or unusual graphics. Inspect the rendered placement and overflow. See [tables](https://www.learnlatex.org/en/lesson-08). |
 | Engine and fonts | Preserve the required engine and font setup. For example, [fontspec](https://ctan.org/pkg/fontspec) targets XeLaTeX/LuaLaTeX, not pdfLaTeX. Unicode input support does not guarantee shaping or glyph coverage. Check the required scripts and math with the actual fonts; do not silently remove font requirements or change engines. |
 
+Apply [forward representation fidelity](representation-fidelity.md) before
+emitting LaTeX source for structured content. Build mathematics from the accepted
+expression tree, using groups and the selected math interface to preserve
+precedence, numerator/denominator boundaries, attachment scope, identifiers, and
+inline/display role. A compiling string that prints plausible glyphs is not proof
+of the intended tree.
+
+Keep a table float distinct from its tabular structure, and keep outer placement
+distinct from cell or equation alignment. Size against the effective local region,
+such as the current line or column, rather than assuming the whole page. For an
+accepted relation graph, use a project-compatible native/package construction or
+declared-loss asset only after representation selection; do not substitute ASCII
+arrows because a preferred package is unavailable.
+
+Treat overfull output as a capacity failure to diagnose at its earliest layer.
+Rebalance or reflow the representation, wrap labels, split separable content, or
+use an authorized wider region before scaling or cropping. Preserve the selected
+class, engine, and package authority; resolve their concrete commands and layout
+behavior from compatible documentation.
+
 ## Admit the build graph and its effects
 
 Use the declared project command after inspecting its effects. When no build
@@ -100,12 +120,18 @@ Match checks to each fidelity claim:
 
 - Semantic: compare accepted text, equations, values, references, and citations;
   successful syntax does not establish mathematical or bibliographic correctness.
+  Inspect grouping, attachment scope, relation paths, table schema, and live target
+  bindings when they are part of the accepted representation.
 - Structural: inspect completed engine/backend results, dependency and rerun state,
   and the exact derived artifact. Undefined references/citations remain unresolved
   even when the producer exits successfully.
 - Visual: inspect affected pages for float placement, table boundaries, page breaks,
-  overflow, glyph coverage, and math. Evaluate layout warnings against the rendered
-  result; do not hide material overflow by weakening diagnostics or changing style.
+  overflow, glyph coverage, math, and fit/alignment inside the effective region.
+  Evaluate layout warnings against the rendered result; do not hide material
+  overflow by weakening diagnostics or changing style.
+- Accessibility: when claimed for the selected output, inspect required reading
+  order, structure, links, and alternatives with a compatible target-aware
+  mechanism; source organization or painted appearance alone does not prove them.
 
 Return source/output identities, engine/build/backend evidence, performed and
 skipped checks, unresolved diagnostics and dependencies, losses, effects, and

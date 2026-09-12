@@ -29,7 +29,8 @@ ArtifactRequest(
   operation = inspect | extract | create | edit | convert | render,
   requested postcondition and relevant page/region/feature scope,
   target format when the operation requires one,
-  required_fidelity = nonempty subset of {semantic, structural, visual},
+  required_fidelity = nonempty subset of
+    {semantic, structural, visual, accessibility},
   preservation-critical features and accepted losses,
   destination and overwrite policy when writing,
   authority = local | explicitly approved remote,
@@ -59,6 +60,14 @@ default. Treat these as distinct source variants:
 
 Select the variant and operation once. Do not repeatedly reinterpret extensions or
 dispatch again through whichever tool happens to be installed.
+
+For creation, editing, conversion, or rendering whose correctness depends on
+mathematics, relations, table schema, references, media associations, or nested
+layout, read [forward representation fidelity](references/representation-fidelity.md)
+before choosing format syntax or a provider. It constructs the shared semantic
+projection, routes materially open visual choices, and separates native encoding
+from declared loss. Format references remain authoritative for their local syntax
+and objects.
 
 For Word, PowerPoint, or Excel OOXML-family work—including macro-enabled and
 template variants—or legacy `.doc/.ppt/.xls` recognition and conversion, read
@@ -92,20 +101,23 @@ packages, and build graph; compilation support depends on an admitted binding.
 
 1. Inspect the source read-only and identify encoded structure, external
    dependencies, unsupported features, and the requested postcondition.
-2. Resolve version-sensitive syntax and behavior from the applicable specification,
+2. For a producer operation, construct the required forward representation, name
+   accepted loss and the effective containing region, and route a materially open
+   visual choice before selecting a mechanism.
+3. Resolve version-sensitive syntax and behavior from the applicable specification,
    compiler, or official tool documentation. Skill repositories are pattern
    evidence, not format authority.
-3. Plan the smallest conditional producer-and-validation graph that satisfies the
+4. Plan the smallest conditional producer-and-validation graph that satisfies the
    fixed postcondition; inspection selects its relevant branches. Conversion to
    Markdown is analysis-oriented and never a native-editing substitute.
-4. Inspect the task root and available tools. Use the existing project environment;
+5. Inspect the task root and available tools. Use the existing project environment;
    acquire missing dependencies through direct official commands under existing
    authority, following the execution reference. The actual operation can prove
    readiness; do not require a separate probe or setup wrapper.
-5. Perform effects in one named owner and write a distinct output unless the user
+6. Perform effects in one named owner and write a distinct output unless the user
    explicitly authorized in-place mutation.
-6. Reopen, compile, or render the result and validate only the fidelity claims made.
-7. Return one result and clean transient work.
+7. Reopen, compile, or render the result and validate only the fidelity claims made.
+8. Return one result and clean transient work.
 
 For any external library, CLI, MCP/API provider, multiple-tool operation, fallback,
 or package-availability question, read
@@ -151,6 +163,9 @@ complete or correct content.
 - Visual: render with a declared engine and inspect the affected pages, slides,
   sheets, overflow, fonts, geometry, and images. Visual appearance does not prove
   semantic or structural correctness.
+- Accessibility: inspect required reading order, native headers, alternatives,
+  link purpose, redundant encoding, or other nonvisual access. Painted appearance
+  and successful export do not prove these properties.
 
 Use every applicable class, but do not run a costly visual pipeline for a claim
 that structural or semantic evidence already settles. Record missing tools and
@@ -163,8 +178,13 @@ Preserve the repository's existing Markdown dialect and conventions. For new
 standalone text, name CommonMark, GFM, or another required consumer dialect when
 the distinction changes behavior. Tables and task items are GFM extensions;
 footnotes and dollar-delimited math need a separately named extension or consumer
-contract. Preserve code spans/blocks and apply escapes in the context defined by
-the selected dialect. Treat raw HTML as consumer-controlled active content because
+contract. Apply the shared forward-representation protocol before selecting math,
+diagram, table, raw-HTML, or image syntax. Raw text, ASCII art, pipe tables,
+embedded HTML, and consumer extensions carry different semantic, structural,
+editability, and accessibility guarantees; use one only when it preserves the
+admitted contract or declare the exact loss. Preserve code spans/blocks and apply
+escapes in the context defined by the selected dialect. Treat raw HTML as
+consumer-controlled active content because
 renderers may pass, filter, sanitize, or reject it differently. Validate links and
 rendering only when claimed or required by that consumer. Select a parser/renderer
 configured for that consumer before asserting extension support; a library's

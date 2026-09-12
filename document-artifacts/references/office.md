@@ -122,6 +122,28 @@ a prior valid artifact merely because the producer exited successfully.
 
 ## Apply format-specific requirements
 
+Apply [forward representation fidelity](representation-fidelity.md) before
+selecting an Office API or provider. Preserve accepted mathematical structure in
+a compatible native equation object when native semantics/editability are
+required; plain text or a rendered equation image is a declared-loss alternative,
+not an equivalent. Preserve relational entities and typed edges with connected
+native shapes or another accepted representation; visually adjacent shapes and
+free lines do not establish their relationships.
+
+For tables and charts, keep header/series/category identity, units, formulas,
+source ranges, captions, labels, and missingness bound to their owners. In Excel,
+formula source, cached value, and freshly calculated result remain distinct. In
+Word and PowerPoint, preserve reference/field/relationship targets rather than
+hard-coding their current visible text or number.
+
+Name the effective page, section, column, text frame, slide safe area, placeholder,
+cell, sheet view, or print region for capacity and placement. Keep whole-object
+placement distinct from equation, text, table-cell, or chart-internal alignment.
+Repair density, wrapping, grouping, orientation, region allocation, or slide/sheet
+continuation before shrinking, cropping, overlapping, or rasterizing accepted
+content. When required, preserve reading order, native headers, alternatives, and
+object associations independently of visual appearance.
+
 ### DOCX
 
 Inventory document stories and relationships, including body content, sections,
@@ -204,12 +226,18 @@ in the shared `ArtifactResult`. Malformed input or an unsupported request is
 terminal. A provider-specific limitation may select an admitted compatible branch
 under the shared execution rules; it does not justify an unrelated library cascade.
 
+For semantic-structure work, compare native equations, connectors, headers,
+formula/source bindings, reference targets, captions, reading order, alternatives,
+and the named containing region as applicable. A visually similar grid, line,
+glyph string, cache, or image cannot satisfy these checks by appearance alone.
+
 ## Authoritative references
 
 Resolve version-sensitive rules from current primary sources at use time:
 
 - [ECMA-376 Office Open XML](https://ecma-international.org/publications-and-standards/standards/ecma-376/)
 - [Microsoft Open XML SDK documentation](https://learn.microsoft.com/en-us/office/open-xml/open-xml-sdk)
+- [Microsoft 365 Math](https://learn.microsoft.com/en-us/office/math/)
 - [Microsoft Office XML extension reference](https://learn.microsoft.com/en-us/office/compatibility/xml-file-name-extension-reference-for-office)
 - [python-docx document API](https://python-docx.readthedocs.io/en/latest/api/document.html)
 - [python-pptx documentation](https://python-pptx.readthedocs.io/en/stable/)
